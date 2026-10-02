@@ -1,0 +1,14 @@
+# Docker 构建起点是仓库根目录,这里排掉不该进镜像的东西
+.git/
+.idea/
+deploy/secrets/
+deploy/.env
+**/node_modules/
+**/target/
+**/dist/
+scratch-editor/build/
+**/coverage/
+**/test-results/
+**/playwright-report/
+**/.vite/
+**/*.log

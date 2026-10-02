@@ -1,0 +1,69 @@
+spring:
+  application:
+    name: teaching-judge-worker
+  config:
+    import:
+      - optional:configtree:${TEACHING_SECRETS_DIR:deploy/secrets/}
+      - optional:file:deploy/.env[.properties]
+  data:
+    redis:
+      host: ${SPRING_DATA_REDIS_HOST:127.0.0.1}
+      port: 6379
+      password: ${redis-password}
+      connect-timeout: 3s
+      timeout: 10s
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+      fail-on-trailing-tokens: true
+
+server:
+  port: 8081
+  shutdown: graceful
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      group:
+        liveness:
+          include: livenessState
+        readiness:
+          include: readinessState,redis,judgeConsumer
+
+teaching:
+  log-dir: ${TEACHING_LOG_DIR:}
+  judge:
+    jobs-stream: judge.jobs
+    results-stream: judge.results
+    consumer-group: judge-workers
+    # 每个副本必须唯一:Docker 给每个容器注入不同的 HOSTNAME
+    consumer-name: ${HOSTNAME:judge-worker-local}
+    go-judge-url: http://127.0.0.1:5050
+    testcase-cache: ${TEACHING_JUDGE_TESTCASE_CACHE:${java.io.tmpdir}/teaching-testcases}
+    lease: 2m
+    heartbeat: 20s
+    jobs-read-block: 2s
+    read-failure-delay: 2s
+    read-failure-window: 1m
+    read-failure-threshold: 3
+    consumer-stall-timeout: 15s
+    consumer-down-exit-timeout: 90s
+    max-deliveries: 5
+    max-evaluation-wall-clock: 5m
+    testcase-cache-retention: 7d
+    concurrency: ${TEACHING_JUDGE_CONCURRENCY:1}
+  oss:
+    endpoint: ${ALIYUN_OSS_ENDPOINT}
+    testcase-bucket: ${ALIYUN_OSS_TESTCASE_BUCKET}
+    credentials-path: ${ALIYUN_OSS_CREDENTIALS_PATH:file:deploy/secrets/aliyun-oss-credentials}
+
+logging:
+  level:
+    root: INFO
+    cn.utcy.teaching.judge: INFO

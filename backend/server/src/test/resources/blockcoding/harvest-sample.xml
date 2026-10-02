@@ -1,0 +1,73 @@
+<xml><block
+                id="%46OER:ZrFN@u5Ha12UC"
+                type="procedures_definition"
+                x="88.88888888888889" y="88.88888888888889"
+            ><value name="custom_block"><shadow
+                id="/)U}L~=-G.5T~GC^glAH"
+                type="procedures_prototype"
+                
+            ><mutation proccode="draw %s" argumentids="[&quot;arg_draw_1&quot;]" argumentnames="[&quot;n&quot;]" argumentdefaults="[&quot;&quot;]" warp="false"></mutation><value name="arg_draw_1"><shadow
+                id="v9RutzrW#;4|j9`_eY2}"
+                type="argument_reporter_string_number"
+                
+            ><field name="VALUE">n</field></shadow></value></shadow></value><next><block
+                id=":Z8qHV@vjsno*:`8%*?@"
+                type="motion_movesteps"
+                
+            ><value name="STEPS"><block
+                id="E%@g4E$B[qd+3A#%L~$l"
+                type="argument_reporter_string_number"
+                
+            ><field name="VALUE">n</field></block><shadow
+                id="+X_tm4AvU3~L:`.W@jXB"
+                type="math_number"
+                
+            ><field name="NUM">1</field></shadow></value></block></next></block>,<block
+                id="#`^8tfinAM.`cB`-Lw+@"
+                type="event_whenflagclicked"
+                x="288.8888888888889" y="88.88888888888889"
+            ><next><block
+                id="Nknhd[Nd%#Rqs)uJv3B)"
+                type="control_repeat"
+                
+            ><value name="TIMES"><shadow
+                id="Fq4N3BDOhnXpC]NR-jYZ"
+                type="math_number"
+                
+            ><field name="NUM">8</field></shadow></value><value name="SUBSTACK"><block
+                id="Y{D[#e,UP.sX?9]MPSFX"
+                type="motion_movesteps"
+                
+            ><value name="STEPS"><shadow
+                id="^t]]^()YJfhy3CbPUgbP"
+                type="math_number"
+                
+            ><field name="NUM">10</field></shadow></value><next><block
+                id="C/7T!IB]4pllNwqwVxD:"
+                type="procedures_call"
+                
+            ><mutation proccode="draw %s" argumentids="[&quot;arg_draw_1&quot;]" warp="false"></mutation><value name="arg_draw_1"><shadow
+                id="NHiI?VaKOMuS7Z[x9CrW"
+                type="text"
+                
+            ><field name="TEXT">5</field></shadow></value></block></next></block></value><next><block
+                id="6TEr!o+vd8)KJQQ#?`9r"
+                type="control_if"
+                
+            ><value name="CONDITION"><block
+                id="Boj*p?:,k07QqX#1+b^s"
+                type="sensing_touchingobject"
+                
+            ><value name="TOUCHINGOBJECTMENU"><shadow
+                id="3LS./*{NqoOdRz1e=cR#"
+                type="sensing_touchingobjectmenu"
+                
+            ><field name="TOUCHINGOBJECTMENU">_edge_</field></shadow></value></block></value><value name="SUBSTACK"><block
+                id="tD82[xb@2FtX_ugyzi7h"
+                type="looks_say"
+                
+            ><value name="MESSAGE"><shadow
+                id="EGQ/HzXK76fkL2M6[a/P"
+                type="text"
+                
+            ><field name="TEXT">hi</field></shadow></value></block></value></block></next></block></next></block></xml>

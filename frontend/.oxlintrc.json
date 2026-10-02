@@ -1,0 +1,13 @@
+{
+  "plugins": ["vue", "typescript", "unicorn"],
+  "categories": {
+    "correctness": "deny",
+    "suspicious": "deny",
+    "perf": "warn"
+  },
+  "rules": {
+    "no-console": "deny",
+    "typescript/no-explicit-any": "deny",
+    "unicorn/no-null": "off"
+  }
+}

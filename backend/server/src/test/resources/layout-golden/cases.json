@@ -1,0 +1,2688 @@
+[
+  {
+    "name": "standard-basic",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-heading-1",
+          "type": "heading",
+          "level": 2,
+          "text": "本节要点"
+        },
+        {
+          "id": "blk-bullets-1",
+          "type": "bullets",
+          "items": [
+            {
+              "text": "第一点"
+            },
+            {
+              "text": "第二点"
+            },
+            {
+              "text": "第三点"
+            }
+          ]
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-heading-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 48,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-bullets-1",
+          "x": 60,
+          "y": 222,
+          "w": 1160,
+          "h": 124,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "standard-bullets-sub-ordered",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-bullets-1",
+          "type": "bullets",
+          "ordered": true,
+          "items": [
+            {
+              "text": "一级条目甲,后面跟随两条二级说明。",
+              "sub": [
+                "第一条子说明文字较长需要在缩进后的宽度里断行测试",
+                "第二条子说明"
+              ]
+            },
+            {
+              "text": "一级条目乙"
+            }
+          ]
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-bullets-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 134,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "chart-flex-expand",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-heading-1",
+          "type": "heading",
+          "level": 2,
+          "text": "销量对比"
+        },
+        {
+          "id": "blk-chart-1",
+          "type": "chart",
+          "chartType": "bar",
+          "categories": [
+            "一月",
+            "二月"
+          ],
+          "series": [
+            {
+              "name": "销量",
+              "data": [
+                10,
+                20
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-heading-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 48,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-chart-1",
+          "x": 60,
+          "y": 222,
+          "w": 1160,
+          "h": 448,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "double-flex-share",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-chart-1",
+          "type": "chart",
+          "chartType": "line",
+          "categories": [
+            "甲",
+            "乙",
+            "丙"
+          ],
+          "series": [
+            {
+              "name": "序列",
+              "data": [
+                1,
+                2,
+                3
+              ]
+            }
+          ],
+          "caption": "带说明的图表,弹性最小高度要加上这行说明文字的高度。"
+        },
+        {
+          "id": "blk-chart-2",
+          "type": "chart",
+          "chartType": "bar",
+          "categories": [
+            "甲",
+            "乙"
+          ],
+          "series": [
+            {
+              "name": "序列",
+              "data": [
+                4,
+                5
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-chart-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 265.5,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-chart-2",
+          "x": 60,
+          "y": 439.5,
+          "w": 1160,
+          "h": 230.5,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "two-column-ratio",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "two-column",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-columns-1",
+          "type": "columns",
+          "ratio": [
+            7,
+            5
+          ],
+          "children": [
+            [
+              {
+                "id": "blk-heading-1",
+                "type": "heading",
+                "level": 2,
+                "text": "左列"
+              },
+              {
+                "id": "blk-bullets-1",
+                "type": "bullets",
+                "items": [
+                  {
+                    "text": "甲"
+                  },
+                  {
+                    "text": "乙"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "id": "blk-heading-2",
+                "type": "heading",
+                "level": 2,
+                "text": "右列"
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "two-column",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-columns-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 144,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-heading-1",
+          "x": 60,
+          "y": 150,
+          "w": 653.3333333333334,
+          "h": 48,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-bullets-1",
+          "x": 60,
+          "y": 214,
+          "w": 653.3333333333334,
+          "h": 80,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-heading-2",
+          "x": 753.3333333333334,
+          "y": 150,
+          "w": 466.6666666666667,
+          "h": 48,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "two-column-no-ratio-and-mismatch",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "two-column",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-columns-1",
+          "type": "columns",
+          "children": [
+            [
+              {
+                "id": "blk-paragraph-1",
+                "type": "paragraph",
+                "text": "无 ratio 时两列均分宽度。"
+              }
+            ],
+            [
+              {
+                "id": "blk-paragraph-2",
+                "type": "paragraph",
+                "text": "右列内容"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "blk-columns-2",
+          "type": "columns",
+          "ratio": [
+            3
+          ],
+          "children": [
+            [
+              {
+                "id": "blk-paragraph-3",
+                "type": "paragraph",
+                "text": "ratio 长度与列数不符时退回均分。"
+              }
+            ],
+            [
+              {
+                "id": "blk-paragraph-4",
+                "type": "paragraph",
+                "text": "右列内容"
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "two-column",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-columns-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 36,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-paragraph-1",
+          "x": 60,
+          "y": 150,
+          "w": 560,
+          "h": 36,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-paragraph-2",
+          "x": 660,
+          "y": 150,
+          "w": 560,
+          "h": 36,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-columns-2",
+          "x": 60,
+          "y": 210,
+          "w": 1160,
+          "h": 36,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-paragraph-3",
+          "x": 60,
+          "y": 210,
+          "w": 560,
+          "h": 36,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-paragraph-4",
+          "x": 660,
+          "y": 210,
+          "w": 560,
+          "h": 36,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "media-right-code",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "media-right",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-bullets-1",
+          "type": "bullets",
+          "items": [
+            {
+              "text": "要点甲"
+            },
+            {
+              "text": "要点乙"
+            }
+          ]
+        },
+        {
+          "id": "blk-code-1",
+          "type": "code",
+          "language": "python",
+          "code": "print(\"hello\")"
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "media-right",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-bullets-1",
+          "x": 60,
+          "y": 150,
+          "w": 620,
+          "h": 80,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-code-1",
+          "x": 740,
+          "y": 150,
+          "w": 480,
+          "h": 56.8,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "media-right-degrade",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "media-right",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-paragraph-1",
+          "type": "paragraph",
+          "text": "一段说明文字。"
+        },
+        {
+          "id": "blk-bullets-1",
+          "type": "bullets",
+          "items": [
+            {
+              "text": " 要点"
+            }
+          ]
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "media-right",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-paragraph-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 36,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-bullets-1",
+          "x": 60,
+          "y": 210,
+          "w": 1160,
+          "h": 36,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "media-right-only-media",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "media-right",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-chart-1",
+          "type": "chart",
+          "chartType": "pie",
+          "categories": [
+            "A",
+            "B"
+          ],
+          "series": [
+            {
+              "name": "占比",
+              "data": [
+                30,
+                70
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "media-right",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-chart-1",
+          "x": 740,
+          "y": 150,
+          "w": 480,
+          "h": 520,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "video-scene",
+    "scene": {
+      "id": "scene-1",
+      "type": "video",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [],
+      "video": {
+        "src": "courseware/1/videos/demo.mp4"
+      }
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "__video__",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 520,
+          "fontScale": 1,
+          "pinned": true
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "interactive-scene",
+    "scene": {
+      "id": "scene-1",
+      "type": "interactive",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [],
+      "interactive": {
+        "html": "<!DOCTYPE html><html><body>demo</body></html>",
+        "widgetType": "simulation",
+        "widgetOutline": {
+          "concept": "demo"
+        }
+      }
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "__interactive__",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 520,
+          "fontScale": 1,
+          "pinned": true
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "title-cover",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "高中物理·力学总复习",
+      "preset": "title-cover",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-paragraph-1",
+          "type": "paragraph",
+          "text": "主讲:张老师 | 2026 年春季学期"
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "title-cover",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 120,
+        "y": 250,
+        "w": 1040,
+        "h": 84,
+        "fontSize": 56,
+        "align": "center",
+        "lines": [
+          "高中物理·力学总复习"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-paragraph-1",
+          "x": 240,
+          "y": 420,
+          "w": 800,
+          "h": 36,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "section-divider",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "第二章 牛顿运动定律",
+      "preset": "section-divider",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-paragraph-1",
+          "type": "paragraph",
+          "text": "从惯性谈起"
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "section-divider",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 120,
+        "y": 280,
+        "w": 1040,
+        "h": 72,
+        "fontSize": 48,
+        "align": "center",
+        "lines": [
+          "第二章 牛顿运动定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-paragraph-1",
+          "x": 240,
+          "y": 410,
+          "w": 800,
+          "h": 36,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "quiz-scene",
+    "scene": {
+      "id": "scene-1",
+      "type": "quiz",
+      "title": "随堂检测",
+      "preset": "quiz",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-quiz_choice-1",
+          "type": "quiz_choice",
+          "stem": "一个质量为 2kg 的物体受到 6N 的合外力,它的加速度是多少?",
+          "options": [
+            {
+              "label": "A",
+              "text": "2 m/s^2"
+            },
+            {
+              "label": "B",
+              "text": "3 m/s^2"
+            },
+            {
+              "label": "C",
+              "text": "6 m/s^2"
+            },
+            {
+              "label": "D",
+              "text": "12 m/s^2,这个选项文字明显更长一些用来测试选项内换行的高度累计是否一致"
+            }
+          ],
+          "answer": [
+            "B"
+          ],
+          "multiple": false,
+          "explanation": "由 F=ma 得 a=F/m=6/2=3 m/s^2。"
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "quiz",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "随堂检测"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-quiz_choice-1",
+          "x": 100,
+          "y": 150,
+          "w": 1080,
+          "h": 368,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "image-aspect-ratio-and-media-right",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "media-right",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-heading-1",
+          "type": "heading",
+          "level": 2,
+          "text": "光的反射"
+        },
+        {
+          "id": "blk-bullets-1",
+          "type": "bullets",
+          "items": [
+            {
+              "text": "反射角等于入射角"
+            },
+            {
+              "text": "三线共面"
+            }
+          ]
+        },
+        {
+          "id": "blk-image-1",
+          "type": "image",
+          "src": "courseware/1/images/img_1.jpg",
+          "width": 884,
+          "height": 424,
+          "caption": "平面镜反射光路图"
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "media-right",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-heading-1",
+          "x": 60,
+          "y": 150,
+          "w": 620,
+          "h": 48,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-bullets-1",
+          "x": 60,
+          "y": 222,
+          "w": 620,
+          "h": 80,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-image-1",
+          "x": 740,
+          "y": 150,
+          "w": 480,
+          "h": 265.2262443438914,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "image-tall-capped-and-unknown-size",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-paragraph-1",
+          "type": "paragraph",
+          "text": "竖图按最大高度封顶,尺寸未知的图按默认高度。"
+        },
+        {
+          "id": "blk-image-1",
+          "type": "image",
+          "src": "courseware/1/images/img_2.png",
+          "width": 300,
+          "height": 900
+        },
+        {
+          "id": "blk-image-2",
+          "type": "image",
+          "src": "courseware/1/images/img_3.png",
+          "width": 0,
+          "height": 0,
+          "caption": "未知尺寸"
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 0.85,
+      "overflow": "shrunk",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-paragraph-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 30.599999999999998,
+          "fontScale": 0.85,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-image-1",
+          "x": 60,
+          "y": 201,
+          "w": 1160,
+          "h": 255,
+          "fontScale": 0.85,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-image-2",
+          "x": 60,
+          "y": 476.4,
+          "w": 1160,
+          "h": 182.75,
+          "fontScale": 0.85,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "emphasis-with-caption",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-emphasis-1",
+          "type": "emphasis",
+          "text": "F = ma",
+          "caption": "力等于质量乘以加速度,这是动力学的核心方程。"
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-emphasis-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 101,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "emphasis-without-caption",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-paragraph-1",
+          "type": "paragraph",
+          "text": "没有说明文字的强调块只按一级标题字号计高。"
+        },
+        {
+          "id": "blk-emphasis-1",
+          "type": "emphasis",
+          "text": "十亿数据,最多三十次比较"
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-paragraph-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 36,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-emphasis-1",
+          "x": 60,
+          "y": 210,
+          "w": 1160,
+          "h": 66,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "callout-variants",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-callout-1",
+          "type": "callout",
+          "variant": "info",
+          "text": "没有标题的 callout 也要按含标题行测量。"
+        },
+        {
+          "id": "blk-callout-2",
+          "type": "callout",
+          "variant": "warning",
+          "title": "易错警示",
+          "text": "注意合外力方向与运动方向不一定相同,减速时二者相反。"
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-callout-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 103,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-callout-2",
+          "x": 60,
+          "y": 277,
+          "w": 1160,
+          "h": 103,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "table-caption",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-table-1",
+          "type": "table",
+          "headers": [
+            "物理量",
+            "符号",
+            "单位"
+          ],
+          "rows": [
+            [
+              "力",
+              "F",
+              "牛顿 N"
+            ],
+            [
+              "质量",
+              "m",
+              "千克 kg"
+            ],
+            [
+              "加速度,即速度随时间的变化率,这个单元格文字很长会换行",
+              "a",
+              "m/s^2"
+            ]
+          ],
+          "caption": "表 1:牛顿第二定律涉及的物理量一览"
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-table-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 226,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "formula-multirow-caption",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-formula-1",
+          "type": "formula",
+          "latex": "F = ma \\\\ a = \\frac{F}{m} \\\\ m = \\frac{F}{a}",
+          "caption": "同一关系的三种表达形式"
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-formula-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 193.4,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "code-long-lines-caption",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-code-1",
+          "type": "code",
+          "language": "python",
+          "code": "def acceleration(force, mass):\n    \"\"\"compute a = F / m with a deliberately very long docstring line to exercise column based soft wrapping\"\"\"\n    return force / mass\n",
+          "caption": "用 Python 计算加速度"
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-code-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 207,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "overflow-none",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-bullets-1",
+          "type": "bullets",
+          "items": [
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            }
+          ]
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-bullets-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 392,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "overflow-shrunk",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-bullets-1",
+          "type": "bullets",
+          "items": [
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            }
+          ]
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 0.92,
+      "overflow": "shrunk",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-bullets-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 507.84000000000015,
+          "fontScale": 0.92,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "overflow-error",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-bullets-1",
+          "type": "bullets",
+          "items": [
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            }
+          ]
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 0.78,
+      "overflow": "error",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-bullets-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 867.3599999999998,
+          "fontScale": 0.78,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": "页面内容放不下:内容区在最小字号下仍超出 348px(约 67%)。"
+  },
+  {
+    "name": "media-right-overflow-both-regions",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "media-right",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-bullets-1",
+          "type": "bullets",
+          "items": [
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            }
+          ]
+        },
+        {
+          "id": "blk-table-1",
+          "type": "table",
+          "headers": [
+            "阶段",
+            "说明"
+          ],
+          "rows": [
+            [
+              "阶段 1",
+              "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            ],
+            [
+              "阶段 2",
+              "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            ],
+            [
+              "阶段 3",
+              "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            ],
+            [
+              "阶段 4",
+              "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            ],
+            [
+              "阶段 5",
+              "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            ],
+            [
+              "阶段 6",
+              "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            ],
+            [
+              "阶段 7",
+              "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            ],
+            [
+              "阶段 8",
+              "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            ],
+            [
+              "阶段 9",
+              "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            ],
+            [
+              "阶段 10",
+              "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            ],
+            [
+              "阶段 11",
+              "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            ],
+            [
+              "阶段 12",
+              "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            ],
+            [
+              "阶段 13",
+              "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            ],
+            [
+              "阶段 14",
+              "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            ]
+          ]
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "media-right",
+      "fontScale": 0.78,
+      "overflow": "error",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-bullets-1",
+          "x": 60,
+          "y": 150,
+          "w": 620,
+          "h": 808.08,
+          "fontScale": 0.78,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-table-1",
+          "x": 740,
+          "y": 150,
+          "w": 480,
+          "h": 1953.8999999999996,
+          "fontScale": 0.78,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": "页面内容放不下:内容区 1在最小字号下仍超出 289px(约 56%);内容区 2在最小字号下仍超出 1434px(约 276%)。"
+  },
+  {
+    "name": "mixed-cjk-latin-inline",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-paragraph-1",
+          "type": "paragraph",
+          "text": "速度 velocity 与加速度 acceleration 是**两个不同**的物理量,由 $a = \\Delta v / t$ 定义,数字 12345 也参与测量。"
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-paragraph-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 72,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "long-url-forcesplit",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-paragraph-1",
+          "type": "paragraph",
+          "text": "参考资料:https://example.com/very/long/path/that/never/ends/and/keeps/going/forever/and/ever/physics-newton-second-law-explained"
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-paragraph-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 108,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "closing-punct-lines",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-paragraph-1",
+          "type": "paragraph",
+          "text": "第一句话说完了。第二句话紧跟其后,并且带着标点。第三句继续,逗号也算。结束!排版引擎必须保证闭合标点不出现在行首。"
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-paragraph-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 72,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "title-two-line-shrink",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "这是一个特别冗长的页面标题用来触发标题条的两行限制从而让布局引擎把标题字号降低一档再重新断行排版以验证缩字逻辑在两端实现中的一致性表现",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-paragraph-1",
+          "type": "paragraph",
+          "text": "正文内容。"
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 93,
+        "fontSize": 31,
+        "align": "left",
+        "lines": [
+          "这是一个特别冗长的页面标题用来触发标题条的两行限制从而让布局引擎把标题字号",
+          "降低一档再重新断行排版以验证缩字逻辑在两端实现中的一致性表现"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-paragraph-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 36,
+          "fontScale": 1,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "pinned-image-wrap",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-heading-1",
+          "type": "heading",
+          "level": 2,
+          "text": "要点"
+        },
+        {
+          "id": "blk-bullets-1",
+          "type": "bullets",
+          "items": [
+            {
+              "text": "甲"
+            },
+            {
+              "text": "乙"
+            },
+            {
+              "text": "丙"
+            }
+          ]
+        },
+        {
+          "id": "blk-image-1",
+          "type": "image",
+          "src": "courseware/1/images/a.png",
+          "width": 800,
+          "height": 600
+        }
+      ],
+      "layouts": [
+        {
+          "blockId": "blk-image-1",
+          "frame": {
+            "x": 60,
+            "y": 260,
+            "w": 400,
+            "h": 120
+          }
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-heading-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 48,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-bullets-1",
+          "x": 60,
+          "y": 404,
+          "w": 1160,
+          "h": 124,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-image-1",
+          "x": 60,
+          "y": 260,
+          "w": 400,
+          "h": 120,
+          "fontScale": 1,
+          "pinned": true
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "pinned-text-measured-height",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-bullets-1",
+          "type": "bullets",
+          "items": [
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            }
+          ]
+        },
+        {
+          "id": "blk-heading-1",
+          "type": "heading",
+          "level": 2,
+          "text": "钉住的标题"
+        }
+      ],
+      "layouts": [
+        {
+          "blockId": "blk-heading-1",
+          "frame": {
+            "x": 700,
+            "y": 300,
+            "w": 500
+          },
+          "size": "xlarge"
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-bullets-1",
+          "x": 60,
+          "y": 393.6,
+          "w": 1160,
+          "h": 152,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-heading-1",
+          "x": 700,
+          "y": 300,
+          "w": 500,
+          "h": 69.6,
+          "fontScale": 1.45,
+          "pinned": true
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "pinned-does-not-shrink",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-bullets-1",
+          "type": "bullets",
+          "items": [
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            }
+          ]
+        },
+        {
+          "id": "blk-heading-1",
+          "type": "heading",
+          "level": 2,
+          "text": "钉住的标题"
+        }
+      ],
+      "layouts": [
+        {
+          "blockId": "blk-heading-1",
+          "frame": {
+            "x": 900,
+            "y": 40,
+            "w": 300
+          }
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 0.92,
+      "overflow": "shrunk",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-bullets-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 507.84000000000015,
+          "fontScale": 0.92,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-heading-1",
+          "x": 900,
+          "y": 40,
+          "w": 300,
+          "h": 48,
+          "fontScale": 1,
+          "pinned": true
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "pinned-bottom-overflow",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-heading-1",
+          "type": "heading",
+          "level": 2,
+          "text": "要点"
+        },
+        {
+          "id": "blk-bullets-1",
+          "type": "bullets",
+          "items": [
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            },
+            {
+              "text": "这是一条相当长的要点内容,用来占据版面空间以测试布局引擎的溢出处理逻辑是否正确工作,再补充一句让它在标准内容区宽度下无论如何都需要换行排成两行的额外说明文字以便标定阶梯。"
+            }
+          ]
+        }
+      ],
+      "layouts": [
+        {
+          "blockId": "blk-bullets-1",
+          "frame": {
+            "x": 60,
+            "y": 650,
+            "w": 600
+          }
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 1,
+      "overflow": "error",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-heading-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 48,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-bullets-1",
+          "x": 60,
+          "y": 650,
+          "w": 600,
+          "h": 448,
+          "fontScale": 1,
+          "pinned": true
+        }
+      ]
+    },
+    "overflowMessage": "页面内容放不下:钉住的块 blk-bullets-1 底边超出页面 378px。"
+  },
+  {
+    "name": "pinned-media-right-degrades",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "media-right",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-bullets-1",
+          "type": "bullets",
+          "items": [
+            {
+              "text": "甲"
+            }
+          ]
+        },
+        {
+          "id": "blk-image-1",
+          "type": "image",
+          "src": "courseware/1/images/a.png",
+          "width": 800,
+          "height": 600
+        }
+      ],
+      "layouts": [
+        {
+          "blockId": "blk-image-1",
+          "frame": {
+            "x": 900,
+            "y": 500,
+            "w": 300,
+            "h": 180
+          }
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "media-right",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-bullets-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 36,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-image-1",
+          "x": 900,
+          "y": 500,
+          "w": 300,
+          "h": 180,
+          "fontScale": 1,
+          "pinned": true
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "size-tiers-flow-and-columns",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "two-column",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-heading-0",
+          "type": "heading",
+          "level": 2,
+          "text": "标题"
+        },
+        {
+          "id": "blk-columns-1",
+          "type": "columns",
+          "children": [
+            [
+              {
+                "id": "blk-heading-1",
+                "type": "heading",
+                "level": 2,
+                "text": "左"
+              },
+              {
+                "id": "blk-bullets-1",
+                "type": "bullets",
+                "items": [
+                  {
+                    "text": "甲"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "id": "blk-heading-2",
+                "type": "heading",
+                "level": 2,
+                "text": "右"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "blk-paragraph-1",
+          "type": "paragraph",
+          "text": "尾段。"
+        }
+      ],
+      "layouts": [
+        {
+          "blockId": "blk-columns-1",
+          "size": "small"
+        },
+        {
+          "blockId": "blk-paragraph-1",
+          "size": "large"
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "two-column",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-heading-0",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 48,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-columns-1",
+          "x": 60,
+          "y": 222,
+          "w": 1160,
+          "h": 85,
+          "fontScale": 0.85,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-heading-1",
+          "x": 60,
+          "y": 222,
+          "w": 563,
+          "h": 40.8,
+          "fontScale": 0.85,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-bullets-1",
+          "x": 60,
+          "y": 276.4,
+          "w": 563,
+          "h": 30.599999999999998,
+          "fontScale": 0.85,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-heading-2",
+          "x": 657,
+          "y": 222,
+          "w": 563,
+          "h": 40.8,
+          "fontScale": 0.85,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-paragraph-1",
+          "x": 60,
+          "y": 331,
+          "w": 1160,
+          "h": 43.199999999999996,
+          "fontScale": 1.2,
+          "pinned": false
+        }
+      ]
+    },
+    "overflowMessage": null
+  },
+  {
+    "name": "pinned-chart-flex-with-band",
+    "scene": {
+      "id": "scene-1",
+      "type": "content",
+      "title": "牛顿第二定律",
+      "preset": "standard",
+      "speech": [],
+      "blocks": [
+        {
+          "id": "blk-heading-1",
+          "type": "heading",
+          "level": 2,
+          "text": "销量对比"
+        },
+        {
+          "id": "blk-chart-1",
+          "type": "chart",
+          "chartType": "bar",
+          "categories": [
+            "一月",
+            "二月"
+          ],
+          "series": [
+            {
+              "name": "销量",
+              "data": [
+                10,
+                20
+              ]
+            }
+          ]
+        },
+        {
+          "id": "blk-image-1",
+          "type": "image",
+          "src": "courseware/1/images/a.png",
+          "width": 800,
+          "height": 600
+        }
+      ],
+      "layouts": [
+        {
+          "blockId": "blk-image-1",
+          "frame": {
+            "x": 60,
+            "y": 560,
+            "w": 400,
+            "h": 120
+          }
+        }
+      ]
+    },
+    "positioned": {
+      "sceneId": "scene-1",
+      "preset": "standard",
+      "fontScale": 1,
+      "overflow": "none",
+      "title": {
+        "x": 60,
+        "y": 44,
+        "w": 1160,
+        "h": 54,
+        "fontSize": 36,
+        "align": "left",
+        "lines": [
+          "牛顿第二定律"
+        ]
+      },
+      "frames": [
+        {
+          "blockId": "blk-heading-1",
+          "x": 60,
+          "y": 150,
+          "w": 1160,
+          "h": 48,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-chart-1",
+          "x": 60,
+          "y": 222,
+          "w": 1160,
+          "h": 220,
+          "fontScale": 1,
+          "pinned": false
+        },
+        {
+          "blockId": "blk-image-1",
+          "x": 60,
+          "y": 560,
+          "w": 400,
+          "h": 120,
+          "fontScale": 1,
+          "pinned": true
+        }
+      ]
+    },
+    "overflowMessage": null
+  }
+]

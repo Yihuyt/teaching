@@ -1,0 +1,187 @@
+:root {
+  color: #17202f;
+  background: #f5f6f8;
+  font-family:
+    'PingFang SC',
+    'Microsoft YaHei',
+    'Noto Sans CJK SC',
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+
+  /* 桌面布局 */
+  --layout-min-width: 1200px;
+  --content-width-standard: 1200px;
+  --content-width-wide: 1440px;
+  --page-gutter: 24px;
+  --section-gap: 20px;
+
+  /* 颜色与层级 */
+  --brand: #245ea8;
+  --brand-dark: #1c4b86;
+  --brand-soft: #edf3f9;
+  --surface: #ffffff;
+  --surface-muted: #f7f8fa;
+  --border: #dfe3e8;
+  --text: #17202f;
+  --text-secondary: #465364;
+  --text-muted: #6b7787;
+  --success: #067647;
+  --warning: #b54708;
+  --danger: #b42318;
+  --radius-control: 4px;
+  --radius-panel: 6px;
+  --shadow: none;
+
+  /* Element Plus 只沿用这一套品牌与中性色。 */
+  --el-color-primary: var(--brand);
+  --el-color-primary-light-3: #5f89bd;
+  --el-color-primary-light-5: #91afd2;
+  --el-color-primary-light-7: #c2d3e6;
+  --el-color-primary-light-8: #d8e3ef;
+  --el-color-primary-light-9: var(--brand-soft);
+  --el-color-primary-dark-2: var(--brand-dark);
+  --el-text-color-primary: var(--text);
+  --el-text-color-regular: var(--text-secondary);
+  --el-text-color-secondary: var(--text-muted);
+  --el-text-color-placeholder: #98a2b0;
+  --el-border-color: var(--border);
+  --el-border-color-light: #e7eaee;
+  --el-border-color-lighter: #eef0f3;
+  --el-fill-color-light: var(--surface-muted);
+  --el-fill-color-lighter: #fafbfc;
+  --el-bg-color-page: #f5f6f8;
+  --el-border-radius-base: var(--radius-control);
+  --el-border-radius-small: 3px;
+  --el-font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  min-width: var(--layout-min-width);
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--text);
+  background: var(--el-bg-color-page);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: var(--brand);
+  text-decoration: none;
+}
+
+.page {
+  width: min(var(--content-width-standard), calc(100% - var(--page-gutter) * 2));
+  margin: 0 auto;
+  padding: 24px 0 40px;
+}
+
+.page--wide {
+  width: min(var(--content-width-wide), calc(100% - var(--page-gutter) * 2));
+}
+
+.page--full {
+  width: calc(100% - var(--page-gutter) * 2);
+}
+
+.page-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--section-gap);
+}
+
+.panel {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-panel);
+  background: var(--surface);
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 52px;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.panel-body {
+  padding: 18px;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.markdown-body {
+  color: var(--text);
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.markdown-body pre {
+  overflow: auto;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  background: var(--surface-muted);
+}
+
+.markdown-body img {
+  max-width: 100%;
+}
+
+.markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.markdown-body th,
+.markdown-body td {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+}
+
+.full-height {
+  min-height: calc(100vh - 64px);
+}

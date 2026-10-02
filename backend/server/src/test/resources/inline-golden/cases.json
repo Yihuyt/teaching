@@ -1,0 +1,183 @@
+{
+  "comment": "行内语法(**加粗**/$latex$)跨语言金样:由 dump-inline-golden.mts 从真源 parseInline 生成,frontend/tests/unit/courseware/inline.test.ts 与 Java InlineMarkupGoldenTest 共同断言本文件。改语法 → 重新生成 → 修 Java 至绿。",
+  "cases": [
+    {
+      "input": "纯文本",
+      "segments": [
+        {
+          "kind": "text",
+          "text": "纯文本"
+        }
+      ]
+    },
+    {
+      "input": "前 **加粗** 后",
+      "segments": [
+        {
+          "kind": "text",
+          "text": "前 "
+        },
+        {
+          "kind": "bold",
+          "text": "加粗"
+        },
+        {
+          "kind": "text",
+          "text": " 后"
+        }
+      ]
+    },
+    {
+      "input": "质量 $m$ 与加速度",
+      "segments": [
+        {
+          "kind": "text",
+          "text": "质量 "
+        },
+        {
+          "kind": "latex",
+          "text": "m"
+        },
+        {
+          "kind": "text",
+          "text": " 与加速度"
+        }
+      ]
+    },
+    {
+      "input": "**F = ma** 即 $F=ma$",
+      "segments": [
+        {
+          "kind": "bold",
+          "text": "F = ma"
+        },
+        {
+          "kind": "text",
+          "text": " 即 "
+        },
+        {
+          "kind": "latex",
+          "text": "F=ma"
+        }
+      ]
+    },
+    {
+      "input": "**粗1** 与 **粗2**",
+      "segments": [
+        {
+          "kind": "bold",
+          "text": "粗1"
+        },
+        {
+          "kind": "text",
+          "text": " 与 "
+        },
+        {
+          "kind": "bold",
+          "text": "粗2"
+        }
+      ]
+    },
+    {
+      "input": "$a$$b$",
+      "segments": [
+        {
+          "kind": "latex",
+          "text": "a"
+        },
+        {
+          "kind": "latex",
+          "text": "b"
+        }
+      ]
+    },
+    {
+      "input": "$\\theta_r = \\theta_i$",
+      "segments": [
+        {
+          "kind": "latex",
+          "text": "\\theta_r = \\theta_i"
+        }
+      ]
+    },
+    {
+      "input": "**a $b$ c**",
+      "segments": [
+        {
+          "kind": "text",
+          "text": "**a "
+        },
+        {
+          "kind": "latex",
+          "text": "b"
+        },
+        {
+          "kind": "text",
+          "text": " c**"
+        }
+      ]
+    },
+    {
+      "input": "**a$b**c$",
+      "segments": [
+        {
+          "kind": "text",
+          "text": "**a"
+        },
+        {
+          "kind": "latex",
+          "text": "b**c"
+        }
+      ]
+    },
+    {
+      "input": "**a*b**",
+      "segments": [
+        {
+          "kind": "bold",
+          "text": "a*b"
+        }
+      ]
+    },
+    {
+      "input": "$$",
+      "segments": [
+        {
+          "kind": "text",
+          "text": "$$"
+        }
+      ]
+    },
+    {
+      "input": "****",
+      "segments": [
+        {
+          "kind": "text",
+          "text": "****"
+        }
+      ]
+    },
+    {
+      "input": "未闭合 **加粗",
+      "segments": [
+        {
+          "kind": "text",
+          "text": "未闭合 **加粗"
+        }
+      ]
+    },
+    {
+      "input": "未闭合 $公式",
+      "segments": [
+        {
+          "kind": "text",
+          "text": "未闭合 $公式"
+        }
+      ]
+    },
+    {
+      "input": "",
+      "segments": []
+    }
+  ]
+}

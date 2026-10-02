@@ -1,0 +1,113 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/GeneratedSpeech",
+  "definitions": {
+    "GeneratedSpeech": {
+      "type": "object",
+      "properties": {
+        "speech": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SpeechSegment"
+          }
+        }
+      },
+      "required": [
+        "speech"
+      ],
+      "additionalProperties": false,
+      "description": "块树 → 讲稿与动作"
+    },
+    "SpeechSegment": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "讲稿文本(口语化,TTS 直接朗读)"
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Action"
+          }
+        }
+      },
+      "required": [
+        "text",
+        "actions"
+      ],
+      "additionalProperties": false,
+      "description": "一段讲稿:一句到几句话 + 段首触发的动作(音频路径由 TTS 阶段服务端回填,不属于模型输出)"
+    },
+    "Action": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/HighlightAction"
+        },
+        {
+          "$ref": "#/definitions/RevealAction"
+        },
+        {
+          "$ref": "#/definitions/PauseAction"
+        }
+      ]
+    },
+    "HighlightAction": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "highlight"
+        },
+        "target": {
+          "$ref": "#/definitions/ActionTarget"
+        }
+      },
+      "required": [
+        "type",
+        "target"
+      ],
+      "additionalProperties": false
+    },
+    "ActionTarget": {
+      "type": "string",
+      "description": "动作目标:块 id(`blk-bullets-1`),bullets 子条目可用 `blk-bullets-1#2` 定位第 2 条(1 起数)。"
+    },
+    "RevealAction": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "reveal"
+        },
+        "target": {
+          "$ref": "#/definitions/ActionTarget"
+        }
+      },
+      "required": [
+        "type",
+        "target"
+      ],
+      "additionalProperties": false,
+      "description": "显示此前隐藏的块(用于逐步呈现;未被任何 reveal 引用的块默认可见)"
+    },
+    "PauseAction": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "pause"
+        },
+        "ms": {
+          "type": "number",
+          "description": "朗读完本段后追加的停顿毫秒数,范围 [200, 5000]"
+        }
+      },
+      "required": [
+        "type",
+        "ms"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

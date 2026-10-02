@@ -1,0 +1,292 @@
+name: ${COMPOSE_PROJECT_NAME:?COMPOSE_PROJECT_NAME 未配置}
+
+# 容器控制台日志(docker logs 看到的那份)自动滚动:单文件 50MB、最多 5 个
+x-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: "50m"
+    max-file: "5"
+
+services:
+  mysql:
+    image: mysql:8.4.6
+    entrypoint: ["/usr/local/bin/teaching-mysql-entrypoint"]
+    environment:
+      TZ: UTC
+      MYSQL_DATABASE: teaching_platform
+      MYSQL_USER: teaching_app
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql-root-password
+      MYSQL_PASSWORD_FILE: /run/secrets/mysql-app-password
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_0900_ai_ci
+      - --default-time-zone=+00:00
+      - --skip-name-resolve
+    secrets:
+      - source: mysql_root_password
+        target: /run/source-secrets/mysql-root-password
+      - source: mysql_app_password
+        target: /run/source-secrets/mysql-app-password
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./mysql/entrypoint.sh:/usr/local/bin/teaching-mysql-entrypoint:ro
+      - ./mysql/init-users.sh:/docker-entrypoint-initdb.d/10-init-users.sh:ro
+      - ../backend/server/src/main/resources/db/schema.sql:/docker-entrypoint-initdb.d/20-schema.sql:ro
+    tmpfs:
+      - /run/secrets:mode=0700,uid=0,gid=0
+    networks:
+      - data
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - MYSQL_PWD="$$(cat /run/secrets/mysql-root-password)" mysqladmin ping -h 127.0.0.1 -uroot --silent
+      interval: 5s
+      timeout: 3s
+      retries: 30
+      start_period: 30s
+    restart: unless-stopped
+    logging: *default-logging
+
+  redis:
+    image: redis:8.2.7-alpine
+    entrypoint: ["/usr/local/bin/teaching-redis-entrypoint"]
+    secrets:
+      - source: redis_password
+        target: redis-password
+    volumes:
+      - redis_data:/data
+      - ./redis/entrypoint.sh:/usr/local/bin/teaching-redis-entrypoint:ro
+    tmpfs:
+      - /run/redis:mode=0700,uid=0,gid=0
+    networks:
+      - data
+      - judge
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - REDISCLI_AUTH="$$(cat /run/secrets/redis-password)" redis-cli ping | grep -qx PONG
+      interval: 5s
+      timeout: 3s
+      retries: 30
+    read_only: true
+    restart: unless-stopped
+    logging: *default-logging
+
+  elasticsearch:
+    image: elasticsearch:9.5.1
+    # 以 root 起入口读密钥后降权到 uid 1000 运行(见 entrypoint 注释);
+    # 健康检查因此也以 root 执行,可直接读密钥文件
+    user: "0:0"
+    entrypoint: ["/usr/local/bin/teaching-es-entrypoint"]
+    environment:
+      TZ: UTC
+      discovery.type: single-node
+      xpack.security.enabled: "true"
+      xpack.security.http.ssl.enabled: "false"
+      xpack.security.transport.ssl.enabled: "false"
+      # 堆 512m + Lucene off-heap,整容器约 1.5GB;资源紧张的开发机可下调
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
+    secrets:
+      - source: elastic_password
+        target: /run/source-secrets/elastic-password
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+      - ./elasticsearch/entrypoint.sh:/usr/local/bin/teaching-es-entrypoint:ro
+    networks:
+      - data
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - curl -fsS -u "elastic:$$(cat /run/source-secrets/elastic-password)" http://127.0.0.1:9200/_cluster/health >/dev/null
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 60s
+    # 不设 read_only:ES 启动要写 config/logs;数据在 es_data 卷内隔离
+    restart: unless-stopped
+    logging: *default-logging
+
+  backend:
+    build:
+      context: ..
+      dockerfile: deploy/docker/server/Dockerfile
+    # 内存上限:JVM 的 MaxRAMPercentage 按容器算;教材构建的整本正文与并行模型调用都在这个进程里
+    deploy:
+      resources:
+        limits:
+          memory: ${BACKEND_MEMORY:-6g}
+    env_file: .env
+    environment:
+      TZ: UTC
+      TEACHING_SECRETS_DIR: /run/secrets/
+      DATABASE_URL: jdbc:mysql://mysql:3306/teaching_platform?useUnicode=true&characterEncoding=utf8&connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true
+      REDIS_HOST: redis
+      KB_ES_URI: http://elasticsearch:9200
+      ALIYUN_OSS_CREDENTIALS_PATH: /run/secrets/aliyun-oss-credentials
+      ROOT_INITIAL_PASSWORD_PATH: /run/secrets/root-initial-password
+      AI_CONFIG_KEY_PATH: /run/secrets/ai-config-key
+      SPRING_PROFILES_ACTIVE: production
+      TEACHING_LOG_DIR: /var/log/teaching
+    volumes:
+      - ../logs/backend:/var/log/teaching
+    secrets:
+      - source: mysql_app_password
+        target: /run/source-secrets/mysql-app-password
+      - source: redis_password
+        target: /run/source-secrets/redis-password
+      - source: root_initial_password
+        target: /run/source-secrets/root-initial-password
+      - source: aliyun_oss_credentials
+        target: /run/source-secrets/aliyun-oss-credentials
+      - source: ai_config_key
+        target: /run/source-secrets/ai-config-key
+      - source: elastic_password
+        target: /run/source-secrets/elastic-password
+    networks:
+      - edge
+      - data
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/actuator/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 30
+      start_period: 40s
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /run/secrets:mode=0700,uid=0,gid=0
+    init: true
+    restart: unless-stopped
+    logging: *default-logging
+
+  judge-worker:
+    build:
+      context: ..
+      dockerfile: deploy/docker/judge-worker/Dockerfile
+    env_file: .env
+    environment:
+      TZ: UTC
+      TEACHING_SECRETS_DIR: /run/secrets/
+      SPRING_DATA_REDIS_HOST: redis
+      # 单副本同时评测数(沙箱并行度随之);横向扩展用 docker compose up -d --scale judge-worker=N
+      TEACHING_JUDGE_CONCURRENCY: ${JUDGE_WORKER_CONCURRENCY:-1}
+      TEACHING_JUDGE_TESTCASE_CACHE: /var/lib/teaching/testcases
+      ALIYUN_OSS_CREDENTIALS_PATH: /run/secrets/aliyun-oss-credentials
+      SPRING_PROFILES_ACTIVE: production
+      TEACHING_LOG_DIR: /var/log/teaching
+    secrets:
+      - source: redis_password
+        target: /run/source-secrets/redis-password
+      - source: aliyun_oss_credentials
+        target: /run/source-secrets/aliyun-oss-credentials
+    volumes:
+      - testcase_cache:/var/lib/teaching/testcases
+      - ../logs/judge-worker:/var/log/teaching
+    networks:
+      - judge
+    shm_size: 256m
+    privileged: true
+    # 每个副本的资源上限:限制了 CPU 才能让时限可复现,限制了内存 JVM 的 MaxRAMPercentage 才按容器而不是宿主机算
+    deploy:
+      resources:
+        limits:
+          cpus: "${JUDGE_WORKER_CPUS:-2}"
+          memory: ${JUDGE_WORKER_MEMORY:-2g}
+    depends_on:
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "--show-error", "http://127.0.0.1:8081/actuator/health/readiness"]
+      interval: 10s
+      timeout: 3s
+      retries: 30
+      start_period: 45s
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /run/secrets:mode=0700,uid=0,gid=0
+    init: true
+    restart: unless-stopped
+    logging: *default-logging
+
+  scratch-editor:
+    build:
+      context: ..
+      dockerfile: deploy/docker/scratch-editor/Dockerfile
+    networks:
+      - edge
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 20
+    read_only: true
+    tmpfs:
+      - /var/cache/nginx
+      - /var/run
+      - /tmp
+    init: true
+    restart: unless-stopped
+    logging: *default-logging
+
+  frontend:
+    build:
+      context: ..
+      dockerfile: deploy/docker/frontend/Dockerfile
+    ports:
+      - "0.0.0.0:${WEB_PORT:?WEB_PORT 未配置}:8080"
+    networks:
+      - edge
+    depends_on:
+      backend:
+        condition: service_healthy
+      scratch-editor:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 20
+    read_only: true
+    tmpfs:
+      - /var/cache/nginx
+      - /var/run
+      - /tmp
+    init: true
+    restart: unless-stopped
+    logging: *default-logging
+
+secrets:
+  mysql_root_password:
+    file: ./secrets/mysql-root-password
+  mysql_app_password:
+    file: ./secrets/mysql-app-password
+  redis_password:
+    file: ./secrets/redis-password
+  root_initial_password:
+    file: ./secrets/root-initial-password
+  aliyun_oss_credentials:
+    file: ./secrets/aliyun-oss-credentials
+  ai_config_key:
+    file: ./secrets/ai-config-key
+  elastic_password:
+    file: ./secrets/elastic-password
+
+volumes:
+  mysql_data:
+  redis_data:
+  es_data:
+  testcase_cache:
+
+networks:
+  edge:
+  data:
+    internal: true
+  judge:

@@ -1,0 +1,20 @@
+# 开发模式叠加文件:中间件与积木编辑器仍在 Docker 里,只把它们的端口开到本机,
+# 后端在 IDEA 里直接运行,前端用 npm run dev。
+services:
+  # data 网络是 internal 的,只挂在它上面的容器发布不了端口,开发时再挂到 edge
+  mysql:
+    networks:
+      - edge
+    ports:
+      - "127.0.0.1:3306:3306"
+  redis:
+    ports:
+      - "127.0.0.1:6379:6379"
+  elasticsearch:
+    networks:
+      - edge
+    ports:
+      - "127.0.0.1:9200:9200"
+  scratch-editor:
+    ports:
+      - "127.0.0.1:8069:8080"

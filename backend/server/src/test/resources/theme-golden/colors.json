@@ -1,0 +1,35 @@
+{
+  "comment": "由 dump-theme-golden.mts 从 DEFAULT_THEME.colors 生成;Java ThemeColorGoldenTest 据此锁定 PptxWriter 颜色常量。",
+  "text": "#1f2329",
+  "muted": "#646a73",
+  "primary": "#2563eb",
+  "codeBackground": "#f6f8fa",
+  "tableBorder": "#d0d7de",
+  "tableHeaderBackground": "#f0f4f8",
+  "callout": {
+    "info": {
+      "border": "#2563eb",
+      "background": "#eff6ff"
+    },
+    "tip": {
+      "border": "#16a34a",
+      "background": "#f0fdf4"
+    },
+    "warning": {
+      "border": "#d97706",
+      "background": "#fffbeb"
+    },
+    "conclusion": {
+      "border": "#7c3aed",
+      "background": "#f5f3ff"
+    }
+  },
+  "chart": [
+    "#2563eb",
+    "#f59e0b",
+    "#16a34a",
+    "#dc2626",
+    "#7c3aed",
+    "#0891b2"
+  ]
+}

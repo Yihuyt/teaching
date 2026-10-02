@@ -1,0 +1,3640 @@
+[
+ {
+  "idx": 0,
+  "src": "when green flag clicked\ngo to x: (0) y: (0)\nmove (10) steps\nsay [Hello!] for (2) seconds",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_gotoxy\"><value name=\"X\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value><value name=\"Y\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value><next><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value><next><block type=\"looks_sayforsecs\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow></value><value name=\"SECS\"><shadow type=\"math_number\"><field name=\"NUM\">2</field></shadow></value></block></next></block></next></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 4,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 1,
+  "src": "when green flag clicked\nset [score v] to (0)\nrepeat (10)\n  change [score v] by (1)\n  if <(score) > (5)> then\n    say [big]\n  else\n    say ((score) * (2))\n  end\nend",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_setvariableto\"><field name=\"VARIABLE\" variabletype=\"\">score</field><value name=\"VALUE\"><shadow type=\"text\"><field name=\"TEXT\">0</field></shadow></value><next><block type=\"control_repeat\"><value name=\"TIMES\"><shadow type=\"math_whole_number\"><field name=\"NUM\">10</field></shadow></value><statement name=\"SUBSTACK\"><block type=\"data_changevariableby\"><field name=\"VARIABLE\" variabletype=\"\">score</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value><next><block type=\"control_if_else\"><value name=\"CONDITION\"><block type=\"operator_gt\"><value name=\"OPERAND1\"><shadow type=\"text\"><field name=\"TEXT\"></field></shadow><block type=\"data_variable\"><field name=\"VARIABLE\" variabletype=\"\">score</field></block></value><value name=\"OPERAND2\"><shadow type=\"text\"><field name=\"TEXT\">5</field></shadow></value></block></value><statement name=\"SUBSTACK\"><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">big</field></shadow></value></block></statement><statement name=\"SUBSTACK2\"><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow><block type=\"operator_multiply\"><value name=\"NUM1\"><shadow type=\"math_number\"><field name=\"NUM\"></field></shadow><block type=\"data_variable\"><field name=\"VARIABLE\" variabletype=\"\">score</field></block></value><value name=\"NUM2\"><shadow type=\"math_number\"><field name=\"NUM\">2</field></shadow></value></block></value></block></statement></block></next></block></statement></block></next></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Variable \"score\" doesn't exist in the project yet — inserting this code will create it (for all sprites).",
+     "suggestions": []
+    }
+   ],
+   "blockCount": 11,
+   "declaredVariables": [
+    "score"
+   ],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 2,
+  "src": "when green flag clicked\nset [n v] to (0)\nturn right (15) degrees\nwait until <mouse down?>\nrepeat until <(n) = (5)>\n  change [n v] by (1)\nend\nstop [all v]",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_setvariableto\"><field name=\"VARIABLE\" variabletype=\"\">n</field><value name=\"VALUE\"><shadow type=\"text\"><field name=\"TEXT\">0</field></shadow></value><next><block type=\"motion_turnright\"><value name=\"DEGREES\"><shadow type=\"math_number\"><field name=\"NUM\">15</field></shadow></value><next><block type=\"control_wait_until\"><value name=\"CONDITION\"><block type=\"sensing_mousedown\"></block></value><next><block type=\"control_repeat_until\"><value name=\"CONDITION\"><block type=\"operator_equals\"><value name=\"OPERAND1\"><shadow type=\"text\"><field name=\"TEXT\"></field></shadow><block type=\"data_variable\"><field name=\"VARIABLE\" variabletype=\"\">n</field></block></value><value name=\"OPERAND2\"><shadow type=\"text\"><field name=\"TEXT\">5</field></shadow></value></block></value><statement name=\"SUBSTACK\"><block type=\"data_changevariableby\"><field name=\"VARIABLE\" variabletype=\"\">n</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value></block></statement><next><block type=\"control_stop\"><field name=\"STOP_OPTION\">all</field></block></next></block></next></block></next></block></next></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Variable \"n\" doesn't exist in the project yet — inserting this code will create it (for all sprites).",
+     "suggestions": []
+    }
+   ],
+   "blockCount": 10,
+   "declaredVariables": [
+    "n"
+   ],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 3,
+  "src": "when green flag clicked\nstop [all v]\nmove (10) steps",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"control_stop\"><field name=\"STOP_OPTION\">all</field></block></next></block><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 3,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `stop [all v]` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 3,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 4,
+  "src": "when green flag clicked\nbroadcast [go v]\n\nwhen I receive [go v]\nsay [received!]",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"event_broadcast\"><value name=\"BROADCAST_INPUT\"><shadow type=\"event_broadcast_menu\"><field name=\"BROADCAST_OPTION\" variabletype=\"broadcast_msg\">go</field></shadow></value></block></next></block><block type=\"event_whenbroadcastreceived\"><field name=\"BROADCAST_OPTION\" variabletype=\"broadcast_msg\">go</field><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">received!</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 4,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 5,
+  "src": "when green flag clicked\nset [score v] to (0)\ndelete all of [items v]\nrepeat (10)\n  add (pick random (1) to (100)) to [items v]\nend\nset [i v] to (0)\nrepeat (length of [items v])\n  change [i v] by (1)\n  if <<(item (i) of [items v]) > (50)> and <not <touching [edge v]?>>> then\n    change [score v] by (1)\n    say (join [score: ] (score))\n  end\nend",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_setvariableto\"><field name=\"VARIABLE\" variabletype=\"\">score</field><value name=\"VALUE\"><shadow type=\"text\"><field name=\"TEXT\">0</field></shadow></value><next><block type=\"data_deletealloflist\"><field name=\"LIST\" variabletype=\"list\">items</field><next><block type=\"control_repeat\"><value name=\"TIMES\"><shadow type=\"math_whole_number\"><field name=\"NUM\">10</field></shadow></value><statement name=\"SUBSTACK\"><block type=\"data_addtolist\"><value name=\"ITEM\"><shadow type=\"text\"><field name=\"TEXT\">thing</field></shadow><block type=\"operator_random\"><value name=\"FROM\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value><value name=\"TO\"><shadow type=\"math_number\"><field name=\"NUM\">100</field></shadow></value></block></value><field name=\"LIST\" variabletype=\"list\">items</field></block></statement><next><block type=\"data_setvariableto\"><field name=\"VARIABLE\" variabletype=\"\">i</field><value name=\"VALUE\"><shadow type=\"text\"><field name=\"TEXT\">0</field></shadow></value><next><block type=\"control_repeat\"><value name=\"TIMES\"><shadow type=\"math_whole_number\"><field name=\"NUM\">10</field></shadow><block type=\"data_lengthoflist\"><field name=\"LIST\" variabletype=\"list\">items</field></block></value><statement name=\"SUBSTACK\"><block type=\"data_changevariableby\"><field name=\"VARIABLE\" variabletype=\"\">i</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value><next><block type=\"control_if\"><value name=\"CONDITION\"><block type=\"operator_and\"><value name=\"OPERAND1\"><block type=\"operator_gt\"><value name=\"OPERAND1\"><shadow type=\"text\"><field name=\"TEXT\"></field></shadow><block type=\"data_itemoflist\"><value name=\"INDEX\"><shadow type=\"math_integer\"><field name=\"NUM\">1</field></shadow><block type=\"data_variable\"><field name=\"VARIABLE\" variabletype=\"\">i</field></block></value><field name=\"LIST\" variabletype=\"list\">items</field></block></value><value name=\"OPERAND2\"><shadow type=\"text\"><field name=\"TEXT\">50</field></shadow></value></block></value><value name=\"OPERAND2\"><block type=\"operator_not\"><value name=\"OPERAND\"><block type=\"sensing_touchingobject\"><value name=\"TOUCHINGOBJECTMENU\"><shadow type=\"sensing_touchingobjectmenu\"><field name=\"TOUCHINGOBJECTMENU\">_edge_</field></shadow></value></block></value></block></value></block></value><statement name=\"SUBSTACK\"><block type=\"data_changevariableby\"><field name=\"VARIABLE\" variabletype=\"\">score</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow><block type=\"operator_join\"><value name=\"STRING1\"><shadow type=\"text\"><field name=\"TEXT\">score: </field></shadow></value><value name=\"STRING2\"><shadow type=\"text\"><field name=\"TEXT\">world</field></shadow><block type=\"data_variable\"><field name=\"VARIABLE\" variabletype=\"\">score</field></block></value></block></value></block></next></block></statement></block></next></block></statement></block></next></block></next></block></next></block></next></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Variable \"score\" doesn't exist in the project yet — inserting this code will create it (for all sprites).",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 3,
+     "col": 0,
+     "line": "",
+     "message": "List \"items\" doesn't exist in the project yet — inserting this code will create it (for all sprites).",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 7,
+     "col": 0,
+     "line": "",
+     "message": "Variable \"i\" doesn't exist in the project yet — inserting this code will create it (for all sprites).",
+     "suggestions": []
+    }
+   ],
+   "blockCount": 21,
+   "declaredVariables": [
+    "score",
+    "i"
+   ],
+   "declaredLists": [
+    "items"
+   ],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 6,
+  "src": "when green flag clicked\nsay (costume [number v])\nsay (costume [name v])",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow><block type=\"looks_costumenumbername\"><field name=\"NUMBER_NAME\">number</field></block></value><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow><block type=\"looks_costumenumbername\"><field name=\"NUMBER_NAME\">name</field></block></value></block></next></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 5,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 7,
+  "src": "when green flag clicked\nset x to ((-200) + ((i) - (1)) * (30))",
+  "opts": {
+   "knownVariables": [
+    "i"
+   ]
+  },
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_setx\"><value name=\"X\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow><block type=\"operator_add\"><value name=\"NUM1\"><shadow type=\"math_number\"><field name=\"NUM\">-200</field></shadow></value><value name=\"NUM2\"><shadow type=\"math_number\"><field name=\"NUM\"></field></shadow><block type=\"operator_multiply\"><value name=\"NUM1\"><shadow type=\"math_number\"><field name=\"NUM\"></field></shadow><block type=\"operator_subtract\"><value name=\"NUM1\"><shadow type=\"math_number\"><field name=\"NUM\"></field></shadow><block type=\"data_variable\"><field name=\"VARIABLE\" variabletype=\"\">i</field></block></value><value name=\"NUM2\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value></block></value><value name=\"NUM2\"><shadow type=\"math_number\"><field name=\"NUM\">30</field></shadow></value></block></value></block></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Read \"(-200) + ((i) - (1)) * (30)\" with standard precedence (× ÷ before + −, comparisons before and/or) and nested the operator blocks for you — nest brackets in pairs yourself to control the order.",
+     "suggestions": []
+    }
+   ],
+   "blockCount": 6,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 8,
+  "src": "when green flag clicked\nmove ((j) + (k) - (1)) steps",
+  "opts": {
+   "knownVariables": [
+    "j",
+    "k"
+   ]
+  },
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow><block type=\"operator_subtract\"><value name=\"NUM1\"><shadow type=\"math_number\"><field name=\"NUM\"></field></shadow><block type=\"operator_add\"><value name=\"NUM1\"><shadow type=\"math_number\"><field name=\"NUM\"></field></shadow><block type=\"data_variable\"><field name=\"VARIABLE\" variabletype=\"\">j</field></block></value><value name=\"NUM2\"><shadow type=\"math_number\"><field name=\"NUM\"></field></shadow><block type=\"data_variable\"><field name=\"VARIABLE\" variabletype=\"\">k</field></block></value></block></value><value name=\"NUM2\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value></block></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Read \"(j) + (k) - (1)\" with standard precedence (× ÷ before + −, comparisons before and/or) and nested the operator blocks for you — nest brackets in pairs yourself to control the order.",
+     "suggestions": []
+    }
+   ],
+   "blockCount": 6,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 9,
+  "src": "when green flag clicked\nwait until <<mouse down?> and <mouse down?> or <mouse down?>>",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"control_wait_until\"><value name=\"CONDITION\"><block type=\"operator_or\"><value name=\"OPERAND1\"><block type=\"operator_and\"><value name=\"OPERAND1\"><block type=\"sensing_mousedown\"></block></value><value name=\"OPERAND2\"><block type=\"sensing_mousedown\"></block></value></block></value><value name=\"OPERAND2\"><block type=\"sensing_mousedown\"></block></value></block></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Read \"<mouse down?> and <mouse down?> or <mouse down?>\" with standard precedence (× ÷ before + −, comparisons before and/or) and nested the operator blocks for you — nest brackets in pairs yourself to control the order.",
+     "suggestions": []
+    }
+   ],
+   "blockCount": 7,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 10,
+  "src": "when green flag clicked\ngo to x:(0) y:(-100 + ((height1) * (10)) + (5))",
+  "opts": {
+   "knownVariables": [
+    "height1"
+   ]
+  },
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_gotoxy\"><value name=\"X\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value><value name=\"Y\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow><block type=\"operator_add\"><value name=\"NUM1\"><shadow type=\"math_number\"><field name=\"NUM\"></field></shadow><block type=\"operator_add\"><value name=\"NUM1\"><shadow type=\"math_number\"><field name=\"NUM\">-100</field></shadow></value><value name=\"NUM2\"><shadow type=\"math_number\"><field name=\"NUM\"></field></shadow><block type=\"operator_multiply\"><value name=\"NUM1\"><shadow type=\"math_number\"><field name=\"NUM\"></field></shadow><block type=\"data_variable\"><field name=\"VARIABLE\" variabletype=\"\">height1</field></block></value><value name=\"NUM2\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></value></block></value><value name=\"NUM2\"><shadow type=\"math_number\"><field name=\"NUM\">5</field></shadow></value></block></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Read \"-100 + ((height1) * (10)) + (5)\" with standard precedence (× ÷ before + −, comparisons before and/or) and nested the operator blocks for you — nest brackets in pairs yourself to control the order.",
+     "suggestions": []
+    }
+   ],
+   "blockCount": 6,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 11,
+  "src": "when green flag clicked\nmove (分数 -100 + (5)) steps",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></next></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"分数 -100 + (5)\" is not a Scratch block — it does not exist.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 12,
+  "src": "when green flag clicked\nwait until <(1) < (x) < (10)>",
+  "opts": {
+   "knownVariables": [
+    "x"
+   ]
+  },
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"control_wait_until\"></block></next></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"(1) < (x) <(10)>\" chains comparisons — Scratch cannot express a range in one block. Combine two comparisons: `<<(a) < (b)> and <(b) < (c)>>`.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 13,
+  "src": "when green flag clicked\n移动 （１０） 步",
+  "opts": null,
+  "result": {
+   "xml": "",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "full-width characters are not silently converted any more",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 0,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 14,
+  "src": "when green flag clicked\nsay [（哈哈）] for (2) seconds",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_sayforsecs\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">（哈哈）</field></shadow></value><value name=\"SECS\"><shadow type=\"math_number\"><field name=\"NUM\">2</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 15,
+  "src": "when green flag clicked\n重复执行 （10） 次\n  move (10) steps\nend",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></next></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"重复执行 （10） 次\" — this line contains FULL-WIDTH characters (like （ ） １０ ｖ). scratchblocks only understands half-width: rewrite the line using ( ) [ ] < > and ASCII digits.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 16,
+  "src": "when green flag clicked\nwalk (10) paces",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"walk (10) paces\" is not a Scratch block — it does not exist.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 17,
+  "src": "when green flag clicked\nstop all",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"stop all\" is an old Scratch 2 block — write it the Scratch 3 way.",
+     "suggestions": [
+      "stop [all v]"
+     ]
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 18,
+  "src": "when green flag clicked\nmove (10) step",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"move (10) step\" is not a Scratch block — it does not exist.",
+     "suggestions": [
+      "move () steps"
+     ]
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 19,
+  "src": "when green flag clicked\npen down",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"pen_penDown\"></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 20,
+  "src": "when green flag clicked\nsay (madeUpReporter)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow><block type=\"data_variable\"><field name=\"VARIABLE\" variabletype=\"\">madeUpReporter</field></block></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "message": "第 2 行读取的变量 \"madeUpReporter\" 还没有任何脚本创建它,这里自动创建;记得在某段脚本里用 set [madeUpReporter v] to (…) 给它赋值"
+    }
+   ],
+   "blockCount": 3,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 21,
+  "src": "when green flag clicked\nsay (score)",
+  "opts": {
+   "knownVariables": [
+    "score"
+   ]
+  },
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow><block type=\"data_variable\"><field name=\"VARIABLE\" variabletype=\"\">score</field></block></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 3,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 22,
+  "src": "when green flag clicked\nrepeat (10)\n  move (10) steps",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"control_repeat\"><value name=\"TIMES\"><shadow type=\"math_whole_number\"><field name=\"NUM\">10</field></shadow></value><statement name=\"SUBSTACK\"><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></statement></block></next></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "This `repeat` is never closed — add `end` on its own line after its last block.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 3,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 23,
+  "src": "when green flag clicked\nmove (10) steps\nend",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></next></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 3,
+     "col": 0,
+     "line": "",
+     "message": "This `end` has nothing to close — remove it (every `end` must close a `repeat`/`forever`/`if`/`repeat until`).",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 24,
+  "src": "when green flag clicked\nhide\n// 画初始柱子\nset [k v] to (1)\nrepeat (3)\n  // 体内注释\n  change [k v] by (1)\nend",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_hide\"><next><block type=\"data_setvariableto\"><field name=\"VARIABLE\" variabletype=\"\">k</field><value name=\"VALUE\"><shadow type=\"text\"><field name=\"TEXT\">1</field></shadow></value><next><block type=\"control_repeat\"><value name=\"TIMES\"><shadow type=\"math_whole_number\"><field name=\"NUM\">3</field></shadow></value><statement name=\"SUBSTACK\"><block type=\"data_changevariableby\"><field name=\"VARIABLE\" variabletype=\"\">k</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value></block></statement></block></next></block></next></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 4,
+     "col": 0,
+     "line": "",
+     "message": "Variable \"k\" doesn't exist in the project yet — inserting this code will create it (for all sprites).",
+     "suggestions": []
+    }
+   ],
+   "blockCount": 5,
+   "declaredVariables": [
+    "k"
+   ],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 25,
+  "src": "when green flag clicked\nrepeat (2)\n  if <mouse down?> then\n    say [hi]\n  end\nend",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"control_repeat\"><value name=\"TIMES\"><shadow type=\"math_whole_number\"><field name=\"NUM\">2</field></shadow></value><statement name=\"SUBSTACK\"><block type=\"control_if\"><value name=\"CONDITION\"><block type=\"sensing_mousedown\"></block></value><statement name=\"SUBSTACK\"><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">hi</field></shadow></value></block></statement></block></statement></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 5,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 26,
+  "src": "when green flag clicked\nset [lives v] to (3)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_setvariableto\"><field name=\"VARIABLE\" variabletype=\"\">lives</field><value name=\"VALUE\"><shadow type=\"text\"><field name=\"TEXT\">3</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Variable \"lives\" doesn't exist in the project yet — inserting this code will create it (for all sprites).",
+     "suggestions": []
+    }
+   ],
+   "blockCount": 2,
+   "declaredVariables": [
+    "lives"
+   ],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 27,
+  "src": "when green flag clicked\nadd [x] to [items v]",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_addtolist\"><value name=\"ITEM\"><shadow type=\"text\"><field name=\"TEXT\">x</field></shadow></value><field name=\"LIST\" variabletype=\"list\">items</field></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "List \"items\" doesn't exist in the project yet — inserting this code will create it (for all sprites).",
+     "suggestions": []
+    }
+   ],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [
+    "items"
+   ],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 28,
+  "src": "when green flag clicked\nsay (item (1) of [ghost v])",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow><block type=\"data_itemoflist\"><value name=\"INDEX\"><shadow type=\"math_integer\"><field name=\"NUM\">1</field></shadow></value><field name=\"LIST\" variabletype=\"list\">ghost</field></block></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "message": "第 2 行读取的列表 \"ghost\" 还没有任何脚本创建它,这里自动创建;记得在某段脚本里用 add (…) to [ghost v] 往里放内容"
+    }
+   ],
+   "blockCount": 3,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 29,
+  "src": "when green flag clicked\nadd [a] to [items v]\ninsert [b] at (1) of [items v]\nreplace item (1) of [items v] with [c]\nsay (item (1) of [items v])\nsay (length of [items v])\nif <[items v] contains [c]?> then\n  delete (1) of [items v]\nend\ndelete all of [items v]",
+  "opts": {
+   "knownLists": [
+    "items"
+   ]
+  },
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_addtolist\"><value name=\"ITEM\"><shadow type=\"text\"><field name=\"TEXT\">a</field></shadow></value><field name=\"LIST\" variabletype=\"list\">items</field><next><block type=\"data_insertatlist\"><value name=\"ITEM\"><shadow type=\"text\"><field name=\"TEXT\">b</field></shadow></value><value name=\"INDEX\"><shadow type=\"math_integer\"><field name=\"NUM\">1</field></shadow></value><field name=\"LIST\" variabletype=\"list\">items</field><next><block type=\"data_replaceitemoflist\"><value name=\"INDEX\"><shadow type=\"math_integer\"><field name=\"NUM\">1</field></shadow></value><field name=\"LIST\" variabletype=\"list\">items</field><value name=\"ITEM\"><shadow type=\"text\"><field name=\"TEXT\">c</field></shadow></value><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow><block type=\"data_itemoflist\"><value name=\"INDEX\"><shadow type=\"math_integer\"><field name=\"NUM\">1</field></shadow></value><field name=\"LIST\" variabletype=\"list\">items</field></block></value><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow><block type=\"data_lengthoflist\"><field name=\"LIST\" variabletype=\"list\">items</field></block></value><next><block type=\"control_if\"><value name=\"CONDITION\"><block type=\"data_listcontainsitem\"><field name=\"LIST\" variabletype=\"list\">items</field><value name=\"ITEM\"><shadow type=\"text\"><field name=\"TEXT\">c</field></shadow></value></block></value><statement name=\"SUBSTACK\"><block type=\"data_deleteoflist\"><value name=\"INDEX\"><shadow type=\"math_integer\"><field name=\"NUM\">1</field></shadow></value><field name=\"LIST\" variabletype=\"list\">items</field></block></statement><next><block type=\"data_deletealloflist\"><field name=\"LIST\" variabletype=\"list\">items</field></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 12,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 30,
+  "src": "when green flag clicked\ngo to [edge v]",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_goto\"><value name=\"TO\"><shadow type=\"motion_goto_menu\"><field name=\"TO\">_mouse_</field></shadow></value></block></next></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"edge\" is not a valid target for goTo(...) — it accepts: mouse-pointer | random position, or a sprite name.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 31,
+  "src": "define jump (height) high\nchange y by (height)\n\nwhen green flag clicked\njump (50) high",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"procedures_definition\"><statement name=\"custom_block\"><shadow type=\"procedures_prototype\"><mutation proccode=\"jump %s high\" argumentids=\"[&quot;arg_jumpshigh_height&quot;]\" argumentnames=\"[&quot;height&quot;]\" argumentdefaults=\"[&quot;&quot;]\" warp=\"false\"></mutation><value name=\"arg_jumpshigh_height\"><shadow type=\"argument_reporter_string_number\"><field name=\"VALUE\">height</field></shadow></value></shadow></statement><next><block type=\"motion_changeyby\"><value name=\"DY\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow><block type=\"argument_reporter_string_number\"><field name=\"VALUE\">height</field></block></value></block></next></block><block type=\"event_whenflagclicked\"><next><block type=\"procedures_call\"><mutation proccode=\"jump %s high\" argumentids=\"[&quot;arg_jumpshigh_height&quot;]\" warp=\"false\"></mutation><value name=\"arg_jumpshigh_height\"><shadow type=\"text\"><field name=\"TEXT\">50</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 5,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 32,
+  "src": "define check <flag>\nif <flag> then\n  say [yes]\nend\n\nwhen green flag clicked\ncheck <mouse down?>",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"procedures_definition\"><statement name=\"custom_block\"><shadow type=\"procedures_prototype\"><mutation proccode=\"check %b\" argumentids=\"[&quot;arg_checkb_flag&quot;]\" argumentnames=\"[&quot;flag&quot;]\" argumentdefaults=\"[&quot;false&quot;]\" warp=\"false\"></mutation><value name=\"arg_checkb_flag\"><shadow type=\"argument_reporter_boolean\"><field name=\"VALUE\">flag</field></shadow></value></shadow></statement><next><block type=\"control_if\"><value name=\"CONDITION\"><block type=\"argument_reporter_boolean\"><field name=\"VALUE\">flag</field></block></value><statement name=\"SUBSTACK\"><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">yes</field></shadow></value></block></statement></block></next></block><block type=\"event_whenflagclicked\"><next><block type=\"procedures_call\"><mutation proccode=\"check %b\" argumentids=\"[&quot;arg_checkb_flag&quot;]\" warp=\"false\"></mutation><value name=\"arg_checkb_flag\"><block type=\"sensing_mousedown\"></block></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 7,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 33,
+  "src": "when green flag clicked\ndraw bar (7)",
+  "opts": {
+   "knownProcs": [
+    {
+     "proccode": "draw bar %s",
+     "argumentnames": [
+      "n"
+     ],
+     "argumentids": [
+      "id_n"
+     ],
+     "argumentdefaults": [
+      ""
+     ]
+    }
+   ]
+  },
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"procedures_call\"><mutation proccode=\"draw bar %s\" argumentids=\"[&quot;id_n&quot;]\" warp=\"false\"></mutation><value name=\"id_n\"><shadow type=\"text\"><field name=\"TEXT\">7</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 34,
+  "src": "when green flag clicked\ndraw bar (7) wrongly",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"draw bar (7) wrongly\" is not a Scratch block — it does not exist.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 35,
+  "src": "当绿旗被点击\n移动 (10) 步\n说 [你好]",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">你好</field></shadow></value></block></next></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 3,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 36,
+  "src": "when green flag clicked\nset [score v] to (5)\nsay [hello]",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_setvariableto\"><field name=\"VARIABLE\" variabletype=\"\">score</field><value name=\"VALUE\"><shadow type=\"text\"><field name=\"TEXT\">5</field></shadow></value><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">hello</field></shadow></value></block></next></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Variable \"score\" doesn't exist in the project yet — inserting this code will create it (for all sprites).",
+     "suggestions": []
+    }
+   ],
+   "blockCount": 3,
+   "declaredVariables": [
+    "score"
+   ],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 37,
+  "src": "when green flag clicked\nturn cw (15) degrees\nturn ccw (15) degrees\nsay [hi] for (2) secs",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_turnright\"><value name=\"DEGREES\"><shadow type=\"math_number\"><field name=\"NUM\">15</field></shadow></value><next><block type=\"motion_turnleft\"><value name=\"DEGREES\"><shadow type=\"math_number\"><field name=\"NUM\">15</field></shadow></value><next><block type=\"looks_sayforsecs\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">hi</field></shadow></value><value name=\"SECS\"><shadow type=\"math_number\"><field name=\"NUM\">2</field></shadow></value></block></next></block></next></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 4,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 38,
+  "src": "when green flag clicked\nmove 10 steps",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"move 10 steps\" is not a Scratch block — it does not exist.",
+     "suggestions": [
+      "move () steps"
+     ]
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 39,
+  "src": "when green flag clicked\nmove    (10)     steps\nsay   [hi]   for  (2)  seconds\nset   [score v]   to   (0)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value><next><block type=\"looks_sayforsecs\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">hi</field></shadow></value><value name=\"SECS\"><shadow type=\"math_number\"><field name=\"NUM\">2</field></shadow></value><next><block type=\"data_setvariableto\"><field name=\"VARIABLE\" variabletype=\"\">score</field><value name=\"VALUE\"><shadow type=\"text\"><field name=\"TEXT\">0</field></shadow></value></block></next></block></next></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 4,
+     "col": 0,
+     "line": "",
+     "message": "Variable \"score\" doesn't exist in the project yet — inserting this code will create it (for all sprites).",
+     "suggestions": []
+    }
+   ],
+   "blockCount": 4,
+   "declaredVariables": [
+    "score"
+   ],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 40,
+  "src": "when green flag clicked\nrepeat (2)\n        move (10) steps\n\tsay [hi]\nend",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"control_repeat\"><value name=\"TIMES\"><shadow type=\"math_whole_number\"><field name=\"NUM\">2</field></shadow></value><statement name=\"SUBSTACK\"><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">hi</field></shadow></value></block></next></block></statement></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 4,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 41,
+  "src": "when green flag clicked\nmove (10) steps   \nsay [hi]  ",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">hi</field></shadow></value></block></next></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 3,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 42,
+  "src": "when green flag clicked\nsay [a   b]",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">a   b</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 43,
+  "src": "when green flag clicked\nset [分数 v] to (0)\nrepeat (10)\n  change [分数 v] by (1)\nend",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_setvariableto\"><field name=\"VARIABLE\" variabletype=\"\">分数</field><value name=\"VALUE\"><shadow type=\"text\"><field name=\"TEXT\">0</field></shadow></value><next><block type=\"control_repeat\"><value name=\"TIMES\"><shadow type=\"math_whole_number\"><field name=\"NUM\">10</field></shadow></value><statement name=\"SUBSTACK\"><block type=\"data_changevariableby\"><field name=\"VARIABLE\" variabletype=\"\">分数</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value></block></statement></block></next></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Variable \"分数\" doesn't exist in the project yet — inserting this code will create it (for all sprites).",
+     "suggestions": []
+    }
+   ],
+   "blockCount": 4,
+   "declaredVariables": [
+    "分数"
+   ],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 44,
+  "src": "define jump (height) high\nrepeat (height)\n  change y by (10)\nend\n\nwhen green flag clicked\njump (50) high",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"procedures_definition\"><statement name=\"custom_block\"><shadow type=\"procedures_prototype\"><mutation proccode=\"jump %s high\" argumentids=\"[&quot;arg_jumpshigh_height&quot;]\" argumentnames=\"[&quot;height&quot;]\" argumentdefaults=\"[&quot;&quot;]\" warp=\"false\"></mutation><value name=\"arg_jumpshigh_height\"><shadow type=\"argument_reporter_string_number\"><field name=\"VALUE\">height</field></shadow></value></shadow></statement><next><block type=\"control_repeat\"><value name=\"TIMES\"><shadow type=\"math_whole_number\"><field name=\"NUM\">10</field></shadow><block type=\"argument_reporter_string_number\"><field name=\"VALUE\">height</field></block></value><statement name=\"SUBSTACK\"><block type=\"motion_changeyby\"><value name=\"DY\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></statement></block></next></block><block type=\"event_whenflagclicked\"><next><block type=\"procedures_call\"><mutation proccode=\"jump %s high\" argumentids=\"[&quot;arg_jumpshigh_height&quot;]\" warp=\"false\"></mutation><value name=\"arg_jumpshigh_height\"><shadow type=\"text\"><field name=\"TEXT\">50</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 6,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 45,
+  "src": "when green flag clicked\nsay (join [score: ] (score))",
+  "opts": {
+   "knownVariables": [
+    "score"
+   ]
+  },
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow><block type=\"operator_join\"><value name=\"STRING1\"><shadow type=\"text\"><field name=\"TEXT\">score: </field></shadow></value><value name=\"STRING2\"><shadow type=\"text\"><field name=\"TEXT\">world</field></shadow><block type=\"data_variable\"><field name=\"VARIABLE\" variabletype=\"\">score</field></block></value></block></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 4,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 46,
+  "src": "when green flag clicked\nmvoe (10) steps",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"mvoe (10) steps\" is not a Scratch block — it does not exist.",
+     "suggestions": [
+      "move () steps"
+     ]
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 47,
+  "src": "when green flag clicked\nadd [1] to [数据 v]\nsay (item (1) of [数据 v])",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_addtolist\"><value name=\"ITEM\"><shadow type=\"text\"><field name=\"TEXT\">1</field></shadow></value><field name=\"LIST\" variabletype=\"list\">数据</field><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow><block type=\"data_itemoflist\"><value name=\"INDEX\"><shadow type=\"math_integer\"><field name=\"NUM\">1</field></shadow></value><field name=\"LIST\" variabletype=\"list\">数据</field></block></value></block></next></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "List \"数据\" doesn't exist in the project yet — inserting this code will create it (for all sprites).",
+     "suggestions": []
+    }
+   ],
+   "blockCount": 4,
+   "declaredVariables": [],
+   "declaredLists": [
+    "数据"
+   ],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 48,
+  "src": "when green flag clicked\nmove ((x position) + (5)) steps\nturn cw (15) degrees",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow><block type=\"operator_add\"><value name=\"NUM1\"><shadow type=\"math_number\"><field name=\"NUM\"></field></shadow><block type=\"motion_xposition\"></block></value><value name=\"NUM2\"><shadow type=\"math_number\"><field name=\"NUM\">5</field></shadow></value></block></value><next><block type=\"motion_turnright\"><value name=\"DEGREES\"><shadow type=\"math_number\"><field name=\"NUM\">15</field></shadow></value></block></next></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 5,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 49,
+  "src": "当绿旗被点击\n移动 (10) 步",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 50,
+  "src": "when green flag clicked",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 51,
+  "src": "when [space v] key pressed",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenkeypressed\"><field name=\"KEY_OPTION\">space</field></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 52,
+  "src": "when this sprite clicked",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenthisspriteclicked\"></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 53,
+  "src": "when backdrop switches to [backdrop1 v]",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenbackdropswitchesto\"><field name=\"BACKDROP\">backdrop1</field></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 54,
+  "src": "when [LOUDNESS v] > (10)   // sensor: LOUDNESS | TIMER",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whengreaterthan\"><field name=\"WHENGREATERTHANMENU\">LOUDNESS</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 55,
+  "src": "when I receive [message1 v]",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenbroadcastreceived\"><field name=\"BROADCAST_OPTION\" variabletype=\"broadcast_msg\">message1</field></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 56,
+  "src": "when I start as a clone",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"control_start_as_clone\"></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 57,
+  "src": "when green flag clicked\nmove (10) steps",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 58,
+  "src": "when green flag clicked\nturn right (15) degrees",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_turnright\"><value name=\"DEGREES\"><shadow type=\"math_number\"><field name=\"NUM\">15</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 59,
+  "src": "when green flag clicked\nturn left (15) degrees",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_turnleft\"><value name=\"DEGREES\"><shadow type=\"math_number\"><field name=\"NUM\">15</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 60,
+  "src": "when green flag clicked\ngo to [mouse-pointer v]   // target: mouse-pointer | random position | <sprite name>",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_goto\"><value name=\"TO\"><shadow type=\"motion_goto_menu\"><field name=\"TO\">_mouse_</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 61,
+  "src": "when green flag clicked\ngo to x:(0) y:(0)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_gotoxy\"><value name=\"X\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value><value name=\"Y\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 62,
+  "src": "when green flag clicked\nglide (1) secs to [mouse-pointer v]   // target: mouse-pointer | random position | <sprite name>",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_glideto\"><value name=\"SECS\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value><value name=\"TO\"><shadow type=\"motion_glideto_menu\"><field name=\"TO\">_mouse_</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 63,
+  "src": "when green flag clicked\nglide (1) secs to x:(0) y:(0)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_glidesecstoxy\"><value name=\"SECS\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value><value name=\"X\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value><value name=\"Y\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 64,
+  "src": "when green flag clicked\npoint in direction (90)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_pointindirection\"><value name=\"DIRECTION\"><shadow type=\"math_angle\"><field name=\"NUM\">90</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 65,
+  "src": "when green flag clicked\npoint towards [mouse-pointer v]   // target: mouse-pointer | random direction | <sprite name>",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_pointtowards\"><value name=\"TOWARDS\"><shadow type=\"motion_pointtowards_menu\"><field name=\"TOWARDS\">_mouse_</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 66,
+  "src": "when green flag clicked\nchange x by (10)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_changexby\"><value name=\"DX\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 67,
+  "src": "when green flag clicked\nset x to (0)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_setx\"><value name=\"X\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 68,
+  "src": "when green flag clicked\nchange y by (10)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_changeyby\"><value name=\"DY\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 69,
+  "src": "when green flag clicked\nset y to (0)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_sety\"><value name=\"Y\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 70,
+  "src": "when green flag clicked\nif on edge, bounce",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_ifonedgebounce\"></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 71,
+  "src": "when green flag clicked\nset rotation style [left-right v]   // style: left-right | don't rotate | all around",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_setrotationstyle\"><field name=\"STYLE\">left-right</field></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 72,
+  "src": "when green flag clicked\n(x position)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"x position\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 73,
+  "src": "when green flag clicked\n(y position)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"y position\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 74,
+  "src": "when green flag clicked\n(direction)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"direction\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 75,
+  "src": "when green flag clicked\nsay [Hello!] for (2) seconds",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_sayforsecs\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow></value><value name=\"SECS\"><shadow type=\"math_number\"><field name=\"NUM\">2</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 76,
+  "src": "when green flag clicked\nsay [Hello!]",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 77,
+  "src": "when green flag clicked\nthink [Hmm...] for (2) seconds",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_thinkforsecs\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hmm...</field></shadow></value><value name=\"SECS\"><shadow type=\"math_number\"><field name=\"NUM\">2</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 78,
+  "src": "when green flag clicked\nthink [Hmm...]",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_think\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hmm...</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 79,
+  "src": "when green flag clicked\nshow",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_show\"></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 80,
+  "src": "when green flag clicked\nhide",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_hide\"></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 81,
+  "src": "when green flag clicked\nswitch costume to [costume1 v]",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_switchcostumeto\"><value name=\"COSTUME\"><shadow type=\"looks_costume\"><field name=\"COSTUME\">costume1</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 82,
+  "src": "when green flag clicked\nnext costume",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_nextcostume\"></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 83,
+  "src": "when green flag clicked\nnext backdrop",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_nextbackdrop\"></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 84,
+  "src": "when green flag clicked\nswitch backdrop to [backdrop1 v]",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_switchbackdropto\"><value name=\"BACKDROP\"><shadow type=\"looks_backdrops\"><field name=\"BACKDROP\">backdrop1</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 85,
+  "src": "when green flag clicked\nswitch backdrop to [backdrop1 v] and wait",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_switchbackdroptoandwait\"><value name=\"BACKDROP\"><shadow type=\"looks_backdrops\"><field name=\"BACKDROP\">backdrop1</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 86,
+  "src": "when green flag clicked\nchange [color v] effect by (25)   // effect: color | fisheye | whirl | pixelate | mosaic | brightness | ghost",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_changeeffectby\"><field name=\"EFFECT\">color</field><value name=\"CHANGE\"><shadow type=\"math_number\"><field name=\"NUM\">25</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 87,
+  "src": "when green flag clicked\nset [color v] effect to (0)   // effect: color | fisheye | whirl | pixelate | mosaic | brightness | ghost",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_seteffectto\"><field name=\"EFFECT\">color</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 88,
+  "src": "when green flag clicked\nclear graphic effects",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_cleargraphiceffects\"></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 89,
+  "src": "when green flag clicked\nchange size by (10)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_changesizeby\"><value name=\"CHANGE\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 90,
+  "src": "when green flag clicked\nset size to (100)%",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_setsizeto\"><value name=\"SIZE\"><shadow type=\"math_number\"><field name=\"NUM\">100</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 91,
+  "src": "when green flag clicked\ngo to [front v] layer   // position: front | back",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_gotofrontback\"><field name=\"FRONT_BACK\">front</field></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 92,
+  "src": "when green flag clicked\ngo [forward v] (1) layers   // direction: forward | backward",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_goforwardbackwardlayers\"><field name=\"FORWARD_BACKWARD\">forward</field><value name=\"NUM\"><shadow type=\"math_integer\"><field name=\"NUM\">1</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 93,
+  "src": "when green flag clicked\n(size)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"size\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 94,
+  "src": "when green flag clicked\n(costume [number v])   // number/name: number | name",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"costume (number)\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 95,
+  "src": "when green flag clicked\n(backdrop [number v])   // number/name: number | name",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"backdrop (number)\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 96,
+  "src": "when green flag clicked\nstart sound [Meow v]",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"sound_play\"><value name=\"SOUND_MENU\"><shadow type=\"sound_sounds_menu\"><field name=\"SOUND_MENU\">Meow</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 97,
+  "src": "when green flag clicked\nplay sound [Meow v] until done",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"sound_playuntildone\"><value name=\"SOUND_MENU\"><shadow type=\"sound_sounds_menu\"><field name=\"SOUND_MENU\">Meow</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 98,
+  "src": "when green flag clicked\nstop all sounds",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"sound_stopallsounds\"></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 99,
+  "src": "when green flag clicked\nchange [PITCH v] effect by (10)   // effect: PITCH | PAN",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"sound_changeeffectby\"><field name=\"EFFECT\">PITCH</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 100,
+  "src": "when green flag clicked\nset [PITCH v] effect to (100)   // effect: PITCH | PAN",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"sound_seteffectto\"><field name=\"EFFECT\">PITCH</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">100</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 101,
+  "src": "when green flag clicked\nclear sound effects",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"sound_cleareffects\"></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 102,
+  "src": "when green flag clicked\nchange volume by (-10)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"sound_changevolumeby\"><value name=\"VOLUME\"><shadow type=\"math_number\"><field name=\"NUM\">-10</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 103,
+  "src": "when green flag clicked\nset volume to (100)%",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"sound_setvolumeto\"><value name=\"VOLUME\"><shadow type=\"math_number\"><field name=\"NUM\">100</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 104,
+  "src": "when green flag clicked\n(volume)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"volume\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 105,
+  "src": "when green flag clicked\nbroadcast [message1 v]",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"event_broadcast\"><value name=\"BROADCAST_INPUT\"><shadow type=\"event_broadcast_menu\"><field name=\"BROADCAST_OPTION\" variabletype=\"broadcast_msg\">message1</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 106,
+  "src": "when green flag clicked\nbroadcast [message1 v] and wait",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"event_broadcastandwait\"><value name=\"BROADCAST_INPUT\"><shadow type=\"event_broadcast_menu\"><field name=\"BROADCAST_OPTION\" variabletype=\"broadcast_msg\">message1</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 107,
+  "src": "when green flag clicked\nwait (1) seconds",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"control_wait\"><value name=\"DURATION\"><shadow type=\"math_positive_number\"><field name=\"NUM\">1</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 108,
+  "src": "when green flag clicked\nwait until <>",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"control_wait_until\"></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 109,
+  "src": "when green flag clicked\nstop [all v]   // option: all | this script | other scripts in sprite",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"control_stop\"><field name=\"STOP_OPTION\">all</field></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 110,
+  "src": "when green flag clicked\ncreate clone of [myself v]   // target: myself | <sprite name>",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"control_create_clone_of\"><value name=\"CLONE_OPTION\"><shadow type=\"control_create_clone_of_menu\"><field name=\"CLONE_OPTION\">_myself_</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 111,
+  "src": "when green flag clicked\ndelete this clone",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"control_delete_this_clone\"></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 112,
+  "src": "when green flag clicked\nask [What's your name?] and wait",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"sensing_askandwait\"><value name=\"QUESTION\"><shadow type=\"text\"><field name=\"TEXT\">What's your name?</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 113,
+  "src": "when green flag clicked\nset drag mode [draggable v]   // mode: draggable | not draggable",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"sensing_setdragmode\"><field name=\"DRAG_MODE\">draggable</field></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 114,
+  "src": "when green flag clicked\nreset timer",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"sensing_resettimer\"></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 115,
+  "src": "when green flag clicked\n<touching [mouse-pointer v]?>   // target: mouse-pointer | edge | <sprite name>",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"touching (mouse-pointer) ?\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 116,
+  "src": "when green flag clicked\n<touching color [#ff0000]?>   // color: #rrggbb hex",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"touching color (#ff0000) ?\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 117,
+  "src": "when green flag clicked\n<color [#ff0000] is touching [#ff0000]?>   // color: #rrggbb hex; color: #rrggbb hex",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"color (#ff0000) is touching (#ff0000) ?\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 118,
+  "src": "when green flag clicked\n(distance to [mouse-pointer v])   // target: mouse-pointer | <sprite name>",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"distance to (mouse-pointer)\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 119,
+  "src": "when green flag clicked\n(answer)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"answer\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 120,
+  "src": "when green flag clicked\n<key [space v] pressed?>   // key: space | up arrow | down arrow | left arrow | right arrow | enter | any | <letter> | <number>",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"key (space) pressed?\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 121,
+  "src": "when green flag clicked\n<mouse down?>",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"mouse down?\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 122,
+  "src": "when green flag clicked\n(mouse x)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"mouse x\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 123,
+  "src": "when green flag clicked\n(mouse y)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"mouse y\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 124,
+  "src": "when green flag clicked\n(loudness)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"loudness\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 125,
+  "src": "when green flag clicked\n(timer)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"timer\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 126,
+  "src": "when green flag clicked\n([x position v] of [Sprite1 v])   // sprite: stage | <sprite name>",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"(x position) of (Sprite1)\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 127,
+  "src": "when green flag clicked\n(current [YEAR v])   // unit: YEAR | MONTH | DATE | DAYOFWEEK | HOUR | MINUTE | SECOND",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"current (YEAR)\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 128,
+  "src": "when green flag clicked\n(days since 2000)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"days since 2000\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 129,
+  "src": "when green flag clicked\n(username)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"username\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 130,
+  "src": "when green flag clicked\n(pick random (1) to (10))",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"pick random (1) to (10)\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 131,
+  "src": "when green flag clicked\n(join [hello] [world])",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"join (hello) (world)\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 132,
+  "src": "when green flag clicked\n(letter (1) of [world])",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"letter (1) of (world)\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 133,
+  "src": "when green flag clicked\n(length of [world])",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"length of (world)\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 134,
+  "src": "when green flag clicked\n<[hello] contains [world]?>",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"(hello) contains (world) ?\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 135,
+  "src": "when green flag clicked\n(round ())",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"round ()\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 136,
+  "src": "when green flag clicked\n([abs v] of ())   // operator: abs | floor | ceiling | sqrt | sin | cos | tan | asin | acos | atan | ln | log | e ^ | 10 ^",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"(abs) of ()\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 137,
+  "src": "when green flag clicked\nshow variable [my variable v]   // variable: an EXISTING variable name",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_showvariable\"><field name=\"VARIABLE\" variabletype=\"\">my variable</field></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "message": "第 2 行读取的变量 \"my variable\" 还没有任何脚本创建它,这里自动创建;记得在某段脚本里用 set [my variable v] to (…) 给它赋值"
+    }
+   ],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 138,
+  "src": "when green flag clicked\nhide variable [my variable v]   // variable: an EXISTING variable name",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_hidevariable\"><field name=\"VARIABLE\" variabletype=\"\">my variable</field></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "message": "第 2 行读取的变量 \"my variable\" 还没有任何脚本创建它,这里自动创建;记得在某段脚本里用 set [my variable v] to (…) 给它赋值"
+    }
+   ],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 139,
+  "src": "when green flag clicked\nerase all",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"pen_clear\"></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 140,
+  "src": "when green flag clicked\nstamp",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"pen_stamp\"></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 141,
+  "src": "when green flag clicked\npen up",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"pen_penUp\"></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 142,
+  "src": "when green flag clicked\nset pen color to [#ff0000]   // color: #rrggbb hex",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"pen_setPenColorToColor\"><value name=\"COLOR\"><shadow type=\"colour_picker\"><field name=\"COLOUR\">#ff0000</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 143,
+  "src": "when green flag clicked\nchange pen [color v] by (10)   // color_param: color | saturation | brightness | transparency",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"pen_changePenColorParamBy\"><value name=\"COLOR_PARAM\"><shadow type=\"pen_menu_colorParam\"><field name=\"colorParam\">color</field></shadow></value><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 144,
+  "src": "when green flag clicked\nset pen [color v] to (50)   // color_param: color | saturation | brightness | transparency",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"pen_setPenColorParamTo\"><value name=\"COLOR_PARAM\"><shadow type=\"pen_menu_colorParam\"><field name=\"colorParam\">color</field></shadow></value><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">50</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 145,
+  "src": "when green flag clicked\nchange pen size by (1)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"pen_changePenSizeBy\"><value name=\"SIZE\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 146,
+  "src": "when green flag clicked\nset pen size to (1)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"pen_setPenSizeTo\"><value name=\"SIZE\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 147,
+  "src": "when green flag clicked\n1. Moving is what draws: with the pen down, EVERY motion block traces a line at the sprite's center point; `pen down` itself stamps a dot there. So position first: `pen up` then `go to x: () y: ()` then `pen down` then move then `pen up`.",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"1. Moving is what draws: with the pen down, EVERY motion block traces a line at the sprite's center point; `pen down` itself stamps a dot there. So position first: `pen up` then `go to x: () y: () ` then `pen down` then move then `pen up`.\" is not a Scratch block — it does not exist.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 148,
+  "src": "when green flag clicked\n2. A picture that only GROWS (trail, spiral): just keep drawing. A picture that must CHANGE (chart, animation): `erase all` and redraw everything — best as one custom block called after every state change.",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"2. A picture that only GROWS (trail, spiral) : just keep drawing. A picture that must CHANGE (chart, animation) : `erase all` and redraw everything — best as one custom block called after every state change.\" is not a Scratch block — it does not exist.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 149,
+  "src": "when green flag clicked\n3. `move () steps` follows the sprite's heading (default: RIGHT). For horizontal or vertical lines use `go to x: y:` / `change x by ()` / `change y by ()`.",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"3. `move () steps` follows the sprite's heading (default: RIGHT) . For horizontal or vertical lines use `go to x: y:` / `change x by () ` / `change y by () `.\" is not a Scratch block — it does not exist.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 150,
+  "src": "when green flag clicked\n4. `set pen size to ()` is stroke thickness: one thick stroke = a filled bar (ends are rounded).",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"4. `set pen size to () ` is stroke thickness: one thick stroke = a filled bar (ends are rounded) .\" is not a Scratch block — it does not exist.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 151,
+  "src": "when green flag clicked\n5. `set pen color to [#rrggbb]`. The pen (color v)/(saturation v)/(brightness v)/(transparency v) params take 0-100.",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"5. `set pen color to (#rrggbb) `. The pen (color) / (saturation) / (brightness) / (transparency) params take 0-100.\" is not a Scratch block — it does not exist.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 152,
+  "src": "when green flag clicked\n6. The sprite is fenced to the stage by its COSTUME box — the bigger the costume, the earlier `go to x: y:` gets silently clamped (hiding does not help). Keep drawings well inside the edges. A hidden sprite still draws and still stamps.",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"6. The sprite is fenced to the stage by its COSTUME box — the bigger the costume, the earlier `go to x: y:` gets silently clamped (hiding does not help) . Keep drawings well inside the edges. A hidden sprite still draws and still stamps.\" is not a Scratch block — it does not exist.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 153,
+  "src": "when green flag clicked\n7. NO block writes TEXT onto the canvas. `say` is ONE speech bubble that follows the sprite — it cannot label bars or points. To show a value, use `show variable`; otherwise skip labels.",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"7. NO block writes TEXT onto the canvas. `say` is ONE speech bubble that follows the sprite — it cannot label bars or points. To show a value, use `show variable`; otherwise skip labels.\" is not a Scratch block — it does not exist.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 154,
+  "src": "when green flag clicked\nplay drum [1 v] for (0.25) beats   // drum: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"music_playDrumForBeats\"><value name=\"DRUM\"><shadow type=\"music_menu_DRUM\"><field name=\"DRUM\">1</field></shadow></value><value name=\"BEATS\"><shadow type=\"math_number\"><field name=\"NUM\">0.25</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 155,
+  "src": "when green flag clicked\nrest for (0.25) beats",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"music_restForBeats\"><value name=\"BEATS\"><shadow type=\"math_number\"><field name=\"NUM\">0.25</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 156,
+  "src": "when green flag clicked\nplay note (60) for (0.25) beats",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"music_playNoteForBeats\"><value name=\"NOTE\"><shadow type=\"note\"><field name=\"NOTE\">60</field></shadow></value><value name=\"BEATS\"><shadow type=\"math_number\"><field name=\"NUM\">0.25</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 157,
+  "src": "when green flag clicked\nset instrument to [1 v]   // instrument: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"music_setInstrument\"><value name=\"INSTRUMENT\"><shadow type=\"music_menu_INSTRUMENT\"><field name=\"INSTRUMENT\">1</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 158,
+  "src": "when green flag clicked\nset tempo to (60)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"music_setTempo\"><value name=\"TEMPO\"><shadow type=\"math_number\"><field name=\"NUM\">60</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 159,
+  "src": "when green flag clicked\nchange tempo by (20)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"music_changeTempo\"><value name=\"TEMPO\"><shadow type=\"math_number\"><field name=\"NUM\">20</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 160,
+  "src": "when green flag clicked\n(tempo)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"tempo\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 161,
+  "src": "when green flag clicked\nset [score v] to (0)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_setvariableto\"><field name=\"VARIABLE\" variabletype=\"\">score</field><value name=\"VALUE\"><shadow type=\"text\"><field name=\"TEXT\">0</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Variable \"score\" doesn't exist in the project yet — inserting this code will create it (for all sprites).",
+     "suggestions": []
+    }
+   ],
+   "blockCount": 2,
+   "declaredVariables": [
+    "score"
+   ],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 162,
+  "src": "when green flag clicked\nchange [score v] by (1)",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_changevariableby\"><field name=\"VARIABLE\" variabletype=\"\">score</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Variable \"score\" doesn't exist in the project yet — inserting this code will create it (for all sprites).",
+     "suggestions": []
+    }
+   ],
+   "blockCount": 2,
+   "declaredVariables": [
+    "score"
+   ],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 163,
+  "src": "when green flag clicked\n(score)   // reading a variable: its name in round brackets",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"score\" is a Scratch block this editor does not support.",
+     "suggestions": [
+      "show",
+      "size",
+      "say ()"
+     ]
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 164,
+  "src": "when green flag clicked\nadd [thing] to [items v]",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_addtolist\"><value name=\"ITEM\"><shadow type=\"text\"><field name=\"TEXT\">thing</field></shadow></value><field name=\"LIST\" variabletype=\"list\">items</field></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "List \"items\" doesn't exist in the project yet — inserting this code will create it (for all sprites).",
+     "suggestions": []
+    }
+   ],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [
+    "items"
+   ],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 165,
+  "src": "when green flag clicked\ndelete (1) of [items v]",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_deleteoflist\"><value name=\"INDEX\"><shadow type=\"math_integer\"><field name=\"NUM\">1</field></shadow></value><field name=\"LIST\" variabletype=\"list\">items</field></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "List \"items\" doesn't exist in the project yet — inserting this code will create it (for all sprites).",
+     "suggestions": []
+    }
+   ],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [
+    "items"
+   ],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 166,
+  "src": "when green flag clicked\ndelete all of [items v]",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_deletealloflist\"><field name=\"LIST\" variabletype=\"list\">items</field></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "List \"items\" doesn't exist in the project yet — inserting this code will create it (for all sprites).",
+     "suggestions": []
+    }
+   ],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [
+    "items"
+   ],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 167,
+  "src": "when green flag clicked\ninsert [thing] at (1) of [items v]",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_insertatlist\"><value name=\"ITEM\"><shadow type=\"text\"><field name=\"TEXT\">thing</field></shadow></value><value name=\"INDEX\"><shadow type=\"math_integer\"><field name=\"NUM\">1</field></shadow></value><field name=\"LIST\" variabletype=\"list\">items</field></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "List \"items\" doesn't exist in the project yet — inserting this code will create it (for all sprites).",
+     "suggestions": []
+    }
+   ],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [
+    "items"
+   ],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 168,
+  "src": "when green flag clicked\nreplace item (1) of [items v] with [thing]",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_replaceitemoflist\"><value name=\"INDEX\"><shadow type=\"math_integer\"><field name=\"NUM\">1</field></shadow></value><field name=\"LIST\" variabletype=\"list\">items</field><value name=\"ITEM\"><shadow type=\"text\"><field name=\"TEXT\">thing</field></shadow></value></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "List \"items\" doesn't exist in the project yet — inserting this code will create it (for all sprites).",
+     "suggestions": []
+    }
+   ],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [
+    "items"
+   ],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 169,
+  "src": "when green flag clicked\n(item (1) of [items v])",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"item (1) of (items)\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 170,
+  "src": "when green flag clicked\n(item # of [thing] in [items v])",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"item # of (thing) in (items)\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 171,
+  "src": "when green flag clicked\n(length of [items v])",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"length of (items)\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 172,
+  "src": "when green flag clicked\n<[items v] contains [thing]?>",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "Unreachable: nothing can run after `when green flag clicked` — it ends this script. Move this line above it, or start a separate script with its own `when …` hat after a blank line.",
+     "suggestions": []
+    },
+    {
+     "lineNumber": 2,
+     "col": 0,
+     "line": "",
+     "message": "\"(items) contains (thing) ?\" reports a value and cannot stand alone — use it inside another block's slot.",
+     "suggestions": []
+    }
+   ],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 173,
+  "src": "when green flag clicked\nshow list [items v]",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_showlist\"><field name=\"LIST\" variabletype=\"list\">items</field></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "message": "第 2 行读取的列表 \"items\" 还没有任何脚本创建它,这里自动创建;记得在某段脚本里用 add (…) to [items v] 往里放内容"
+    }
+   ],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 174,
+  "src": "when green flag clicked\nhide list [items v]",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_hidelist\"><field name=\"LIST\" variabletype=\"list\">items</field></block></next></block></xml>",
+   "errors": [],
+   "repairs": [
+    {
+     "lineNumber": 2,
+     "message": "第 2 行读取的列表 \"items\" 还没有任何脚本创建它,这里自动创建;记得在某段脚本里用 add (…) to [items v] 往里放内容"
+    }
+   ],
+   "blockCount": 2,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ },
+ {
+  "idx": 175,
+  "src": "when green flag clicked\n// lists are 1-based; keep every index in 1..length. (1) can also be [last v] or [random v] in delete/insert/replace/item",
+  "opts": null,
+  "result": {
+   "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+   "errors": [],
+   "repairs": [],
+   "blockCount": 1,
+   "declaredVariables": [],
+   "declaredLists": [],
+   "localVariables": [],
+   "localLists": []
+  }
+ }
+]

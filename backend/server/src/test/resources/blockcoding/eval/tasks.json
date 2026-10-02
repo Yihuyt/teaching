@@ -1,0 +1,205 @@
+[
+  {
+    "id": "easy-ask-bounce",
+    "level": "easy",
+    "title": "纯提问:反弹用哪个积木",
+    "prompt": "小猫碰到舞台边缘怎么让它反弹?用哪个积木?不用帮我写进作品,告诉我就行。",
+    "sprites": [
+      "Sprite1"
+    ]
+  },
+  {
+    "id": "easy-bounce",
+    "level": "easy",
+    "title": "小猫来回走动",
+    "prompt": "让小猫一直向前走，碰到舞台边缘就反弹，并且转身时不要倒过来。",
+    "sprites": [
+      "Sprite1"
+    ]
+  },
+  {
+    "id": "easy-arrow-keys",
+    "level": "easy",
+    "title": "方向键控制",
+    "prompt": "用键盘的上下左右方向键控制小猫移动，每按一下移动 10 步。",
+    "sprites": [
+      "Sprite1"
+    ]
+  },
+  {
+    "id": "easy-click-costume",
+    "level": "easy",
+    "title": "点击换造型并说话",
+    "prompt": "点击小猫时切换到下一个造型，并说“你好！”两秒。",
+    "sprites": [
+      "Sprite1"
+    ]
+  },
+  {
+    "id": "easy-square",
+    "level": "easy",
+    "title": "画正方形",
+    "prompt": "点击绿旗后，用画笔在舞台中央画一个边长 100 的正方形，画完后停在原地。",
+    "sprites": [
+      "Sprite1"
+    ]
+  },
+  {
+    "id": "medium-guess",
+    "level": "medium",
+    "title": "猜数字",
+    "prompt": "做一个猜数字游戏：程序随机想一个 1 到 100 的数，小猫反复问“猜一个数”，玩家输入后小猫提示“大了”或“小了”，猜对时说“对了！你用了 N 次”。",
+    "sprites": [
+      "Sprite1"
+    ]
+  },
+  {
+    "id": "medium-spiral",
+    "level": "medium",
+    "title": "彩色螺旋",
+    "prompt": "点击绿旗后用画笔画一个彩色螺旋：线条越画越长，每画一段颜色变化一点，画完停下。",
+    "sprites": [
+      "Sprite1"
+    ]
+  },
+  {
+    "id": "medium-catch",
+    "level": "medium",
+    "title": "接苹果",
+    "prompt": "做一个接苹果游戏：Apple 角色每隔一秒从舞台顶部随机位置克隆出一个往下掉；Bowl 角色由鼠标左右控制（y 固定在底部）；苹果碰到碗得 1 分并消失，掉到底部扣 1 条命；一开始 3 条命，命没了游戏结束显示“游戏结束”。",
+    "sprites": [
+      "Apple",
+      "Bowl"
+    ]
+  },
+  {
+    "id": "medium-whack",
+    "level": "medium",
+    "title": "打地鼠",
+    "prompt": "做一个打地鼠：Mole 角色每隔 0.8 秒出现在随机位置然后消失，点中它得 1 分，30 秒倒计时结束后显示得分并停止。",
+    "sprites": [
+      "Mole"
+    ]
+  },
+  {
+    "id": "hard-flappy",
+    "level": "hard",
+    "title": "Flappy Bird",
+    "prompt": "做一个 Flappy Bird：Bird 角色受重力一直下落，按空格向上跳；Pipe 角色每 2 秒克隆一根从右往左移动、上下位置随机的管子；Bird 碰到管子或舞台边缘游戏结束；每通过一根管子得 1 分。",
+    "sprites": [
+      "Bird",
+      "Pipe"
+    ]
+  },
+  {
+    "id": "hard-snake",
+    "level": "hard",
+    "title": "贪吃蛇",
+    "prompt": "做一个贪吃蛇：用两个列表分别记录蛇身每一节的 x 和 y 坐标；Head 角色按方向键改变方向、每 0.2 秒前进一格（20 步）；Food 角色随机出现，吃到后蛇身加一节；蛇头碰到自己身体或舞台边缘游戏结束。蛇身用画笔画出来。",
+    "sprites": [
+      "Head",
+      "Food"
+    ]
+  },
+  {
+    "id": "hard-breakout",
+    "level": "hard",
+    "title": "打砖块",
+    "prompt": "做一个打砖块：Ball 角色斜向运动、碰到边缘反弹、碰到 Paddle 反弹、掉到底部游戏结束；Paddle 由鼠标左右控制；Brick 角色克隆出 3 行 6 列的砖块，球碰到砖块时砖块消失并得分，砖块全部消失显示胜利。",
+    "sprites": [
+      "Ball",
+      "Paddle",
+      "Brick"
+    ]
+  },
+  {
+    "id": "hard-quiz",
+    "level": "hard",
+    "title": "加法练习",
+    "prompt": "做一个加法练习程序：连续出 10 道两个两位数相加的题，用“询问”让玩家输入答案，答对得 10 分并说“正确”，答错说出正确答案；10 题结束后报告总分，并把每道题的题目和玩家答案存进列表。",
+    "sprites": [
+      "Sprite1"
+    ]
+  },
+  {
+    "id": "hard-bubble-sort",
+    "level": "hard",
+    "runWaitMs": 60000,
+    "title": "冒泡排序可视化",
+    "prompt": "做一个冒泡排序的可视化：先往列表里放 8 个随机数，用画笔把它们画成一排高矮不同的竖条；然后用冒泡排序把列表排好，每交换一次就把竖条重新画一遍，能看到条子慢慢变成从矮到高。整个过程点绿旗后自动完成，不用按键。",
+    "sprites": [
+      "Sprite1"
+    ]
+  },
+  {
+    "id": "hard-platformer",
+    "level": "hard",
+    "title": "平台跳跃",
+    "prompt": "做一个平台跳跃游戏：Player 受重力影响会一直往下掉，落到 Ground 上就站住不再下沉；按左右方向键左右移动；按空格键跳起来，在空中不能再跳；Ground 放在舞台下方当地面。点绿旗后 Player 出现在地面上方。",
+    "sprites": [
+      "Player",
+      "Ground"
+    ],
+    "runWaitMs": 5000,
+    "keys": [
+      {
+        "key": "ArrowRight",
+        "atMs": 800,
+        "holdMs": 1500
+      },
+      {
+        "key": " ",
+        "atMs": 2600,
+        "holdMs": 100
+      }
+    ]
+  },
+  {
+    "id": "hard-maze",
+    "level": "hard",
+    "title": "迷宫",
+    "prompt": "做一个迷宫游戏：Wall 是迷宫的墙，Goal 是终点。Player 用方向键上下左右走，每次走 5 步；碰到 Wall 就退回去，不能穿墙；碰到 Goal 就说“你赢了”然后停止全部脚本。点绿旗时 Player 回到舞台左下角当起点，Goal 放到舞台右上角，Wall 放在舞台中间。",
+    "sprites": [
+      "Player",
+      "Wall",
+      "Goal"
+    ],
+    "runWaitMs": 4000,
+    "keys": [
+      {
+        "key": "ArrowRight",
+        "atMs": 800,
+        "holdMs": 1500
+      }
+    ]
+  },
+  {
+    "id": "hard-pen-clock",
+    "level": "hard",
+    "title": "画笔时钟",
+    "prompt": "用画笔画一个会走的时钟：先画表盘，一个大圆和 12 个刻度；然后按电脑的当前时间画时针、分针、秒针，三根针长短不同、按各自的角度指向；每秒擦掉重画一次，让秒针一直走。角色本身隐藏起来。",
+    "sprites": [
+      "Sprite1"
+    ],
+    "runWaitMs": 3000
+  },
+  {
+    "id": "hard-breakout-levels",
+    "level": "hard",
+    "title": "三关打砖块",
+    "prompt": "做一个三关的打砖块：用左右方向键控制 Paddle 左右移动；Brick 用克隆排成几行，第 1 关 2 行、第 2 关 3 行、第 3 关 4 行，每关球更快；砖全部打完就进入下一关并重新摆砖；球掉到舞台底部扣一条命，一共 3 条命，命用完显示“游戏结束”并停止全部；分数、关卡、生命都显示在舞台上。",
+    "sprites": [
+      "Ball",
+      "Paddle",
+      "Brick"
+    ],
+    "runWaitMs": 5000,
+    "keys": [
+      {
+        "key": "ArrowLeft",
+        "atMs": 800,
+        "holdMs": 1500
+      }
+    ]
+  }
+]

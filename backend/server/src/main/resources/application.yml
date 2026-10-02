@@ -1,0 +1,175 @@
+spring:
+  # 全平台虚拟线程:Tomcat 请求处理、@Scheduled、默认 @Async 执行器全部虚拟线程化;
+  # 并发上限由各模块的显式配额(信号量/认领策略/专用池)控制,不再由线程数隐式决定
+  threads:
+    virtual:
+      enabled: true
+  application:
+    name: teaching-backend
+  # 本机开发直接读仓库 deploy/ 下的密码文件与 .env(仓库根由 RepositoryRootEnvironmentPostProcessor 定位);容器里由 compose 指到 /run/secrets
+  config:
+    import:
+      - optional:configtree:${TEACHING_SECRETS_DIR:${teaching.repo-root}/deploy/secrets/}
+      - optional:file:${teaching.repo-root:}/deploy/.env[.properties]
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+      fail-on-trailing-tokens: true
+      fail-on-missing-creator-properties: true
+  datasource:
+    url: ${DATABASE_URL:jdbc:mysql://127.0.0.1:3306/teaching_platform?useUnicode=true&characterEncoding=utf8&connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true}
+    username: teaching_app
+    password: ${mysql-app-password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 4
+      connection-timeout: 5000
+  data:
+    redis:
+      host: ${REDIS_HOST:127.0.0.1}
+      port: 6379
+      password: ${redis-password}
+      timeout: 3s
+  session:
+    store-type: redis
+    timeout: 8h
+    redis:
+      namespace: teaching:session
+  servlet:
+    multipart:
+      max-file-size: 256MB
+      max-request-size: 257MB
+
+server:
+  port: 8080
+  servlet:
+    session:
+      cookie:
+        name: TEACHING_SESSION
+        http-only: true
+        secure: ${SESSION_COOKIE_SECURE:false}
+        same-site: strict
+  forward-headers-strategy: framework
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    banner: false
+    db-config:
+      id-type: auto
+
+springdoc:
+  api-docs:
+    path: /api/openapi
+  packages-to-scan: cn.utcy.teaching
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+
+teaching:
+  # 生产环境文件日志目录(容器由 compose 指定);开发环境只打控制台,不用它
+  log-dir: ${TEACHING_LOG_DIR:}
+  bootstrap:
+    root-account-enabled: true
+    root-password-path: ${ROOT_INITIAL_PASSWORD_PATH:file:${teaching.repo-root}/deploy/secrets/root-initial-password}
+  # 登录防暴力破解:窗口内同一账号错 5 次锁 15 分钟,同一来源 IP 错 30 次锁 15 分钟(计数在 Redis)
+  login-throttle:
+    account-max-failures: 5
+    ip-max-failures: 30
+    window: PT15M
+    lock-duration: PT15M
+  object-storage:
+    deletion-delay: PT5S
+  oss:
+    endpoint: ${ALIYUN_OSS_ENDPOINT}
+    bucket: ${ALIYUN_OSS_RESOURCE_BUCKET}
+    credentials-path: ${ALIYUN_OSS_CREDENTIALS_PATH:file:${teaching.repo-root}/deploy/secrets/aliyun-oss-credentials}
+  testcase-oss:
+    bucket: ${ALIYUN_OSS_TESTCASE_BUCKET}
+  judge:
+    jobs-stream: judge.jobs
+    results-stream: judge.results
+    consumer-group: judge-workers
+    republish-timeout: 10m
+    pending-timeout: 15m
+    max-requeues: 3
+    result-consumer-name: backend-1
+  ai:
+    dashscope:
+      base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+      native-base-url: https://dashscope.aliyuncs.com/api/v1
+      connect-timeout: PT5S
+      idle-timeout: PT2M
+    config:
+      key-path: ${AI_CONFIG_KEY_PATH:file:${teaching.repo-root}/deploy/secrets/ai-config-key}
+    mineru:
+      base-url: ${AI_MINERU_BASE_URL:https://mineru.net}
+  blockcoding:
+    model: ${BLOCKCODING_LLM_MODEL:qwen-plus}
+    temperature: 0.3
+    top-p: 0.9
+    max-output-tokens: 8192
+    context-window: 120000
+    oss:
+      bucket: ${ALIYUN_OSS_RESOURCE_BUCKET}
+  courseware:
+    model: ${COURSEWARE_LLM_MODEL:qwen-plus}
+    temperature: 0.3
+    top-p: 0.9
+    max-output-tokens: 8192
+    reasoning: false
+    tts-model: ${COURSEWARE_TTS_MODEL:qwen3-tts-flash}
+    tts-voice: ${COURSEWARE_TTS_VOICE:Cherry}
+    image-model: ${COURSEWARE_IMAGE_MODEL:qwen-image-2.0}
+    # 课件模型是否支持视觉输入(qwen-vl 系设 true):为真时素材图片随提示词附上
+    vision: ${COURSEWARE_LLM_VISION:false}
+    oss:
+      bucket: ${ALIYUN_OSS_RESOURCE_BUCKET}
+  question:
+    model: ${QUESTION_LLM_MODEL:qwen-plus}
+    temperature: 0.4
+    top-p: 0.9
+    max-output-tokens: 8192
+    reasoning: false
+  knowledgegraph:
+    model: ${KG_LLM_MODEL:qwen-plus}
+    temperature: 0.2
+    top-p: 0.9
+    max-output-tokens: 8192
+    reasoning: false
+    max-section-chars: 24000
+    max-book-chars: 8000000
+    max-book-pages: 800
+    embedding-model: text-embedding-v4
+    section-concurrency: 4
+    progress-timeout: PT20M
+  tutor:
+    model: ${TUTOR_LLM_MODEL:qwen-plus}
+    temperature: 0.2
+    top-p: 0.9
+    max-output-tokens: 8000
+    reasoning: false
+    max-rounds: 8
+    # 智能问答模型的上下文窗口(token):上下文裁剪与历史预算的依据
+    context-window: ${TUTOR_LLM_CONTEXT_WINDOW:131072}
+  knowledgebase:
+    es:
+      uri: ${KB_ES_URI:http://127.0.0.1:9200}
+      username: elastic
+      password: ${elastic-password}
+      connect-timeout: PT5S
+    embedding-model: text-embedding-v4
+    embedding-dimension: 1024
+    embedding-batch-size: 10
+    chunk-target-chars: 800
+    chunk-max-chars: 1200
+    chunk-overlap-chars: 80
+    progress-timeout: PT10M

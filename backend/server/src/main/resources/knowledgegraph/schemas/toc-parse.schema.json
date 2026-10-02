@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "目录确定性解析结果",
+  "type": "object",
+  "properties": {
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "number": { "type": "string", "maxLength": 64, "description": "编号本身,如 第3章/3.2/附录D;无编号为空串" },
+          "title": { "type": "string", "minLength": 1, "maxLength": 255 },
+          "level": { "type": "integer", "minimum": 1, "maximum": 6, "description": "由 number 规则推导" },
+          "pagePrint": { "type": "integer", "minimum": 0, "description": "行尾印刷页码;行尾无页码必须为 0,禁止猜测" }
+        },
+        "required": ["number", "title", "level", "pagePrint"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["entries"],
+  "additionalProperties": false
+}

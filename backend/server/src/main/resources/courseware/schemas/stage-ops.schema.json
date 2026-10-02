@@ -1,0 +1,543 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "课件编辑操作(EditOp)的参数定义。Block 与 Action 的定义分别来自 scene-blocks / speech schema,由工具层打包,不在此重复。",
+  "definitions": {
+    "UpdateStageMetaOp": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "type": "string",
+          "const": "update_stage_meta"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "op",
+        "title"
+      ],
+      "additionalProperties": false,
+      "description": "改课件标题"
+    },
+    "AddSceneOp": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "type": "string",
+          "const": "add_scene"
+        },
+        "index": {
+          "type": "integer",
+          "description": "插入位置(0 起,越界夹紧到末尾)"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "content",
+            "quiz"
+          ],
+          "description": "讲解页或测验页;交互页用 add_interactive_scene"
+        },
+        "preset": {
+          "type": "string",
+          "enum": [
+            "title-cover",
+            "standard",
+            "two-column",
+            "media-right",
+            "quiz",
+            "section-divider"
+          ]
+        },
+        "summary": {
+          "type": "string",
+          "description": "本页要讲什么,可不填"
+        },
+        "blocks": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/Block"
+          },
+          "description": "这页的初始内容块(至少一块)"
+        }
+      },
+      "required": [
+        "op",
+        "index",
+        "title",
+        "type",
+        "preset",
+        "blocks"
+      ],
+      "additionalProperties": false,
+      "description": "新增一页(结构操作,自带内容)"
+    },
+    "AddInteractiveSceneOp": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "type": "string",
+          "const": "add_interactive_scene"
+        },
+        "index": {
+          "type": "integer",
+          "description": "插入位置(0 起,越界夹紧到末尾)"
+        },
+        "title": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string",
+          "description": "这页让学生做什么,可不填"
+        },
+        "html": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000000,
+          "description": "自包含的完整 HTML 文档:不联网取数、不嵌套文档、外部资源只许白名单 CDN;落库前做 LaTeX 定界归一与 KaTeX 注入"
+        },
+        "widgetType": {
+          "type": "string",
+          "enum": [
+            "simulation",
+            "diagram",
+            "game",
+            "visualization3d"
+          ],
+          "description": "组件类型标注(可选)"
+        }
+      },
+      "required": [
+        "op",
+        "index",
+        "title",
+        "html"
+      ],
+      "additionalProperties": false,
+      "description": "新增一个交互页(教师自备的网页)"
+    },
+    "AddVideoSceneOp": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "type": "string",
+          "const": "add_video_scene"
+        },
+        "index": {
+          "type": "integer",
+          "description": "插入位置(0 起,越界夹紧到末尾)"
+        },
+        "title": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string",
+          "description": "视频讲什么,可不填"
+        },
+        "src": {
+          "type": "string",
+          "minLength": 1,
+          "description": "上传到本课件名下的视频对象键(POST /videos 的返回)"
+        }
+      },
+      "required": [
+        "op",
+        "index",
+        "title",
+        "src"
+      ],
+      "additionalProperties": false,
+      "description": "新增一个视频页(整页就是一个视频)"
+    },
+    "DeleteSceneOp": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "type": "string",
+          "const": "delete_scene"
+        },
+        "sceneId": {
+          "type": "string",
+          "description": "页 id"
+        }
+      },
+      "required": [
+        "op",
+        "sceneId"
+      ],
+      "additionalProperties": false,
+      "description": "删除一页"
+    },
+    "MoveSceneOp": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "type": "string",
+          "const": "move_scene"
+        },
+        "sceneId": {
+          "type": "string",
+          "description": "页 id"
+        },
+        "toIndex": {
+          "type": "integer",
+          "description": "目标位置(0 起)"
+        }
+      },
+      "required": [
+        "op",
+        "sceneId",
+        "toIndex"
+      ],
+      "additionalProperties": false,
+      "description": "移动一页"
+    },
+    "UpdateSceneMetaOp": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "type": "string",
+          "const": "update_scene_meta"
+        },
+        "sceneId": {
+          "type": "string",
+          "description": "页 id"
+        },
+        "title": {
+          "type": "string"
+        },
+        "preset": {
+          "type": "string",
+          "enum": [
+            "title-cover",
+            "standard",
+            "two-column",
+            "media-right",
+            "quiz",
+            "section-divider"
+          ]
+        },
+        "summary": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "op",
+        "sceneId"
+      ],
+      "additionalProperties": false,
+      "description": "改页面标题 / 预设 / 概要(type 不可改)"
+    },
+    "AddBlockOp": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "type": "string",
+          "const": "add_block"
+        },
+        "sceneId": {
+          "type": "string",
+          "description": "页 id"
+        },
+        "index": {
+          "type": "integer",
+          "description": "插入位置(0 起,越界夹紧到末尾)"
+        },
+        "block": {
+          "$ref": "#/definitions/Block"
+        }
+      },
+      "required": [
+        "op",
+        "sceneId",
+        "index",
+        "block"
+      ],
+      "additionalProperties": false,
+      "description": "在页内新增块(交互页不支持块操作)"
+    },
+    "ReplaceBlockOp": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "type": "string",
+          "const": "replace_block"
+        },
+        "sceneId": {
+          "type": "string",
+          "description": "页 id"
+        },
+        "blockId": {
+          "type": "string"
+        },
+        "block": {
+          "$ref": "#/definitions/Block"
+        }
+      },
+      "required": [
+        "op",
+        "sceneId",
+        "blockId",
+        "block"
+      ],
+      "additionalProperties": false,
+      "description": "整块替换(块 id 可沿用)"
+    },
+    "DeleteBlockOp": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "type": "string",
+          "const": "delete_block"
+        },
+        "sceneId": {
+          "type": "string",
+          "description": "页 id"
+        },
+        "blockId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "op",
+        "sceneId",
+        "blockId"
+      ],
+      "additionalProperties": false,
+      "description": "删块(指向它的讲稿动作会被自动清理)"
+    },
+    "MoveBlockOp": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "type": "string",
+          "const": "move_block"
+        },
+        "sceneId": {
+          "type": "string",
+          "description": "页 id"
+        },
+        "blockId": {
+          "type": "string"
+        },
+        "toIndex": {
+          "type": "integer",
+          "description": "目标位置(0 起)"
+        }
+      },
+      "required": [
+        "op",
+        "sceneId",
+        "blockId",
+        "toIndex"
+      ],
+      "additionalProperties": false,
+      "description": "页内移块"
+    },
+    "EditSpeechSegment": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "讲稿文本(口语化,TTS 直接朗读)"
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Action"
+          }
+        }
+      },
+      "required": [
+        "text",
+        "actions"
+      ],
+      "additionalProperties": false,
+      "description": "讲稿段(不含音频字段:文本未变的段自动保留原语音)"
+    },
+    "SetSpeechOp": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "type": "string",
+          "const": "set_speech"
+        },
+        "sceneId": {
+          "type": "string",
+          "description": "页 id"
+        },
+        "speech": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/EditSpeechSegment"
+          }
+        }
+      },
+      "required": [
+        "op",
+        "sceneId",
+        "speech"
+      ],
+      "additionalProperties": false,
+      "description": "整页讲稿替换(动作目标经服务端校验)"
+    },
+    "SetInteractiveHtmlOp": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "type": "string",
+          "const": "set_interactive_html"
+        },
+        "sceneId": {
+          "type": "string",
+          "description": "交互页的 id"
+        },
+        "html": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000000,
+          "description": "整份替换的自包含 HTML 文档(格式要求同 add_interactive_scene)"
+        }
+      },
+      "required": [
+        "op",
+        "sceneId",
+        "html"
+      ],
+      "additionalProperties": false,
+      "description": "整份换掉交互页的网页(讲稿与组件标注保留)"
+    },
+    "SetVideoOp": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "type": "string",
+          "const": "set_video"
+        },
+        "sceneId": {
+          "type": "string",
+          "description": "视频页的 id"
+        },
+        "src": {
+          "type": "string",
+          "minLength": 1,
+          "description": "新视频的对象键"
+        }
+      },
+      "required": [
+        "op",
+        "sceneId",
+        "src"
+      ],
+      "additionalProperties": false,
+      "description": "换掉视频页的视频(讲稿保留)"
+    },
+    "PinBlockOp": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "type": "string",
+          "const": "pin_block"
+        },
+        "sceneId": {
+          "type": "string",
+          "description": "页 id"
+        },
+        "blockId": {
+          "type": "string",
+          "description": "顶层块 id(columns 内的子块不能钉住;columns 本身也不能钉住)"
+        },
+        "x": {
+          "type": "number",
+          "description": "左上角 x(1280×720 逻辑像素,页内)"
+        },
+        "y": {
+          "type": "number",
+          "description": "左上角 y"
+        },
+        "w": {
+          "type": "number",
+          "description": "宽度(≥120)"
+        },
+        "h": {
+          "type": "number",
+          "description": "高度(≥60):只有 image / chart 给,其余块高度由内容量出、不能给"
+        }
+      },
+      "required": [
+        "op",
+        "sceneId",
+        "blockId",
+        "x",
+        "y",
+        "w"
+      ],
+      "additionalProperties": false,
+      "description": "钉住一个顶层块:位置与宽度固定,其余块绕开它上下环绕;已钉住的块再 pin 即移动 / 改尺寸。教师钉住的块不要自行 unpin"
+    },
+    "UnpinBlockOp": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "type": "string",
+          "const": "unpin_block"
+        },
+        "sceneId": {
+          "type": "string",
+          "description": "页 id"
+        },
+        "blockId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "op",
+        "sceneId",
+        "blockId"
+      ],
+      "additionalProperties": false,
+      "description": "解除钉住,块回到自动排版(字号档保留);只在用户明确要求恢复自动时用"
+    },
+    "SetBlockSizeOp": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "type": "string",
+          "const": "set_block_size"
+        },
+        "sceneId": {
+          "type": "string",
+          "description": "页 id"
+        },
+        "blockId": {
+          "type": "string",
+          "description": "顶层块 id(columns 的字号档作用于全部子块)"
+        },
+        "size": {
+          "type": "string",
+          "enum": [
+            "small",
+            "normal",
+            "large",
+            "xlarge"
+          ],
+          "description": "字号档:small 0.85 / normal 1(缺省)/ large 1.2 / xlarge 1.45 倍"
+        }
+      },
+      "required": [
+        "op",
+        "sceneId",
+        "blockId",
+        "size"
+      ],
+      "additionalProperties": false,
+      "description": "改一个顶层块的字号档;normal 即恢复缺省。内容偏多的页别用 large / xlarge"
+    }
+  }
+}

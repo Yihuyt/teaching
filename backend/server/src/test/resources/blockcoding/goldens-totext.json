@@ -1,0 +1,882 @@
+[
+ {
+  "idx": 0,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_gotoxy\"><value name=\"X\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value><value name=\"Y\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value><next><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value><next><block type=\"looks_sayforsecs\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow></value><value name=\"SECS\"><shadow type=\"math_number\"><field name=\"NUM\">2</field></shadow></value></block></next></block></next></block></next></block></xml>",
+  "text": "when green flag clicked\n  go to x:(0) y:(0)\n  move (10) steps\n  say [Hello!] for (2) seconds"
+ },
+ {
+  "idx": 1,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_setvariableto\"><field name=\"VARIABLE\" variabletype=\"\">score</field><value name=\"VALUE\"><shadow type=\"text\"><field name=\"TEXT\">0</field></shadow></value><next><block type=\"control_repeat\"><value name=\"TIMES\"><shadow type=\"math_whole_number\"><field name=\"NUM\">10</field></shadow></value><statement name=\"SUBSTACK\"><block type=\"data_changevariableby\"><field name=\"VARIABLE\" variabletype=\"\">score</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value><next><block type=\"control_if_else\"><value name=\"CONDITION\"><block type=\"operator_gt\"><value name=\"OPERAND1\"><shadow type=\"text\"><field name=\"TEXT\"></field></shadow><block type=\"data_variable\"><field name=\"VARIABLE\" variabletype=\"\">score</field></block></value><value name=\"OPERAND2\"><shadow type=\"text\"><field name=\"TEXT\">5</field></shadow></value></block></value><statement name=\"SUBSTACK\"><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">big</field></shadow></value></block></statement><statement name=\"SUBSTACK2\"><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow><block type=\"operator_multiply\"><value name=\"NUM1\"><shadow type=\"math_number\"><field name=\"NUM\"></field></shadow><block type=\"data_variable\"><field name=\"VARIABLE\" variabletype=\"\">score</field></block></value><value name=\"NUM2\"><shadow type=\"math_number\"><field name=\"NUM\">2</field></shadow></value></block></value></block></statement></block></next></block></statement></block></next></block></next></block></xml>",
+  "text": "when green flag clicked\n  set [score v] to (0)\n  repeat (10)\n    change [score v] by (1)\n    if <(score) > (5)> then\n      say [big]\n    else\n      say ((score) * (2))\n    end\n  end"
+ },
+ {
+  "idx": 2,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_setvariableto\"><field name=\"VARIABLE\" variabletype=\"\">n</field><value name=\"VALUE\"><shadow type=\"text\"><field name=\"TEXT\">0</field></shadow></value><next><block type=\"motion_turnright\"><value name=\"DEGREES\"><shadow type=\"math_number\"><field name=\"NUM\">15</field></shadow></value><next><block type=\"control_wait_until\"><value name=\"CONDITION\"><block type=\"sensing_mousedown\"></block></value><next><block type=\"control_repeat_until\"><value name=\"CONDITION\"><block type=\"operator_equals\"><value name=\"OPERAND1\"><shadow type=\"text\"><field name=\"TEXT\"></field></shadow><block type=\"data_variable\"><field name=\"VARIABLE\" variabletype=\"\">n</field></block></value><value name=\"OPERAND2\"><shadow type=\"text\"><field name=\"TEXT\">5</field></shadow></value></block></value><statement name=\"SUBSTACK\"><block type=\"data_changevariableby\"><field name=\"VARIABLE\" variabletype=\"\">n</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value></block></statement><next><block type=\"control_stop\"><field name=\"STOP_OPTION\">all</field></block></next></block></next></block></next></block></next></block></next></block></xml>",
+  "text": "when green flag clicked\n  set [n v] to (0)\n  turn right (15) degrees\n  wait until <mouse down?>\n  repeat until <(n) = (5)>\n    change [n v] by (1)\n  end\n  stop [all v]"
+ },
+ {
+  "idx": 3,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"control_stop\"><field name=\"STOP_OPTION\">all</field></block></next></block><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></xml>",
+  "text": "when green flag clicked\n  stop [all v]\n\nmove (10) steps"
+ },
+ {
+  "idx": 4,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"event_broadcast\"><value name=\"BROADCAST_INPUT\"><shadow type=\"event_broadcast_menu\"><field name=\"BROADCAST_OPTION\" variabletype=\"broadcast_msg\">go</field></shadow></value></block></next></block><block type=\"event_whenbroadcastreceived\"><field name=\"BROADCAST_OPTION\" variabletype=\"broadcast_msg\">go</field><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">received!</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  broadcast [go v]\n\nwhen I receive [go v]\n  say [received!]"
+ },
+ {
+  "idx": 5,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_setvariableto\"><field name=\"VARIABLE\" variabletype=\"\">score</field><value name=\"VALUE\"><shadow type=\"text\"><field name=\"TEXT\">0</field></shadow></value><next><block type=\"data_deletealloflist\"><field name=\"LIST\" variabletype=\"list\">items</field><next><block type=\"control_repeat\"><value name=\"TIMES\"><shadow type=\"math_whole_number\"><field name=\"NUM\">10</field></shadow></value><statement name=\"SUBSTACK\"><block type=\"data_addtolist\"><value name=\"ITEM\"><shadow type=\"text\"><field name=\"TEXT\">thing</field></shadow><block type=\"operator_random\"><value name=\"FROM\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value><value name=\"TO\"><shadow type=\"math_number\"><field name=\"NUM\">100</field></shadow></value></block></value><field name=\"LIST\" variabletype=\"list\">items</field></block></statement><next><block type=\"data_setvariableto\"><field name=\"VARIABLE\" variabletype=\"\">i</field><value name=\"VALUE\"><shadow type=\"text\"><field name=\"TEXT\">0</field></shadow></value><next><block type=\"control_repeat\"><value name=\"TIMES\"><shadow type=\"math_whole_number\"><field name=\"NUM\">10</field></shadow><block type=\"data_lengthoflist\"><field name=\"LIST\" variabletype=\"list\">items</field></block></value><statement name=\"SUBSTACK\"><block type=\"data_changevariableby\"><field name=\"VARIABLE\" variabletype=\"\">i</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value><next><block type=\"control_if\"><value name=\"CONDITION\"><block type=\"operator_and\"><value name=\"OPERAND1\"><block type=\"operator_gt\"><value name=\"OPERAND1\"><shadow type=\"text\"><field name=\"TEXT\"></field></shadow><block type=\"data_itemoflist\"><value name=\"INDEX\"><shadow type=\"math_integer\"><field name=\"NUM\">1</field></shadow><block type=\"data_variable\"><field name=\"VARIABLE\" variabletype=\"\">i</field></block></value><field name=\"LIST\" variabletype=\"list\">items</field></block></value><value name=\"OPERAND2\"><shadow type=\"text\"><field name=\"TEXT\">50</field></shadow></value></block></value><value name=\"OPERAND2\"><block type=\"operator_not\"><value name=\"OPERAND\"><block type=\"sensing_touchingobject\"><value name=\"TOUCHINGOBJECTMENU\"><shadow type=\"sensing_touchingobjectmenu\"><field name=\"TOUCHINGOBJECTMENU\">_edge_</field></shadow></value></block></value></block></value></block></value><statement name=\"SUBSTACK\"><block type=\"data_changevariableby\"><field name=\"VARIABLE\" variabletype=\"\">score</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow><block type=\"operator_join\"><value name=\"STRING1\"><shadow type=\"text\"><field name=\"TEXT\">score: </field></shadow></value><value name=\"STRING2\"><shadow type=\"text\"><field name=\"TEXT\">world</field></shadow><block type=\"data_variable\"><field name=\"VARIABLE\" variabletype=\"\">score</field></block></value></block></value></block></next></block></statement></block></next></block></statement></block></next></block></next></block></next></block></next></block></next></block></xml>",
+  "text": "when green flag clicked\n  set [score v] to (0)\n  delete all of [items v]\n  repeat (10)\n    add (pick random (1) to (100)) to [items v]\n  end\n  set [i v] to (0)\n  repeat (length of [items v])\n    change [i v] by (1)\n    if <<(item (i) of [items v]) > (50)> and <not <touching [edge v]?>>> then\n      change [score v] by (1)\n      say (join [score: ] (score))\n    end\n  end"
+ },
+ {
+  "idx": 6,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow><block type=\"looks_costumenumbername\"><field name=\"NUMBER_NAME\">number</field></block></value><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow><block type=\"looks_costumenumbername\"><field name=\"NUMBER_NAME\">name</field></block></value></block></next></block></next></block></xml>",
+  "text": "when green flag clicked\n  say (costume [number v])\n  say (costume [name v])"
+ },
+ {
+  "idx": 7,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_setx\"><value name=\"X\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow><block type=\"operator_add\"><value name=\"NUM1\"><shadow type=\"math_number\"><field name=\"NUM\">-200</field></shadow></value><value name=\"NUM2\"><shadow type=\"math_number\"><field name=\"NUM\"></field></shadow><block type=\"operator_multiply\"><value name=\"NUM1\"><shadow type=\"math_number\"><field name=\"NUM\"></field></shadow><block type=\"operator_subtract\"><value name=\"NUM1\"><shadow type=\"math_number\"><field name=\"NUM\"></field></shadow><block type=\"data_variable\"><field name=\"VARIABLE\" variabletype=\"\">i</field></block></value><value name=\"NUM2\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value></block></value><value name=\"NUM2\"><shadow type=\"math_number\"><field name=\"NUM\">30</field></shadow></value></block></value></block></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  set x to ((-200) + (((i) - (1)) * (30)))"
+ },
+ {
+  "idx": 8,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow><block type=\"operator_subtract\"><value name=\"NUM1\"><shadow type=\"math_number\"><field name=\"NUM\"></field></shadow><block type=\"operator_add\"><value name=\"NUM1\"><shadow type=\"math_number\"><field name=\"NUM\"></field></shadow><block type=\"data_variable\"><field name=\"VARIABLE\" variabletype=\"\">j</field></block></value><value name=\"NUM2\"><shadow type=\"math_number\"><field name=\"NUM\"></field></shadow><block type=\"data_variable\"><field name=\"VARIABLE\" variabletype=\"\">k</field></block></value></block></value><value name=\"NUM2\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value></block></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  move (((j) + (k)) - (1)) steps"
+ },
+ {
+  "idx": 9,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"control_wait_until\"><value name=\"CONDITION\"><block type=\"operator_or\"><value name=\"OPERAND1\"><block type=\"operator_and\"><value name=\"OPERAND1\"><block type=\"sensing_mousedown\"></block></value><value name=\"OPERAND2\"><block type=\"sensing_mousedown\"></block></value></block></value><value name=\"OPERAND2\"><block type=\"sensing_mousedown\"></block></value></block></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  wait until <<<mouse down?> and <mouse down?>> or <mouse down?>>"
+ },
+ {
+  "idx": 10,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_gotoxy\"><value name=\"X\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value><value name=\"Y\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow><block type=\"operator_add\"><value name=\"NUM1\"><shadow type=\"math_number\"><field name=\"NUM\"></field></shadow><block type=\"operator_add\"><value name=\"NUM1\"><shadow type=\"math_number\"><field name=\"NUM\">-100</field></shadow></value><value name=\"NUM2\"><shadow type=\"math_number\"><field name=\"NUM\"></field></shadow><block type=\"operator_multiply\"><value name=\"NUM1\"><shadow type=\"math_number\"><field name=\"NUM\"></field></shadow><block type=\"data_variable\"><field name=\"VARIABLE\" variabletype=\"\">height1</field></block></value><value name=\"NUM2\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></value></block></value><value name=\"NUM2\"><shadow type=\"math_number\"><field name=\"NUM\">5</field></shadow></value></block></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  go to x:(0) y:(((-100) + ((height1) * (10))) + (5))"
+ },
+ {
+  "idx": 11,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  move (10) steps"
+ },
+ {
+  "idx": 12,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"control_wait_until\"></block></next></block></xml>",
+  "text": "when green flag clicked\n  wait until <>"
+ },
+ {
+  "idx": 13,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  move (10) steps"
+ },
+ {
+  "idx": 14,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_sayforsecs\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">（哈哈）</field></shadow></value><value name=\"SECS\"><shadow type=\"math_number\"><field name=\"NUM\">2</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  say [（哈哈）] for (2) seconds"
+ },
+ {
+  "idx": 15,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  move (10) steps"
+ },
+ {
+  "idx": 16,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 17,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 18,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 19,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"pen_penDown\"></block></next></block></xml>",
+  "text": "when green flag clicked\n  pen down"
+ },
+ {
+  "idx": 20,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  say [Hello!]"
+ },
+ {
+  "idx": 21,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow><block type=\"data_variable\"><field name=\"VARIABLE\" variabletype=\"\">score</field></block></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  say (score)"
+ },
+ {
+  "idx": 22,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"control_repeat\"><value name=\"TIMES\"><shadow type=\"math_whole_number\"><field name=\"NUM\">10</field></shadow></value><statement name=\"SUBSTACK\"><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></statement></block></next></block></xml>",
+  "text": "when green flag clicked\n  repeat (10)\n    move (10) steps\n  end"
+ },
+ {
+  "idx": 23,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  move (10) steps"
+ },
+ {
+  "idx": 24,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_hide\"><next><block type=\"data_setvariableto\"><field name=\"VARIABLE\" variabletype=\"\">k</field><value name=\"VALUE\"><shadow type=\"text\"><field name=\"TEXT\">1</field></shadow></value><next><block type=\"control_repeat\"><value name=\"TIMES\"><shadow type=\"math_whole_number\"><field name=\"NUM\">3</field></shadow></value><statement name=\"SUBSTACK\"><block type=\"data_changevariableby\"><field name=\"VARIABLE\" variabletype=\"\">k</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value></block></statement></block></next></block></next></block></next></block></xml>",
+  "text": "when green flag clicked\n  hide\n  set [k v] to (1)\n  repeat (3)\n    change [k v] by (1)\n  end"
+ },
+ {
+  "idx": 25,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"control_repeat\"><value name=\"TIMES\"><shadow type=\"math_whole_number\"><field name=\"NUM\">2</field></shadow></value><statement name=\"SUBSTACK\"><block type=\"control_if\"><value name=\"CONDITION\"><block type=\"sensing_mousedown\"></block></value><statement name=\"SUBSTACK\"><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">hi</field></shadow></value></block></statement></block></statement></block></next></block></xml>",
+  "text": "when green flag clicked\n  repeat (2)\n    if <mouse down?> then\n      say [hi]\n    end\n  end"
+ },
+ {
+  "idx": 26,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_setvariableto\"><field name=\"VARIABLE\" variabletype=\"\">lives</field><value name=\"VALUE\"><shadow type=\"text\"><field name=\"TEXT\">3</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  set [lives v] to (3)"
+ },
+ {
+  "idx": 27,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_addtolist\"><value name=\"ITEM\"><shadow type=\"text\"><field name=\"TEXT\">x</field></shadow></value><field name=\"LIST\" variabletype=\"list\">items</field></block></next></block></xml>",
+  "text": "when green flag clicked\n  add [x] to [items v]"
+ },
+ {
+  "idx": 28,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  say [Hello!]"
+ },
+ {
+  "idx": 29,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_addtolist\"><value name=\"ITEM\"><shadow type=\"text\"><field name=\"TEXT\">a</field></shadow></value><field name=\"LIST\" variabletype=\"list\">items</field><next><block type=\"data_insertatlist\"><value name=\"ITEM\"><shadow type=\"text\"><field name=\"TEXT\">b</field></shadow></value><value name=\"INDEX\"><shadow type=\"math_integer\"><field name=\"NUM\">1</field></shadow></value><field name=\"LIST\" variabletype=\"list\">items</field><next><block type=\"data_replaceitemoflist\"><value name=\"INDEX\"><shadow type=\"math_integer\"><field name=\"NUM\">1</field></shadow></value><field name=\"LIST\" variabletype=\"list\">items</field><value name=\"ITEM\"><shadow type=\"text\"><field name=\"TEXT\">c</field></shadow></value><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow><block type=\"data_itemoflist\"><value name=\"INDEX\"><shadow type=\"math_integer\"><field name=\"NUM\">1</field></shadow></value><field name=\"LIST\" variabletype=\"list\">items</field></block></value><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow><block type=\"data_lengthoflist\"><field name=\"LIST\" variabletype=\"list\">items</field></block></value><next><block type=\"control_if\"><value name=\"CONDITION\"><block type=\"data_listcontainsitem\"><field name=\"LIST\" variabletype=\"list\">items</field><value name=\"ITEM\"><shadow type=\"text\"><field name=\"TEXT\">c</field></shadow></value></block></value><statement name=\"SUBSTACK\"><block type=\"data_deleteoflist\"><value name=\"INDEX\"><shadow type=\"math_integer\"><field name=\"NUM\">1</field></shadow></value><field name=\"LIST\" variabletype=\"list\">items</field></block></statement><next><block type=\"data_deletealloflist\"><field name=\"LIST\" variabletype=\"list\">items</field></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+  "text": "when green flag clicked\n  add [a] to [items v]\n  insert [b] at (1) of [items v]\n  replace item (1) of [items v] with [c]\n  say (item (1) of [items v])\n  say (length of [items v])\n  if <[items v] contains [c]?> then\n    delete (1) of [items v]\n  end\n  delete all of [items v]"
+ },
+ {
+  "idx": 30,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_goto\"><value name=\"TO\"><shadow type=\"motion_goto_menu\"><field name=\"TO\">_mouse_</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  go to [mouse-pointer v]"
+ },
+ {
+  "idx": 31,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"procedures_definition\"><statement name=\"custom_block\"><shadow type=\"procedures_prototype\"><mutation proccode=\"jump %s high\" argumentids=\"[&quot;arg_jumpshigh_height&quot;]\" argumentnames=\"[&quot;height&quot;]\" argumentdefaults=\"[&quot;&quot;]\" warp=\"false\"></mutation><value name=\"arg_jumpshigh_height\"><shadow type=\"argument_reporter_string_number\"><field name=\"VALUE\">height</field></shadow></value></shadow></statement><next><block type=\"motion_changeyby\"><value name=\"DY\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow><block type=\"argument_reporter_string_number\"><field name=\"VALUE\">height</field></block></value></block></next></block><block type=\"event_whenflagclicked\"><next><block type=\"procedures_call\"><mutation proccode=\"jump %s high\" argumentids=\"[&quot;arg_jumpshigh_height&quot;]\" warp=\"false\"></mutation><value name=\"arg_jumpshigh_height\"><shadow type=\"text\"><field name=\"TEXT\">50</field></shadow></value></block></next></block></xml>",
+  "text": "define jump (height) high\n  change y by (height)\n\nwhen green flag clicked\n  jump (50) high"
+ },
+ {
+  "idx": 32,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"procedures_definition\"><statement name=\"custom_block\"><shadow type=\"procedures_prototype\"><mutation proccode=\"check %b\" argumentids=\"[&quot;arg_checkb_flag&quot;]\" argumentnames=\"[&quot;flag&quot;]\" argumentdefaults=\"[&quot;false&quot;]\" warp=\"false\"></mutation><value name=\"arg_checkb_flag\"><shadow type=\"argument_reporter_boolean\"><field name=\"VALUE\">flag</field></shadow></value></shadow></statement><next><block type=\"control_if\"><value name=\"CONDITION\"><block type=\"argument_reporter_boolean\"><field name=\"VALUE\">flag</field></block></value><statement name=\"SUBSTACK\"><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">yes</field></shadow></value></block></statement></block></next></block><block type=\"event_whenflagclicked\"><next><block type=\"procedures_call\"><mutation proccode=\"check %b\" argumentids=\"[&quot;arg_checkb_flag&quot;]\" warp=\"false\"></mutation><value name=\"arg_checkb_flag\"><block type=\"sensing_mousedown\"></block></value></block></next></block></xml>",
+  "text": "define check <flag>\n  if <flag> then\n    say [yes]\n  end\n\nwhen green flag clicked\n  check <mouse down?>"
+ },
+ {
+  "idx": 33,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"procedures_call\"><mutation proccode=\"draw bar %s\" argumentids=\"[&quot;id_n&quot;]\" warp=\"false\"></mutation><value name=\"id_n\"><shadow type=\"text\"><field name=\"TEXT\">7</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  draw bar (7)"
+ },
+ {
+  "idx": 34,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 35,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">你好</field></shadow></value></block></next></block></next></block></xml>",
+  "text": "when green flag clicked\n  move (10) steps\n  say [你好]"
+ },
+ {
+  "idx": 36,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_setvariableto\"><field name=\"VARIABLE\" variabletype=\"\">score</field><value name=\"VALUE\"><shadow type=\"text\"><field name=\"TEXT\">5</field></shadow></value><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">hello</field></shadow></value></block></next></block></next></block></xml>",
+  "text": "when green flag clicked\n  set [score v] to (5)\n  say [hello]"
+ },
+ {
+  "idx": 37,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_turnright\"><value name=\"DEGREES\"><shadow type=\"math_number\"><field name=\"NUM\">15</field></shadow></value><next><block type=\"motion_turnleft\"><value name=\"DEGREES\"><shadow type=\"math_number\"><field name=\"NUM\">15</field></shadow></value><next><block type=\"looks_sayforsecs\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">hi</field></shadow></value><value name=\"SECS\"><shadow type=\"math_number\"><field name=\"NUM\">2</field></shadow></value></block></next></block></next></block></next></block></xml>",
+  "text": "when green flag clicked\n  turn right (15) degrees\n  turn left (15) degrees\n  say [hi] for (2) seconds"
+ },
+ {
+  "idx": 38,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 39,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value><next><block type=\"looks_sayforsecs\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">hi</field></shadow></value><value name=\"SECS\"><shadow type=\"math_number\"><field name=\"NUM\">2</field></shadow></value><next><block type=\"data_setvariableto\"><field name=\"VARIABLE\" variabletype=\"\">score</field><value name=\"VALUE\"><shadow type=\"text\"><field name=\"TEXT\">0</field></shadow></value></block></next></block></next></block></next></block></xml>",
+  "text": "when green flag clicked\n  move (10) steps\n  say [hi] for (2) seconds\n  set [score v] to (0)"
+ },
+ {
+  "idx": 40,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"control_repeat\"><value name=\"TIMES\"><shadow type=\"math_whole_number\"><field name=\"NUM\">2</field></shadow></value><statement name=\"SUBSTACK\"><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">hi</field></shadow></value></block></next></block></statement></block></next></block></xml>",
+  "text": "when green flag clicked\n  repeat (2)\n    move (10) steps\n    say [hi]\n  end"
+ },
+ {
+  "idx": 41,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">hi</field></shadow></value></block></next></block></next></block></xml>",
+  "text": "when green flag clicked\n  move (10) steps\n  say [hi]"
+ },
+ {
+  "idx": 42,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">a   b</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  say [a b]"
+ },
+ {
+  "idx": 43,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_setvariableto\"><field name=\"VARIABLE\" variabletype=\"\">分数</field><value name=\"VALUE\"><shadow type=\"text\"><field name=\"TEXT\">0</field></shadow></value><next><block type=\"control_repeat\"><value name=\"TIMES\"><shadow type=\"math_whole_number\"><field name=\"NUM\">10</field></shadow></value><statement name=\"SUBSTACK\"><block type=\"data_changevariableby\"><field name=\"VARIABLE\" variabletype=\"\">分数</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value></block></statement></block></next></block></next></block></xml>",
+  "text": "when green flag clicked\n  set [分数 v] to (0)\n  repeat (10)\n    change [分数 v] by (1)\n  end"
+ },
+ {
+  "idx": 44,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"procedures_definition\"><statement name=\"custom_block\"><shadow type=\"procedures_prototype\"><mutation proccode=\"jump %s high\" argumentids=\"[&quot;arg_jumpshigh_height&quot;]\" argumentnames=\"[&quot;height&quot;]\" argumentdefaults=\"[&quot;&quot;]\" warp=\"false\"></mutation><value name=\"arg_jumpshigh_height\"><shadow type=\"argument_reporter_string_number\"><field name=\"VALUE\">height</field></shadow></value></shadow></statement><next><block type=\"control_repeat\"><value name=\"TIMES\"><shadow type=\"math_whole_number\"><field name=\"NUM\">10</field></shadow><block type=\"argument_reporter_string_number\"><field name=\"VALUE\">height</field></block></value><statement name=\"SUBSTACK\"><block type=\"motion_changeyby\"><value name=\"DY\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></statement></block></next></block><block type=\"event_whenflagclicked\"><next><block type=\"procedures_call\"><mutation proccode=\"jump %s high\" argumentids=\"[&quot;arg_jumpshigh_height&quot;]\" warp=\"false\"></mutation><value name=\"arg_jumpshigh_height\"><shadow type=\"text\"><field name=\"TEXT\">50</field></shadow></value></block></next></block></xml>",
+  "text": "define jump (height) high\n  repeat (height)\n    change y by (10)\n  end\n\nwhen green flag clicked\n  jump (50) high"
+ },
+ {
+  "idx": 45,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow><block type=\"operator_join\"><value name=\"STRING1\"><shadow type=\"text\"><field name=\"TEXT\">score: </field></shadow></value><value name=\"STRING2\"><shadow type=\"text\"><field name=\"TEXT\">world</field></shadow><block type=\"data_variable\"><field name=\"VARIABLE\" variabletype=\"\">score</field></block></value></block></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  say (join [score: ] (score))"
+ },
+ {
+  "idx": 46,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 47,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_addtolist\"><value name=\"ITEM\"><shadow type=\"text\"><field name=\"TEXT\">1</field></shadow></value><field name=\"LIST\" variabletype=\"list\">数据</field><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow><block type=\"data_itemoflist\"><value name=\"INDEX\"><shadow type=\"math_integer\"><field name=\"NUM\">1</field></shadow></value><field name=\"LIST\" variabletype=\"list\">数据</field></block></value></block></next></block></next></block></xml>",
+  "text": "when green flag clicked\n  add (1) to [数据 v]\n  say (item (1) of [数据 v])"
+ },
+ {
+  "idx": 48,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow><block type=\"operator_add\"><value name=\"NUM1\"><shadow type=\"math_number\"><field name=\"NUM\"></field></shadow><block type=\"motion_xposition\"></block></value><value name=\"NUM2\"><shadow type=\"math_number\"><field name=\"NUM\">5</field></shadow></value></block></value><next><block type=\"motion_turnright\"><value name=\"DEGREES\"><shadow type=\"math_number\"><field name=\"NUM\">15</field></shadow></value></block></next></block></next></block></xml>",
+  "text": "when green flag clicked\n  move ((x position) + (5)) steps\n  turn right (15) degrees"
+ },
+ {
+  "idx": 49,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  move (10) steps"
+ },
+ {
+  "idx": 50,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 51,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenkeypressed\"><field name=\"KEY_OPTION\">space</field></block></xml>",
+  "text": "when [space v] key pressed"
+ },
+ {
+  "idx": 52,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenthisspriteclicked\"></block></xml>",
+  "text": "when this sprite clicked"
+ },
+ {
+  "idx": 53,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenbackdropswitchesto\"><field name=\"BACKDROP\">backdrop1</field></block></xml>",
+  "text": "when backdrop switches to [backdrop1 v]"
+ },
+ {
+  "idx": 54,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whengreaterthan\"><field name=\"WHENGREATERTHANMENU\">LOUDNESS</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></xml>",
+  "text": "when [loudness v] > (10)"
+ },
+ {
+  "idx": 55,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenbroadcastreceived\"><field name=\"BROADCAST_OPTION\" variabletype=\"broadcast_msg\">message1</field></block></xml>",
+  "text": "when I receive [message1 v]"
+ },
+ {
+  "idx": 56,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"control_start_as_clone\"></block></xml>",
+  "text": "when I start as a clone"
+ },
+ {
+  "idx": 57,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_movesteps\"><value name=\"STEPS\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  move (10) steps"
+ },
+ {
+  "idx": 58,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_turnright\"><value name=\"DEGREES\"><shadow type=\"math_number\"><field name=\"NUM\">15</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  turn right (15) degrees"
+ },
+ {
+  "idx": 59,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_turnleft\"><value name=\"DEGREES\"><shadow type=\"math_number\"><field name=\"NUM\">15</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  turn left (15) degrees"
+ },
+ {
+  "idx": 60,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_goto\"><value name=\"TO\"><shadow type=\"motion_goto_menu\"><field name=\"TO\">_mouse_</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  go to [mouse-pointer v]"
+ },
+ {
+  "idx": 61,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_gotoxy\"><value name=\"X\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value><value name=\"Y\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  go to x:(0) y:(0)"
+ },
+ {
+  "idx": 62,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_glideto\"><value name=\"SECS\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value><value name=\"TO\"><shadow type=\"motion_glideto_menu\"><field name=\"TO\">_mouse_</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  glide (1) secs to [mouse-pointer v]"
+ },
+ {
+  "idx": 63,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_glidesecstoxy\"><value name=\"SECS\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value><value name=\"X\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value><value name=\"Y\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  glide (1) secs to x:(0) y:(0)"
+ },
+ {
+  "idx": 64,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_pointindirection\"><value name=\"DIRECTION\"><shadow type=\"math_angle\"><field name=\"NUM\">90</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  point in direction (90)"
+ },
+ {
+  "idx": 65,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_pointtowards\"><value name=\"TOWARDS\"><shadow type=\"motion_pointtowards_menu\"><field name=\"TOWARDS\">_mouse_</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  point towards [mouse-pointer v]"
+ },
+ {
+  "idx": 66,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_changexby\"><value name=\"DX\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  change x by (10)"
+ },
+ {
+  "idx": 67,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_setx\"><value name=\"X\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  set x to (0)"
+ },
+ {
+  "idx": 68,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_changeyby\"><value name=\"DY\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  change y by (10)"
+ },
+ {
+  "idx": 69,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_sety\"><value name=\"Y\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  set y to (0)"
+ },
+ {
+  "idx": 70,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_ifonedgebounce\"></block></next></block></xml>",
+  "text": "when green flag clicked\n  if on edge, bounce"
+ },
+ {
+  "idx": 71,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"motion_setrotationstyle\"><field name=\"STYLE\">left-right</field></block></next></block></xml>",
+  "text": "when green flag clicked\n  set rotation style [left-right v]"
+ },
+ {
+  "idx": 72,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 73,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 74,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 75,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_sayforsecs\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow></value><value name=\"SECS\"><shadow type=\"math_number\"><field name=\"NUM\">2</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  say [Hello!] for (2) seconds"
+ },
+ {
+  "idx": 76,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_say\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hello!</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  say [Hello!]"
+ },
+ {
+  "idx": 77,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_thinkforsecs\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hmm...</field></shadow></value><value name=\"SECS\"><shadow type=\"math_number\"><field name=\"NUM\">2</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  think [Hmm...] for (2) seconds"
+ },
+ {
+  "idx": 78,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_think\"><value name=\"MESSAGE\"><shadow type=\"text\"><field name=\"TEXT\">Hmm...</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  think [Hmm...]"
+ },
+ {
+  "idx": 79,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_show\"></block></next></block></xml>",
+  "text": "when green flag clicked\n  show"
+ },
+ {
+  "idx": 80,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_hide\"></block></next></block></xml>",
+  "text": "when green flag clicked\n  hide"
+ },
+ {
+  "idx": 81,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_switchcostumeto\"><value name=\"COSTUME\"><shadow type=\"looks_costume\"><field name=\"COSTUME\">costume1</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  switch costume to [costume1 v]"
+ },
+ {
+  "idx": 82,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_nextcostume\"></block></next></block></xml>",
+  "text": "when green flag clicked\n  next costume"
+ },
+ {
+  "idx": 83,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_nextbackdrop\"></block></next></block></xml>",
+  "text": "when green flag clicked\n  next backdrop"
+ },
+ {
+  "idx": 84,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_switchbackdropto\"><value name=\"BACKDROP\"><shadow type=\"looks_backdrops\"><field name=\"BACKDROP\">backdrop1</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  switch backdrop to [backdrop1 v]"
+ },
+ {
+  "idx": 85,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_switchbackdroptoandwait\"><value name=\"BACKDROP\"><shadow type=\"looks_backdrops\"><field name=\"BACKDROP\">backdrop1</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  switch backdrop to [backdrop1 v] and wait"
+ },
+ {
+  "idx": 86,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_changeeffectby\"><field name=\"EFFECT\">color</field><value name=\"CHANGE\"><shadow type=\"math_number\"><field name=\"NUM\">25</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  change [color v] effect by (25)"
+ },
+ {
+  "idx": 87,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_seteffectto\"><field name=\"EFFECT\">color</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  set [color v] effect to (0)"
+ },
+ {
+  "idx": 88,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_cleargraphiceffects\"></block></next></block></xml>",
+  "text": "when green flag clicked\n  clear graphic effects"
+ },
+ {
+  "idx": 89,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_changesizeby\"><value name=\"CHANGE\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  change size by (10)"
+ },
+ {
+  "idx": 90,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_setsizeto\"><value name=\"SIZE\"><shadow type=\"math_number\"><field name=\"NUM\">100</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  set size to (100)%"
+ },
+ {
+  "idx": 91,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_gotofrontback\"><field name=\"FRONT_BACK\">front</field></block></next></block></xml>",
+  "text": "when green flag clicked\n  go to [front v] layer"
+ },
+ {
+  "idx": 92,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"looks_goforwardbackwardlayers\"><field name=\"FORWARD_BACKWARD\">forward</field><value name=\"NUM\"><shadow type=\"math_integer\"><field name=\"NUM\">1</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  go [forward v] (1) layers"
+ },
+ {
+  "idx": 93,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 94,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 95,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 96,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"sound_play\"><value name=\"SOUND_MENU\"><shadow type=\"sound_sounds_menu\"><field name=\"SOUND_MENU\">Meow</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  start sound [Meow v]"
+ },
+ {
+  "idx": 97,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"sound_playuntildone\"><value name=\"SOUND_MENU\"><shadow type=\"sound_sounds_menu\"><field name=\"SOUND_MENU\">Meow</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  play sound [Meow v] until done"
+ },
+ {
+  "idx": 98,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"sound_stopallsounds\"></block></next></block></xml>",
+  "text": "when green flag clicked\n  stop all sounds"
+ },
+ {
+  "idx": 99,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"sound_changeeffectby\"><field name=\"EFFECT\">PITCH</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  change [pitch v] effect by (10)"
+ },
+ {
+  "idx": 100,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"sound_seteffectto\"><field name=\"EFFECT\">PITCH</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">100</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  set [pitch v] effect to (100)"
+ },
+ {
+  "idx": 101,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"sound_cleareffects\"></block></next></block></xml>",
+  "text": "when green flag clicked\n  clear sound effects"
+ },
+ {
+  "idx": 102,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"sound_changevolumeby\"><value name=\"VOLUME\"><shadow type=\"math_number\"><field name=\"NUM\">-10</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  change volume by (-10)"
+ },
+ {
+  "idx": 103,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"sound_setvolumeto\"><value name=\"VOLUME\"><shadow type=\"math_number\"><field name=\"NUM\">100</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  set volume to (100)%"
+ },
+ {
+  "idx": 104,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 105,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"event_broadcast\"><value name=\"BROADCAST_INPUT\"><shadow type=\"event_broadcast_menu\"><field name=\"BROADCAST_OPTION\" variabletype=\"broadcast_msg\">message1</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  broadcast [message1 v]"
+ },
+ {
+  "idx": 106,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"event_broadcastandwait\"><value name=\"BROADCAST_INPUT\"><shadow type=\"event_broadcast_menu\"><field name=\"BROADCAST_OPTION\" variabletype=\"broadcast_msg\">message1</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  broadcast [message1 v] and wait"
+ },
+ {
+  "idx": 107,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"control_wait\"><value name=\"DURATION\"><shadow type=\"math_positive_number\"><field name=\"NUM\">1</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  wait (1) seconds"
+ },
+ {
+  "idx": 108,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"control_wait_until\"></block></next></block></xml>",
+  "text": "when green flag clicked\n  wait until <>"
+ },
+ {
+  "idx": 109,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"control_stop\"><field name=\"STOP_OPTION\">all</field></block></next></block></xml>",
+  "text": "when green flag clicked\n  stop [all v]"
+ },
+ {
+  "idx": 110,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"control_create_clone_of\"><value name=\"CLONE_OPTION\"><shadow type=\"control_create_clone_of_menu\"><field name=\"CLONE_OPTION\">_myself_</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  create clone of [myself v]"
+ },
+ {
+  "idx": 111,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"control_delete_this_clone\"></block></next></block></xml>",
+  "text": "when green flag clicked\n  delete this clone"
+ },
+ {
+  "idx": 112,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"sensing_askandwait\"><value name=\"QUESTION\"><shadow type=\"text\"><field name=\"TEXT\">What's your name?</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  ask [What's your name?] and wait"
+ },
+ {
+  "idx": 113,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"sensing_setdragmode\"><field name=\"DRAG_MODE\">draggable</field></block></next></block></xml>",
+  "text": "when green flag clicked\n  set drag mode [draggable v]"
+ },
+ {
+  "idx": 114,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"sensing_resettimer\"></block></next></block></xml>",
+  "text": "when green flag clicked\n  reset timer"
+ },
+ {
+  "idx": 115,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 116,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 117,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 118,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 119,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 120,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 121,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 122,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 123,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 124,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 125,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 126,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 127,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 128,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 129,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 130,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 131,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 132,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 133,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 134,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 135,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 136,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 137,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_showvariable\"></block></next></block></xml>",
+  "text": "when green flag clicked\n  show variable [ v]"
+ },
+ {
+  "idx": 138,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_hidevariable\"></block></next></block></xml>",
+  "text": "when green flag clicked\n  hide variable [ v]"
+ },
+ {
+  "idx": 139,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"pen_clear\"></block></next></block></xml>",
+  "text": "when green flag clicked\n  erase all"
+ },
+ {
+  "idx": 140,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"pen_stamp\"></block></next></block></xml>",
+  "text": "when green flag clicked\n  stamp"
+ },
+ {
+  "idx": 141,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"pen_penUp\"></block></next></block></xml>",
+  "text": "when green flag clicked\n  pen up"
+ },
+ {
+  "idx": 142,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"pen_setPenColorToColor\"><value name=\"COLOR\"><shadow type=\"colour_picker\"><field name=\"COLOUR\">#ff0000</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  set pen color to [#ff0000]"
+ },
+ {
+  "idx": 143,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"pen_changePenColorParamBy\"><value name=\"COLOR_PARAM\"><shadow type=\"pen_menu_colorParam\"><field name=\"colorParam\">color</field></shadow></value><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  change pen [color v] by (10)"
+ },
+ {
+  "idx": 144,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"pen_setPenColorParamTo\"><value name=\"COLOR_PARAM\"><shadow type=\"pen_menu_colorParam\"><field name=\"colorParam\">color</field></shadow></value><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">50</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  set pen [color v] to (50)"
+ },
+ {
+  "idx": 145,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"pen_changePenSizeBy\"><value name=\"SIZE\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  change pen size by (1)"
+ },
+ {
+  "idx": 146,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"pen_setPenSizeTo\"><value name=\"SIZE\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  set pen size to (1)"
+ },
+ {
+  "idx": 147,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 148,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 149,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 150,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 151,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 152,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 153,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 154,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"music_playDrumForBeats\"><value name=\"DRUM\"><shadow type=\"music_menu_DRUM\"><field name=\"DRUM\">1</field></shadow></value><value name=\"BEATS\"><shadow type=\"math_number\"><field name=\"NUM\">0.25</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  play drum [1 v] for (0.25) beats"
+ },
+ {
+  "idx": 155,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"music_restForBeats\"><value name=\"BEATS\"><shadow type=\"math_number\"><field name=\"NUM\">0.25</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  rest for (0.25) beats"
+ },
+ {
+  "idx": 156,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"music_playNoteForBeats\"><value name=\"NOTE\"><shadow type=\"note\"><field name=\"NUM\">60</field></shadow></value><value name=\"BEATS\"><shadow type=\"math_number\"><field name=\"NUM\">0.25</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  play note (60) for (0.25) beats"
+ },
+ {
+  "idx": 157,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"music_setInstrument\"><value name=\"INSTRUMENT\"><shadow type=\"music_menu_INSTRUMENT\"><field name=\"INSTRUMENT\">1</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  set instrument to [1 v]"
+ },
+ {
+  "idx": 158,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"music_setTempo\"><value name=\"TEMPO\"><shadow type=\"math_number\"><field name=\"NUM\">60</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  set tempo to (60)"
+ },
+ {
+  "idx": 159,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"music_changeTempo\"><value name=\"TEMPO\"><shadow type=\"math_number\"><field name=\"NUM\">20</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  change tempo by (20)"
+ },
+ {
+  "idx": 160,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 161,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_setvariableto\"><field name=\"VARIABLE\" variabletype=\"\">score</field><value name=\"VALUE\"><shadow type=\"text\"><field name=\"TEXT\">0</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  set [score v] to (0)"
+ },
+ {
+  "idx": 162,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_changevariableby\"><field name=\"VARIABLE\" variabletype=\"\">score</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  change [score v] by (1)"
+ },
+ {
+  "idx": 163,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 164,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_addtolist\"><value name=\"ITEM\"><shadow type=\"text\"><field name=\"TEXT\">thing</field></shadow></value><field name=\"LIST\" variabletype=\"list\">items</field></block></next></block></xml>",
+  "text": "when green flag clicked\n  add [thing] to [items v]"
+ },
+ {
+  "idx": 165,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_deleteoflist\"><value name=\"INDEX\"><shadow type=\"math_integer\"><field name=\"NUM\">1</field></shadow></value><field name=\"LIST\" variabletype=\"list\">items</field></block></next></block></xml>",
+  "text": "when green flag clicked\n  delete (1) of [items v]"
+ },
+ {
+  "idx": 166,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_deletealloflist\"><field name=\"LIST\" variabletype=\"list\">items</field></block></next></block></xml>",
+  "text": "when green flag clicked\n  delete all of [items v]"
+ },
+ {
+  "idx": 167,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_insertatlist\"><value name=\"ITEM\"><shadow type=\"text\"><field name=\"TEXT\">thing</field></shadow></value><value name=\"INDEX\"><shadow type=\"math_integer\"><field name=\"NUM\">1</field></shadow></value><field name=\"LIST\" variabletype=\"list\">items</field></block></next></block></xml>",
+  "text": "when green flag clicked\n  insert [thing] at (1) of [items v]"
+ },
+ {
+  "idx": 168,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"><next><block type=\"data_replaceitemoflist\"><value name=\"INDEX\"><shadow type=\"math_integer\"><field name=\"NUM\">1</field></shadow></value><field name=\"LIST\" variabletype=\"list\">items</field><value name=\"ITEM\"><shadow type=\"text\"><field name=\"TEXT\">thing</field></shadow></value></block></next></block></xml>",
+  "text": "when green flag clicked\n  replace item (1) of [items v] with [thing]"
+ },
+ {
+  "idx": 169,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 170,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 171,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 172,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 173,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 174,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ },
+ {
+  "idx": 175,
+  "xml": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><block type=\"event_whenflagclicked\"></block></xml>",
+  "text": "when green flag clicked"
+ }
+]

@@ -1,0 +1,532 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/GeneratedSceneBlocks",
+  "definitions": {
+    "GeneratedSceneBlocks": {
+      "type": "object",
+      "properties": {
+        "blocks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Block"
+          }
+        }
+      },
+      "required": [
+        "blocks"
+      ],
+      "additionalProperties": false,
+      "description": "大纲项 → 页面块树"
+    },
+    "Block": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/LeafBlock"
+        },
+        {
+          "$ref": "#/definitions/ColumnsBlock"
+        },
+        {
+          "$ref": "#/definitions/QuizChoiceBlock"
+        }
+      ]
+    },
+    "LeafBlock": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/HeadingBlock"
+        },
+        {
+          "$ref": "#/definitions/ParagraphBlock"
+        },
+        {
+          "$ref": "#/definitions/BulletsBlock"
+        },
+        {
+          "$ref": "#/definitions/FormulaBlock"
+        },
+        {
+          "$ref": "#/definitions/CodeBlock"
+        },
+        {
+          "$ref": "#/definitions/TableBlock"
+        },
+        {
+          "$ref": "#/definitions/ChartBlock"
+        },
+        {
+          "$ref": "#/definitions/EmphasisBlock"
+        },
+        {
+          "$ref": "#/definitions/ImageBlock"
+        },
+        {
+          "$ref": "#/definitions/CalloutBlock"
+        }
+      ],
+      "description": "可放入 columns 的叶子块(不含 columns 自身与 quiz_choice)"
+    },
+    "HeadingBlock": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "稳定块 id,约定 `blk-{type}-{n}`,页内唯一"
+        },
+        "type": {
+          "type": "string",
+          "const": "heading"
+        },
+        "level": {
+          "type": "number",
+          "enum": [
+            1,
+            2
+          ],
+          "description": "1 = 章节级大标题,2 = 小节标题"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "level",
+        "text",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ParagraphBlock": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "稳定块 id,约定 `blk-{type}-{n}`,页内唯一"
+        },
+        "type": {
+          "type": "string",
+          "const": "paragraph"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "type"
+      ],
+      "additionalProperties": false,
+      "description": "正文段落。text 支持极小内联语法:`**加粗**` 与 `$latex$` 行内公式, 除此之外一律按纯文本处理(渲染端不解析 HTML)。"
+    },
+    "BulletsBlock": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "稳定块 id,约定 `blk-{type}-{n}`,页内唯一"
+        },
+        "type": {
+          "type": "string",
+          "const": "bullets"
+        },
+        "ordered": {
+          "type": "boolean",
+          "description": "true = 有序列表(1. 2. 3.),缺省无序"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BulletItem"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "items",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "BulletItem": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "sub": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "二级子条目(纯文本,不再嵌套)"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "additionalProperties": false
+    },
+    "FormulaBlock": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "稳定块 id,约定 `blk-{type}-{n}`,页内唯一"
+        },
+        "type": {
+          "type": "string",
+          "const": "formula"
+        },
+        "latex": {
+          "type": "string",
+          "description": "展示级 LaTeX(不含定界符 $$)"
+        },
+        "caption": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "latex",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "CodeBlock": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "稳定块 id,约定 `blk-{type}-{n}`,页内唯一"
+        },
+        "type": {
+          "type": "string",
+          "const": "code"
+        },
+        "language": {
+          "type": "string",
+          "description": "语言标识,如 \"python\" / \"javascript\",用于语法高亮"
+        },
+        "code": {
+          "type": "string",
+          "description": "代码文本,行以 \\n 分隔"
+        },
+        "caption": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "id",
+        "language",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "TableBlock": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "稳定块 id,约定 `blk-{type}-{n}`,页内唯一"
+        },
+        "type": {
+          "type": "string",
+          "const": "table"
+        },
+        "headers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "description": "每行长度必须与 headers 一致(normalize 阶段截齐/补空)"
+        },
+        "caption": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "headers",
+        "id",
+        "rows",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ChartBlock": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "稳定块 id,约定 `blk-{type}-{n}`,页内唯一"
+        },
+        "type": {
+          "type": "string",
+          "const": "chart"
+        },
+        "chartType": {
+          "$ref": "#/definitions/ChartType"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "series": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ChartSeries"
+          },
+          "description": "pie 图仅使用第一个 series"
+        },
+        "caption": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "categories",
+        "chartType",
+        "id",
+        "series",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ChartType": {
+      "type": "string",
+      "enum": [
+        "bar",
+        "line",
+        "pie"
+      ]
+    },
+    "ChartSeries": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "name",
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "EmphasisBlock": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "稳定块 id,约定 `blk-{type}-{n}`,页内唯一"
+        },
+        "type": {
+          "type": "string",
+          "const": "emphasis"
+        },
+        "text": {
+          "type": "string",
+          "description": "一句话强调(金句 / 核心结论),不换行"
+        },
+        "caption": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "type"
+      ],
+      "additionalProperties": false,
+      "description": "大号强调文字块:一句话金句或核心结论,可配 caption。"
+    },
+    "CalloutBlock": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "稳定块 id,约定 `blk-{type}-{n}`,页内唯一"
+        },
+        "type": {
+          "type": "string",
+          "const": "callout"
+        },
+        "variant": {
+          "$ref": "#/definitions/CalloutVariant"
+        },
+        "title": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "type",
+        "variant"
+      ],
+      "additionalProperties": false
+    },
+    "CalloutVariant": {
+      "type": "string",
+      "enum": [
+        "info",
+        "tip",
+        "warning",
+        "conclusion"
+      ]
+    },
+    "ColumnsBlock": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "稳定块 id,约定 `blk-{type}-{n}`,页内唯一"
+        },
+        "type": {
+          "type": "string",
+          "const": "columns"
+        },
+        "ratio": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "description": "各列宽度占比,如 [7, 5];缺省均分。长度必须等于 children 列数"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/LeafBlock"
+            }
+          },
+          "description": "每列一个叶子块数组,2 列为主(布局引擎最多支持 3 列)"
+        }
+      },
+      "required": [
+        "children",
+        "id",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "QuizChoiceBlock": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "稳定块 id,约定 `blk-{type}-{n}`,页内唯一"
+        },
+        "type": {
+          "type": "string",
+          "const": "quiz_choice"
+        },
+        "stem": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QuizOption"
+          }
+        },
+        "answer": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "正确选项 label 列表;单选题长度为 1"
+        },
+        "multiple": {
+          "type": "boolean"
+        },
+        "explanation": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "answer",
+        "explanation",
+        "id",
+        "multiple",
+        "options",
+        "stem",
+        "type"
+      ],
+      "additionalProperties": false,
+      "description": "选择题块,仅允许出现在 type = \"quiz\" 的页面上"
+    },
+    "QuizOption": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "选项标号,如 \"A\" \"B\""
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "label",
+        "text"
+      ],
+      "additionalProperties": false
+    },
+    "ImageBlock": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "稳定块 id,约定 `blk-{type}-{n}`,页内唯一"
+        },
+        "type": {
+          "type": "string",
+          "const": "image"
+        },
+        "src": {
+          "type": "string",
+          "description": "图片 id(如 img_1),只能用「本页可用图片」里列出的 id"
+        },
+        "width": {
+          "type": "number"
+        },
+        "height": {
+          "type": "number"
+        },
+        "caption": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "src"
+      ],
+      "additionalProperties": false,
+      "description": "图片块:把本页可用图片(教师素材里抽出的图或生成的配图)放上幻灯片,按原始宽高比排版。"
+    }
+  }
+}

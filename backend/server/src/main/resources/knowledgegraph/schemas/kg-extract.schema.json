@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "单节知识图谱抽取结果",
+  "type": "object",
+  "properties": {
+    "knowledgePoints": {
+      "type": "array",
+      "maxItems": 18,
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string", "minLength": 1, "maxLength": 80 },
+          "kpType": { "type": "string", "enum": ["概念", "方法", "技能", "规则", "工具", "易错点"] },
+          "definition": { "type": "string", "minLength": 1, "maxLength": 240, "description": "面向学习者的规范释义" },
+          "aliases": {
+            "type": "array",
+            "maxItems": 6,
+            "description": "正文中出现过的其他称呼(中英对照/缩写全称/符号写法),不含自造同义词",
+            "items": { "type": "string", "minLength": 1, "maxLength": 80 }
+          },
+          "evidenceQuotes": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 4,
+            "items": { "type": "string", "minLength": 1, "maxLength": 200 }
+          }
+        },
+        "required": ["name", "kpType", "definition", "aliases", "evidenceQuotes"],
+        "additionalProperties": false
+      }
+    },
+    "relations": {
+      "type": "array",
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "properties": {
+          "source": { "type": "string", "minLength": 1, "maxLength": 80 },
+          "target": { "type": "string", "minLength": 1, "maxLength": 80 },
+          "kind": { "type": "string", "enum": ["PREREQUISITE", "RELATED"] },
+          "evidence": { "type": "string", "minLength": 1, "maxLength": 200 }
+        },
+        "required": ["source", "target", "kind", "evidence"],
+        "additionalProperties": false
+      }
+    },
+    "codeExamples": {
+      "type": "array",
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string", "minLength": 1, "maxLength": 80 },
+          "language": { "type": "string", "minLength": 1, "maxLength": 32 },
+          "code": { "type": "string", "minLength": 1, "maxLength": 4000 },
+          "explanation": { "type": "string", "minLength": 1, "maxLength": 300 },
+          "evidenceQuotes": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 3,
+            "items": { "type": "string", "minLength": 1, "maxLength": 200 }
+          },
+          "bindKpNames": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 6,
+            "items": { "type": "string", "minLength": 1, "maxLength": 80 }
+          }
+        },
+        "required": ["title", "language", "code", "explanation", "evidenceQuotes", "bindKpNames"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["knowledgePoints", "relations", "codeExamples"],
+  "additionalProperties": false
+}

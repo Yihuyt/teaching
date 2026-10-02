@@ -1,0 +1,8126 @@
+{
+ "blocks": {
+  "control_forever": {
+   "opcode": "control_forever",
+   "msg": "CONTROL_FOREVER",
+   "text": "forever",
+   "texts": [
+    {
+     "message": "forever",
+     "args": []
+    },
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "SUBSTACK",
+       "kind": "substack"
+      }
+     ]
+    },
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": null,
+       "kind": "image",
+       "src": "repeat.svg"
+      }
+     ]
+    }
+   ],
+   "shape": "cap",
+   "category": "control",
+   "args": [
+    {
+     "name": "SUBSTACK",
+     "kind": "substack"
+    },
+    {
+     "name": null,
+     "kind": "image",
+     "src": "repeat.svg"
+    }
+   ]
+  },
+  "control_repeat": {
+   "opcode": "control_repeat",
+   "msg": "CONTROL_REPEAT",
+   "text": "repeat %1",
+   "texts": [
+    {
+     "message": "repeat %1",
+     "args": [
+      {
+       "name": "TIMES",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_whole_number",
+        "field": "NUM",
+        "value": "10"
+       }
+      }
+     ]
+    },
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "SUBSTACK",
+       "kind": "substack"
+      }
+     ]
+    },
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": null,
+       "kind": "image",
+       "src": "repeat.svg"
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "control",
+   "args": [
+    {
+     "name": "TIMES",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_whole_number",
+      "field": "NUM",
+      "value": "10"
+     }
+    },
+    {
+     "name": "SUBSTACK",
+     "kind": "substack"
+    },
+    {
+     "name": null,
+     "kind": "image",
+     "src": "repeat.svg"
+    }
+   ]
+  },
+  "control_if": {
+   "opcode": "control_if",
+   "msg": "CONTROL_IF",
+   "text": "if %1 then",
+   "texts": [
+    {
+     "message": "if %1 then",
+     "args": [
+      {
+       "name": "CONDITION",
+       "kind": "input",
+       "check": "Boolean"
+      }
+     ]
+    },
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "SUBSTACK",
+       "kind": "substack"
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "control",
+   "args": [
+    {
+     "name": "CONDITION",
+     "kind": "input",
+     "check": "Boolean"
+    },
+    {
+     "name": "SUBSTACK",
+     "kind": "substack"
+    }
+   ]
+  },
+  "control_if_else": {
+   "opcode": "control_if_else",
+   "msg": "CONTROL_IF",
+   "text": "if %1 then",
+   "texts": [
+    {
+     "message": "if %1 then",
+     "args": [
+      {
+       "name": "CONDITION",
+       "kind": "input",
+       "check": "Boolean"
+      }
+     ]
+    },
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "SUBSTACK",
+       "kind": "substack"
+      }
+     ]
+    },
+    {
+     "message": "else",
+     "args": []
+    },
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "SUBSTACK2",
+       "kind": "substack"
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "control",
+   "args": [
+    {
+     "name": "CONDITION",
+     "kind": "input",
+     "check": "Boolean"
+    },
+    {
+     "name": "SUBSTACK",
+     "kind": "substack"
+    },
+    {
+     "name": "SUBSTACK2",
+     "kind": "substack"
+    }
+   ]
+  },
+  "control_stop": {
+   "opcode": "control_stop",
+   "msg": "CONTROL_STOP",
+   "text": "stop %1",
+   "texts": [
+    {
+     "message": "stop %1",
+     "args": [
+      {
+       "name": "STOP_OPTION",
+       "kind": "menu",
+       "options": [
+        [
+         "all",
+         "all"
+        ],
+        [
+         "this script",
+         "this script"
+        ],
+        [
+         "other scripts in sprite",
+         "other scripts in sprite"
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "control",
+   "args": [
+    {
+     "name": "STOP_OPTION",
+     "kind": "menu",
+     "options": [
+      [
+       "all",
+       "all"
+      ],
+      [
+       "this script",
+       "this script"
+      ],
+      [
+       "other scripts in sprite",
+       "other scripts in sprite"
+      ]
+     ]
+    }
+   ]
+  },
+  "control_wait": {
+   "opcode": "control_wait",
+   "msg": "CONTROL_WAIT",
+   "text": "wait %1 seconds",
+   "texts": [
+    {
+     "message": "wait %1 seconds",
+     "args": [
+      {
+       "name": "DURATION",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_positive_number",
+        "field": "NUM",
+        "value": "1"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "control",
+   "args": [
+    {
+     "name": "DURATION",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_positive_number",
+      "field": "NUM",
+      "value": "1"
+     }
+    }
+   ]
+  },
+  "control_wait_until": {
+   "opcode": "control_wait_until",
+   "msg": "CONTROL_WAITUNTIL",
+   "text": "wait until %1",
+   "texts": [
+    {
+     "message": "wait until %1",
+     "args": [
+      {
+       "name": "CONDITION",
+       "kind": "input",
+       "check": "Boolean"
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "control",
+   "args": [
+    {
+     "name": "CONDITION",
+     "kind": "input",
+     "check": "Boolean"
+    }
+   ]
+  },
+  "control_repeat_until": {
+   "opcode": "control_repeat_until",
+   "msg": "CONTROL_REPEATUNTIL",
+   "text": "repeat until %1",
+   "texts": [
+    {
+     "message": "repeat until %1",
+     "args": [
+      {
+       "name": "CONDITION",
+       "kind": "input",
+       "check": "Boolean"
+      }
+     ]
+    },
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "SUBSTACK",
+       "kind": "substack"
+      }
+     ]
+    },
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": null,
+       "kind": "image",
+       "src": "repeat.svg"
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "control",
+   "args": [
+    {
+     "name": "CONDITION",
+     "kind": "input",
+     "check": "Boolean"
+    },
+    {
+     "name": "SUBSTACK",
+     "kind": "substack"
+    },
+    {
+     "name": null,
+     "kind": "image",
+     "src": "repeat.svg"
+    }
+   ]
+  },
+  "control_while": {
+   "opcode": "control_while",
+   "msg": "CONTROL_WHILE",
+   "text": "while %1",
+   "texts": [
+    {
+     "message": "while %1",
+     "args": [
+      {
+       "name": "CONDITION",
+       "kind": "input",
+       "check": "Boolean"
+      }
+     ]
+    },
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "SUBSTACK",
+       "kind": "substack"
+      }
+     ]
+    },
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": null,
+       "kind": "image",
+       "src": "repeat.svg"
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "control",
+   "args": [
+    {
+     "name": "CONDITION",
+     "kind": "input",
+     "check": "Boolean"
+    },
+    {
+     "name": "SUBSTACK",
+     "kind": "substack"
+    },
+    {
+     "name": null,
+     "kind": "image",
+     "src": "repeat.svg"
+    }
+   ]
+  },
+  "control_for_each": {
+   "opcode": "control_for_each",
+   "msg": "CONTROL_FOREACH",
+   "text": "for each %1 in %2",
+   "texts": [
+    {
+     "message": "for each %1 in %2",
+     "args": [
+      {
+       "name": "VARIABLE",
+       "kind": "variable",
+       "variableType": ""
+      },
+      {
+       "name": "VALUE",
+       "kind": "input",
+       "check": null
+      }
+     ]
+    },
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "SUBSTACK",
+       "kind": "substack"
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "control",
+   "args": [
+    {
+     "name": "VARIABLE",
+     "kind": "variable",
+     "variableType": ""
+    },
+    {
+     "name": "VALUE",
+     "kind": "input",
+     "check": null
+    },
+    {
+     "name": "SUBSTACK",
+     "kind": "substack"
+    }
+   ]
+  },
+  "control_start_as_clone": {
+   "opcode": "control_start_as_clone",
+   "msg": "CONTROL_STARTASCLONE",
+   "text": "when I start as a clone",
+   "texts": [
+    {
+     "message": "when I start as a clone",
+     "args": []
+    }
+   ],
+   "shape": "hat",
+   "category": "control",
+   "args": []
+  },
+  "control_create_clone_of_menu": {
+   "opcode": "control_create_clone_of_menu",
+   "msg": null,
+   "text": "%1",
+   "texts": [
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "CLONE_OPTION",
+       "kind": "menu",
+       "options": [
+        [
+         "myself",
+         "_myself_"
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": null,
+   "args": [
+    {
+     "name": "CLONE_OPTION",
+     "kind": "menu",
+     "options": [
+      [
+       "myself",
+       "_myself_"
+      ]
+     ]
+    }
+   ]
+  },
+  "control_create_clone_of": {
+   "opcode": "control_create_clone_of",
+   "msg": "CONTROL_CREATECLONEOF",
+   "text": "create clone of %1",
+   "texts": [
+    {
+     "message": "create clone of %1",
+     "args": [
+      {
+       "name": "CLONE_OPTION",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "control_create_clone_of_menu",
+        "field": null,
+        "value": null
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "control",
+   "args": [
+    {
+     "name": "CLONE_OPTION",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "control_create_clone_of_menu",
+      "field": null,
+      "value": null
+     }
+    }
+   ]
+  },
+  "control_delete_this_clone": {
+   "opcode": "control_delete_this_clone",
+   "msg": "CONTROL_DELETETHISCLONE",
+   "text": "delete this clone",
+   "texts": [
+    {
+     "message": "delete this clone",
+     "args": []
+    }
+   ],
+   "shape": "cap",
+   "category": "control",
+   "args": []
+  },
+  "control_get_counter": {
+   "opcode": "control_get_counter",
+   "msg": "CONTROL_COUNTER",
+   "text": "counter",
+   "texts": [
+    {
+     "message": "counter",
+     "args": []
+    }
+   ],
+   "shape": "reporter",
+   "category": "control",
+   "args": []
+  },
+  "control_incr_counter": {
+   "opcode": "control_incr_counter",
+   "msg": "CONTROL_INCRCOUNTER",
+   "text": "increment counter",
+   "texts": [
+    {
+     "message": "increment counter",
+     "args": []
+    }
+   ],
+   "shape": "statement",
+   "category": "control",
+   "args": []
+  },
+  "control_clear_counter": {
+   "opcode": "control_clear_counter",
+   "msg": "CONTROL_CLEARCOUNTER",
+   "text": "clear counter",
+   "texts": [
+    {
+     "message": "clear counter",
+     "args": []
+    }
+   ],
+   "shape": "statement",
+   "category": "control",
+   "args": []
+  },
+  "control_all_at_once": {
+   "opcode": "control_all_at_once",
+   "msg": "CONTROL_ALLATONCE",
+   "text": "all at once",
+   "texts": [
+    {
+     "message": "all at once",
+     "args": []
+    },
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "SUBSTACK",
+       "kind": "substack"
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "control",
+   "args": [
+    {
+     "name": "SUBSTACK",
+     "kind": "substack"
+    }
+   ]
+  },
+  "data_variable": {
+   "opcode": "data_variable",
+   "msg": null,
+   "text": "%1",
+   "texts": [
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "VARIABLE",
+       "kind": "variable",
+       "variableType": ""
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "data",
+   "args": [
+    {
+     "name": "VARIABLE",
+     "kind": "variable",
+     "variableType": ""
+    }
+   ]
+  },
+  "data_setvariableto": {
+   "opcode": "data_setvariableto",
+   "msg": "DATA_SETVARIABLETO",
+   "text": "set %1 to %2",
+   "texts": [
+    {
+     "message": "set %1 to %2",
+     "args": [
+      {
+       "name": "VARIABLE",
+       "kind": "variable",
+       "variableType": ""
+      },
+      {
+       "name": "VALUE",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "text",
+        "field": "TEXT",
+        "value": "0"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "data",
+   "args": [
+    {
+     "name": "VARIABLE",
+     "kind": "variable",
+     "variableType": ""
+    },
+    {
+     "name": "VALUE",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "text",
+      "field": "TEXT",
+      "value": "0"
+     }
+    }
+   ]
+  },
+  "data_changevariableby": {
+   "opcode": "data_changevariableby",
+   "msg": "DATA_CHANGEVARIABLEBY",
+   "text": "change %1 by %2",
+   "texts": [
+    {
+     "message": "change %1 by %2",
+     "args": [
+      {
+       "name": "VARIABLE",
+       "kind": "variable",
+       "variableType": ""
+      },
+      {
+       "name": "VALUE",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "1"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "data",
+   "args": [
+    {
+     "name": "VARIABLE",
+     "kind": "variable",
+     "variableType": ""
+    },
+    {
+     "name": "VALUE",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "1"
+     }
+    }
+   ]
+  },
+  "data_showvariable": {
+   "opcode": "data_showvariable",
+   "msg": "DATA_SHOWVARIABLE",
+   "text": "show variable %1",
+   "texts": [
+    {
+     "message": "show variable %1",
+     "args": [
+      {
+       "name": "VARIABLE",
+       "kind": "variable",
+       "variableType": ""
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "data",
+   "args": [
+    {
+     "name": "VARIABLE",
+     "kind": "variable",
+     "variableType": ""
+    }
+   ]
+  },
+  "data_hidevariable": {
+   "opcode": "data_hidevariable",
+   "msg": "DATA_HIDEVARIABLE",
+   "text": "hide variable %1",
+   "texts": [
+    {
+     "message": "hide variable %1",
+     "args": [
+      {
+       "name": "VARIABLE",
+       "kind": "variable",
+       "variableType": ""
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "data",
+   "args": [
+    {
+     "name": "VARIABLE",
+     "kind": "variable",
+     "variableType": ""
+    }
+   ]
+  },
+  "data_listcontents": {
+   "opcode": "data_listcontents",
+   "msg": null,
+   "text": "%1",
+   "texts": [
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "LIST",
+       "kind": "variable",
+       "variableType": "list"
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "dataLists",
+   "args": [
+    {
+     "name": "LIST",
+     "kind": "variable",
+     "variableType": "list"
+    }
+   ]
+  },
+  "data_listindexall": {
+   "opcode": "data_listindexall",
+   "msg": null,
+   "text": "%1",
+   "texts": [
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "INDEX",
+       "kind": "field_numberdropdown"
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "data",
+   "args": [
+    {
+     "name": "INDEX",
+     "kind": "field_numberdropdown"
+    }
+   ]
+  },
+  "data_listindexrandom": {
+   "opcode": "data_listindexrandom",
+   "msg": null,
+   "text": "%1",
+   "texts": [
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "INDEX",
+       "kind": "field_numberdropdown"
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "data",
+   "args": [
+    {
+     "name": "INDEX",
+     "kind": "field_numberdropdown"
+    }
+   ]
+  },
+  "data_addtolist": {
+   "opcode": "data_addtolist",
+   "msg": "DATA_ADDTOLIST",
+   "text": "add %1 to %2",
+   "texts": [
+    {
+     "message": "add %1 to %2",
+     "args": [
+      {
+       "name": "ITEM",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "text",
+        "field": "TEXT",
+        "value": "thing"
+       }
+      },
+      {
+       "name": "LIST",
+       "kind": "variable",
+       "variableType": "list"
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "dataLists",
+   "args": [
+    {
+     "name": "ITEM",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "text",
+      "field": "TEXT",
+      "value": "thing"
+     }
+    },
+    {
+     "name": "LIST",
+     "kind": "variable",
+     "variableType": "list"
+    }
+   ]
+  },
+  "data_deleteoflist": {
+   "opcode": "data_deleteoflist",
+   "msg": "DATA_DELETEOFLIST",
+   "text": "delete %1 of %2",
+   "texts": [
+    {
+     "message": "delete %1 of %2",
+     "args": [
+      {
+       "name": "INDEX",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_integer",
+        "field": "NUM",
+        "value": "1"
+       }
+      },
+      {
+       "name": "LIST",
+       "kind": "variable",
+       "variableType": "list"
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "dataLists",
+   "args": [
+    {
+     "name": "INDEX",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_integer",
+      "field": "NUM",
+      "value": "1"
+     }
+    },
+    {
+     "name": "LIST",
+     "kind": "variable",
+     "variableType": "list"
+    }
+   ]
+  },
+  "data_deletealloflist": {
+   "opcode": "data_deletealloflist",
+   "msg": "DATA_DELETEALLOFLIST",
+   "text": "delete all of %1",
+   "texts": [
+    {
+     "message": "delete all of %1",
+     "args": [
+      {
+       "name": "LIST",
+       "kind": "variable",
+       "variableType": "list"
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "dataLists",
+   "args": [
+    {
+     "name": "LIST",
+     "kind": "variable",
+     "variableType": "list"
+    }
+   ]
+  },
+  "data_insertatlist": {
+   "opcode": "data_insertatlist",
+   "msg": "DATA_INSERTATLIST",
+   "text": "insert %1 at %2 of %3",
+   "texts": [
+    {
+     "message": "insert %1 at %2 of %3",
+     "args": [
+      {
+       "name": "ITEM",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "text",
+        "field": "TEXT",
+        "value": "thing"
+       }
+      },
+      {
+       "name": "INDEX",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_integer",
+        "field": "NUM",
+        "value": "1"
+       }
+      },
+      {
+       "name": "LIST",
+       "kind": "variable",
+       "variableType": "list"
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "dataLists",
+   "args": [
+    {
+     "name": "ITEM",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "text",
+      "field": "TEXT",
+      "value": "thing"
+     }
+    },
+    {
+     "name": "INDEX",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_integer",
+      "field": "NUM",
+      "value": "1"
+     }
+    },
+    {
+     "name": "LIST",
+     "kind": "variable",
+     "variableType": "list"
+    }
+   ]
+  },
+  "data_replaceitemoflist": {
+   "opcode": "data_replaceitemoflist",
+   "msg": "DATA_REPLACEITEMOFLIST",
+   "text": "replace item %1 of %2 with %3",
+   "texts": [
+    {
+     "message": "replace item %1 of %2 with %3",
+     "args": [
+      {
+       "name": "INDEX",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_integer",
+        "field": "NUM",
+        "value": "1"
+       }
+      },
+      {
+       "name": "LIST",
+       "kind": "variable",
+       "variableType": "list"
+      },
+      {
+       "name": "ITEM",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "text",
+        "field": "TEXT",
+        "value": "thing"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "dataLists",
+   "args": [
+    {
+     "name": "INDEX",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_integer",
+      "field": "NUM",
+      "value": "1"
+     }
+    },
+    {
+     "name": "LIST",
+     "kind": "variable",
+     "variableType": "list"
+    },
+    {
+     "name": "ITEM",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "text",
+      "field": "TEXT",
+      "value": "thing"
+     }
+    }
+   ]
+  },
+  "data_itemoflist": {
+   "opcode": "data_itemoflist",
+   "msg": "DATA_ITEMOFLIST",
+   "text": "item %1 of %2",
+   "texts": [
+    {
+     "message": "item %1 of %2",
+     "args": [
+      {
+       "name": "INDEX",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_integer",
+        "field": "NUM",
+        "value": "1"
+       }
+      },
+      {
+       "name": "LIST",
+       "kind": "variable",
+       "variableType": "list"
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "dataLists",
+   "args": [
+    {
+     "name": "INDEX",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_integer",
+      "field": "NUM",
+      "value": "1"
+     }
+    },
+    {
+     "name": "LIST",
+     "kind": "variable",
+     "variableType": "list"
+    }
+   ]
+  },
+  "data_itemnumoflist": {
+   "opcode": "data_itemnumoflist",
+   "msg": "DATA_ITEMNUMOFLIST",
+   "text": "item # of %1 in %2",
+   "texts": [
+    {
+     "message": "item # of %1 in %2",
+     "args": [
+      {
+       "name": "ITEM",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "text",
+        "field": "TEXT",
+        "value": "thing"
+       }
+      },
+      {
+       "name": "LIST",
+       "kind": "variable",
+       "variableType": "list"
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "dataLists",
+   "args": [
+    {
+     "name": "ITEM",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "text",
+      "field": "TEXT",
+      "value": "thing"
+     }
+    },
+    {
+     "name": "LIST",
+     "kind": "variable",
+     "variableType": "list"
+    }
+   ]
+  },
+  "data_lengthoflist": {
+   "opcode": "data_lengthoflist",
+   "msg": "DATA_LENGTHOFLIST",
+   "text": "length of %1",
+   "texts": [
+    {
+     "message": "length of %1",
+     "args": [
+      {
+       "name": "LIST",
+       "kind": "variable",
+       "variableType": "list"
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "dataLists",
+   "args": [
+    {
+     "name": "LIST",
+     "kind": "variable",
+     "variableType": "list"
+    }
+   ]
+  },
+  "data_listcontainsitem": {
+   "opcode": "data_listcontainsitem",
+   "msg": "DATA_LISTCONTAINSITEM",
+   "text": "%1 contains %2?",
+   "texts": [
+    {
+     "message": "%1 contains %2?",
+     "args": [
+      {
+       "name": "LIST",
+       "kind": "variable",
+       "variableType": "list"
+      },
+      {
+       "name": "ITEM",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "text",
+        "field": "TEXT",
+        "value": "thing"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "boolean",
+   "category": "dataLists",
+   "args": [
+    {
+     "name": "LIST",
+     "kind": "variable",
+     "variableType": "list"
+    },
+    {
+     "name": "ITEM",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "text",
+      "field": "TEXT",
+      "value": "thing"
+     }
+    }
+   ]
+  },
+  "data_showlist": {
+   "opcode": "data_showlist",
+   "msg": "DATA_SHOWLIST",
+   "text": "show list %1",
+   "texts": [
+    {
+     "message": "show list %1",
+     "args": [
+      {
+       "name": "LIST",
+       "kind": "variable",
+       "variableType": "list"
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "dataLists",
+   "args": [
+    {
+     "name": "LIST",
+     "kind": "variable",
+     "variableType": "list"
+    }
+   ]
+  },
+  "data_hidelist": {
+   "opcode": "data_hidelist",
+   "msg": "DATA_HIDELIST",
+   "text": "hide list %1",
+   "texts": [
+    {
+     "message": "hide list %1",
+     "args": [
+      {
+       "name": "LIST",
+       "kind": "variable",
+       "variableType": "list"
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "dataLists",
+   "args": [
+    {
+     "name": "LIST",
+     "kind": "variable",
+     "variableType": "list"
+    }
+   ]
+  },
+  "event_whentouchingobject": {
+   "opcode": "event_whentouchingobject",
+   "msg": "EVENT_WHENTOUCHINGOBJECT",
+   "text": "when this sprite touches %1",
+   "texts": [
+    {
+     "message": "when this sprite touches %1",
+     "args": [
+      {
+       "name": "TOUCHINGOBJECTMENU",
+       "kind": "input",
+       "check": null
+      }
+     ]
+    }
+   ],
+   "shape": "hat",
+   "category": "event",
+   "args": [
+    {
+     "name": "TOUCHINGOBJECTMENU",
+     "kind": "input",
+     "check": null
+    }
+   ]
+  },
+  "event_touchingobjectmenu": {
+   "opcode": "event_touchingobjectmenu",
+   "msg": null,
+   "text": "%1",
+   "texts": [
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "TOUCHINGOBJECTMENU",
+       "kind": "menu",
+       "options": [
+        [
+         "mouse-pointer",
+         "_mouse_"
+        ],
+        [
+         "edge",
+         "_edge_"
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": null,
+   "args": [
+    {
+     "name": "TOUCHINGOBJECTMENU",
+     "kind": "menu",
+     "options": [
+      [
+       "mouse-pointer",
+       "_mouse_"
+      ],
+      [
+       "edge",
+       "_edge_"
+      ]
+     ]
+    }
+   ]
+  },
+  "event_whenflagclicked": {
+   "opcode": "event_whenflagclicked",
+   "msg": "EVENT_WHENFLAGCLICKED",
+   "text": "when %1 clicked",
+   "texts": [
+    {
+     "message": "when %1 clicked",
+     "args": [
+      {
+       "name": null,
+       "kind": "image",
+       "src": "green-flag.svg"
+      }
+     ]
+    }
+   ],
+   "shape": "hat",
+   "category": "event",
+   "args": [
+    {
+     "name": null,
+     "kind": "image",
+     "src": "green-flag.svg"
+    }
+   ]
+  },
+  "event_whenthisspriteclicked": {
+   "opcode": "event_whenthisspriteclicked",
+   "msg": "EVENT_WHENTHISSPRITECLICKED",
+   "text": "when this sprite clicked",
+   "texts": [
+    {
+     "message": "when this sprite clicked",
+     "args": []
+    }
+   ],
+   "shape": "hat",
+   "category": "event",
+   "args": []
+  },
+  "event_whenstageclicked": {
+   "opcode": "event_whenstageclicked",
+   "msg": "EVENT_WHENSTAGECLICKED",
+   "text": "when stage clicked",
+   "texts": [
+    {
+     "message": "when stage clicked",
+     "args": []
+    }
+   ],
+   "shape": "hat",
+   "category": "event",
+   "args": []
+  },
+  "event_whenbroadcastreceived": {
+   "opcode": "event_whenbroadcastreceived",
+   "msg": "EVENT_WHENBROADCASTRECEIVED",
+   "text": "when I receive %1",
+   "texts": [
+    {
+     "message": "when I receive %1",
+     "args": [
+      {
+       "name": "BROADCAST_OPTION",
+       "kind": "variable",
+       "variableType": "broadcast_msg"
+      }
+     ]
+    }
+   ],
+   "shape": "hat",
+   "category": "event",
+   "args": [
+    {
+     "name": "BROADCAST_OPTION",
+     "kind": "variable",
+     "variableType": "broadcast_msg"
+    }
+   ]
+  },
+  "event_whenbackdropswitchesto": {
+   "opcode": "event_whenbackdropswitchesto",
+   "msg": "EVENT_WHENBACKDROPSWITCHESTO",
+   "text": "when backdrop switches to %1",
+   "texts": [
+    {
+     "message": "when backdrop switches to %1",
+     "args": [
+      {
+       "name": "BACKDROP",
+       "kind": "menu",
+       "options": "dynamic"
+      }
+     ]
+    }
+   ],
+   "shape": "hat",
+   "category": "event",
+   "args": [
+    {
+     "name": "BACKDROP",
+     "kind": "menu",
+     "options": "dynamic"
+    }
+   ]
+  },
+  "event_whengreaterthan": {
+   "opcode": "event_whengreaterthan",
+   "msg": "EVENT_WHENGREATERTHAN",
+   "text": "when %1 > %2",
+   "texts": [
+    {
+     "message": "when %1 > %2",
+     "args": [
+      {
+       "name": "WHENGREATERTHANMENU",
+       "kind": "menu",
+       "options": [
+        [
+         "loudness",
+         "LOUDNESS"
+        ],
+        [
+         "timer",
+         "TIMER"
+        ]
+       ]
+      },
+      {
+       "name": "VALUE",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "10"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "hat",
+   "category": "event",
+   "args": [
+    {
+     "name": "WHENGREATERTHANMENU",
+     "kind": "menu",
+     "options": [
+      [
+       "loudness",
+       "LOUDNESS"
+      ],
+      [
+       "timer",
+       "TIMER"
+      ]
+     ]
+    },
+    {
+     "name": "VALUE",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "10"
+     }
+    }
+   ]
+  },
+  "event_broadcast_menu": {
+   "opcode": "event_broadcast_menu",
+   "msg": null,
+   "text": "%1",
+   "texts": [
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "BROADCAST_OPTION",
+       "kind": "variable",
+       "variableType": "broadcast_msg"
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": null,
+   "args": [
+    {
+     "name": "BROADCAST_OPTION",
+     "kind": "variable",
+     "variableType": "broadcast_msg"
+    }
+   ]
+  },
+  "event_broadcast": {
+   "opcode": "event_broadcast",
+   "msg": "EVENT_BROADCAST",
+   "text": "broadcast %1",
+   "texts": [
+    {
+     "message": "broadcast %1",
+     "args": [
+      {
+       "name": "BROADCAST_INPUT",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "event_broadcast_menu",
+        "field": null,
+        "value": null
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "event",
+   "args": [
+    {
+     "name": "BROADCAST_INPUT",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "event_broadcast_menu",
+      "field": null,
+      "value": null
+     }
+    }
+   ]
+  },
+  "event_broadcastandwait": {
+   "opcode": "event_broadcastandwait",
+   "msg": "EVENT_BROADCASTANDWAIT",
+   "text": "broadcast %1 and wait",
+   "texts": [
+    {
+     "message": "broadcast %1 and wait",
+     "args": [
+      {
+       "name": "BROADCAST_INPUT",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "event_broadcast_menu",
+        "field": null,
+        "value": null
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "event",
+   "args": [
+    {
+     "name": "BROADCAST_INPUT",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "event_broadcast_menu",
+      "field": null,
+      "value": null
+     }
+    }
+   ]
+  },
+  "event_whenkeypressed": {
+   "opcode": "event_whenkeypressed",
+   "msg": "EVENT_WHENKEYPRESSED",
+   "text": "when %1 key pressed",
+   "texts": [
+    {
+     "message": "when %1 key pressed",
+     "args": [
+      {
+       "name": "KEY_OPTION",
+       "kind": "menu",
+       "options": [
+        [
+         "space",
+         "space"
+        ],
+        [
+         "up arrow",
+         "up arrow"
+        ],
+        [
+         "down arrow",
+         "down arrow"
+        ],
+        [
+         "right arrow",
+         "right arrow"
+        ],
+        [
+         "left arrow",
+         "left arrow"
+        ],
+        [
+         "any",
+         "any"
+        ],
+        [
+         "a",
+         "a"
+        ],
+        [
+         "b",
+         "b"
+        ],
+        [
+         "c",
+         "c"
+        ],
+        [
+         "d",
+         "d"
+        ],
+        [
+         "e",
+         "e"
+        ],
+        [
+         "f",
+         "f"
+        ],
+        [
+         "g",
+         "g"
+        ],
+        [
+         "h",
+         "h"
+        ],
+        [
+         "i",
+         "i"
+        ],
+        [
+         "j",
+         "j"
+        ],
+        [
+         "k",
+         "k"
+        ],
+        [
+         "l",
+         "l"
+        ],
+        [
+         "m",
+         "m"
+        ],
+        [
+         "n",
+         "n"
+        ],
+        [
+         "o",
+         "o"
+        ],
+        [
+         "p",
+         "p"
+        ],
+        [
+         "q",
+         "q"
+        ],
+        [
+         "r",
+         "r"
+        ],
+        [
+         "s",
+         "s"
+        ],
+        [
+         "t",
+         "t"
+        ],
+        [
+         "u",
+         "u"
+        ],
+        [
+         "v",
+         "v"
+        ],
+        [
+         "w",
+         "w"
+        ],
+        [
+         "x",
+         "x"
+        ],
+        [
+         "y",
+         "y"
+        ],
+        [
+         "z",
+         "z"
+        ],
+        [
+         "0",
+         "0"
+        ],
+        [
+         "1",
+         "1"
+        ],
+        [
+         "2",
+         "2"
+        ],
+        [
+         "3",
+         "3"
+        ],
+        [
+         "4",
+         "4"
+        ],
+        [
+         "5",
+         "5"
+        ],
+        [
+         "6",
+         "6"
+        ],
+        [
+         "7",
+         "7"
+        ],
+        [
+         "8",
+         "8"
+        ],
+        [
+         "9",
+         "9"
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "shape": "hat",
+   "category": "event",
+   "args": [
+    {
+     "name": "KEY_OPTION",
+     "kind": "menu",
+     "options": [
+      [
+       "space",
+       "space"
+      ],
+      [
+       "up arrow",
+       "up arrow"
+      ],
+      [
+       "down arrow",
+       "down arrow"
+      ],
+      [
+       "right arrow",
+       "right arrow"
+      ],
+      [
+       "left arrow",
+       "left arrow"
+      ],
+      [
+       "any",
+       "any"
+      ],
+      [
+       "a",
+       "a"
+      ],
+      [
+       "b",
+       "b"
+      ],
+      [
+       "c",
+       "c"
+      ],
+      [
+       "d",
+       "d"
+      ],
+      [
+       "e",
+       "e"
+      ],
+      [
+       "f",
+       "f"
+      ],
+      [
+       "g",
+       "g"
+      ],
+      [
+       "h",
+       "h"
+      ],
+      [
+       "i",
+       "i"
+      ],
+      [
+       "j",
+       "j"
+      ],
+      [
+       "k",
+       "k"
+      ],
+      [
+       "l",
+       "l"
+      ],
+      [
+       "m",
+       "m"
+      ],
+      [
+       "n",
+       "n"
+      ],
+      [
+       "o",
+       "o"
+      ],
+      [
+       "p",
+       "p"
+      ],
+      [
+       "q",
+       "q"
+      ],
+      [
+       "r",
+       "r"
+      ],
+      [
+       "s",
+       "s"
+      ],
+      [
+       "t",
+       "t"
+      ],
+      [
+       "u",
+       "u"
+      ],
+      [
+       "v",
+       "v"
+      ],
+      [
+       "w",
+       "w"
+      ],
+      [
+       "x",
+       "x"
+      ],
+      [
+       "y",
+       "y"
+      ],
+      [
+       "z",
+       "z"
+      ],
+      [
+       "0",
+       "0"
+      ],
+      [
+       "1",
+       "1"
+      ],
+      [
+       "2",
+       "2"
+      ],
+      [
+       "3",
+       "3"
+      ],
+      [
+       "4",
+       "4"
+      ],
+      [
+       "5",
+       "5"
+      ],
+      [
+       "6",
+       "6"
+      ],
+      [
+       "7",
+       "7"
+      ],
+      [
+       "8",
+       "8"
+      ],
+      [
+       "9",
+       "9"
+      ]
+     ]
+    }
+   ]
+  },
+  "extension_pen_down": {
+   "opcode": "extension_pen_down",
+   "msg": null,
+   "text": "%1 %2 pen down",
+   "texts": [
+    {
+     "message": "%1 %2 pen down",
+     "args": [
+      {
+       "name": null,
+       "kind": "image",
+       "src": "pen-block-icon.svg"
+      },
+      {
+       "kind": "field_vertical_separator"
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "more",
+   "args": [
+    {
+     "name": null,
+     "kind": "image",
+     "src": "pen-block-icon.svg"
+    },
+    {
+     "kind": "field_vertical_separator"
+    }
+   ]
+  },
+  "extension_music_drum": {
+   "opcode": "extension_music_drum",
+   "msg": null,
+   "text": "%1 %2 play drum %3",
+   "texts": [
+    {
+     "message": "%1 %2 play drum %3",
+     "args": [
+      {
+       "name": null,
+       "kind": "image",
+       "src": "music-block-icon.svg"
+      },
+      {
+       "kind": "field_vertical_separator"
+      },
+      {
+       "name": "NUMBER",
+       "kind": "input",
+       "check": null
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "more",
+   "args": [
+    {
+     "name": null,
+     "kind": "image",
+     "src": "music-block-icon.svg"
+    },
+    {
+     "kind": "field_vertical_separator"
+    },
+    {
+     "name": "NUMBER",
+     "kind": "input",
+     "check": null
+    }
+   ]
+  },
+  "extension_wedo_motor": {
+   "opcode": "extension_wedo_motor",
+   "msg": null,
+   "text": "%1 %2 turn a motor %3",
+   "texts": [
+    {
+     "message": "%1 %2 turn a motor %3",
+     "args": [
+      {
+       "name": null,
+       "kind": "image",
+       "src": "wedo2-block-icon.svg"
+      },
+      {
+       "kind": "field_vertical_separator"
+      },
+      {
+       "name": null,
+       "kind": "image",
+       "src": "rotate-right.svg"
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "more",
+   "args": [
+    {
+     "name": null,
+     "kind": "image",
+     "src": "wedo2-block-icon.svg"
+    },
+    {
+     "kind": "field_vertical_separator"
+    },
+    {
+     "name": null,
+     "kind": "image",
+     "src": "rotate-right.svg"
+    }
+   ]
+  },
+  "extension_wedo_hat": {
+   "opcode": "extension_wedo_hat",
+   "msg": null,
+   "text": "%1 %2 when I am wearing a hat",
+   "texts": [
+    {
+     "message": "%1 %2 when I am wearing a hat",
+     "args": [
+      {
+       "name": null,
+       "kind": "image",
+       "src": "wedo2-block-icon.svg"
+      },
+      {
+       "kind": "field_vertical_separator"
+      }
+     ]
+    }
+   ],
+   "shape": "hat",
+   "category": "more",
+   "args": [
+    {
+     "name": null,
+     "kind": "image",
+     "src": "wedo2-block-icon.svg"
+    },
+    {
+     "kind": "field_vertical_separator"
+    }
+   ]
+  },
+  "extension_wedo_boolean": {
+   "opcode": "extension_wedo_boolean",
+   "msg": null,
+   "text": "%1 %2 O RLY?",
+   "texts": [
+    {
+     "message": "%1 %2 O RLY?",
+     "args": [
+      {
+       "name": null,
+       "kind": "image",
+       "src": "wedo2-block-icon.svg"
+      },
+      {
+       "kind": "field_vertical_separator"
+      }
+     ]
+    }
+   ],
+   "shape": "boolean",
+   "category": "more",
+   "args": [
+    {
+     "name": null,
+     "kind": "image",
+     "src": "wedo2-block-icon.svg"
+    },
+    {
+     "kind": "field_vertical_separator"
+    }
+   ]
+  },
+  "extension_wedo_tilt_reporter": {
+   "opcode": "extension_wedo_tilt_reporter",
+   "msg": null,
+   "text": "%1 %2 tilt angle %3",
+   "texts": [
+    {
+     "message": "%1 %2 tilt angle %3",
+     "args": [
+      {
+       "name": null,
+       "kind": "image",
+       "src": "wedo2-block-icon.svg"
+      },
+      {
+       "kind": "field_vertical_separator"
+      },
+      {
+       "name": "TILT",
+       "kind": "input",
+       "check": null
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "more",
+   "args": [
+    {
+     "name": null,
+     "kind": "image",
+     "src": "wedo2-block-icon.svg"
+    },
+    {
+     "kind": "field_vertical_separator"
+    },
+    {
+     "name": "TILT",
+     "kind": "input",
+     "check": null
+    }
+   ]
+  },
+  "extension_wedo_tilt_menu": {
+   "opcode": "extension_wedo_tilt_menu",
+   "msg": null,
+   "text": "%1",
+   "texts": [
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "TILT",
+       "kind": "menu",
+       "options": [
+        [
+         "Any",
+         "Any"
+        ],
+        [
+         "Whirl",
+         "Whirl"
+        ],
+        [
+         "South",
+         "South"
+        ],
+        [
+         "Back in time",
+         "Back in time"
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": null,
+   "args": [
+    {
+     "name": "TILT",
+     "kind": "menu",
+     "options": [
+      [
+       "Any",
+       "Any"
+      ],
+      [
+       "Whirl",
+       "Whirl"
+      ],
+      [
+       "South",
+       "South"
+      ],
+      [
+       "Back in time",
+       "Back in time"
+      ]
+     ]
+    }
+   ]
+  },
+  "extension_music_reporter": {
+   "opcode": "extension_music_reporter",
+   "msg": null,
+   "text": "%1 %2 hey now, you're an all-star",
+   "texts": [
+    {
+     "message": "%1 %2 hey now, you're an all-star",
+     "args": [
+      {
+       "name": null,
+       "kind": "image",
+       "src": "music-block-icon.svg"
+      },
+      {
+       "kind": "field_vertical_separator"
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "more",
+   "args": [
+    {
+     "name": null,
+     "kind": "image",
+     "src": "music-block-icon.svg"
+    },
+    {
+     "kind": "field_vertical_separator"
+    }
+   ]
+  },
+  "extension_microbit_display": {
+   "opcode": "extension_microbit_display",
+   "msg": null,
+   "text": "%1 %2 display %3",
+   "texts": [
+    {
+     "message": "%1 %2 display %3",
+     "args": [
+      {
+       "name": null,
+       "kind": "image",
+       "src": "microbit-block-icon.svg"
+      },
+      {
+       "kind": "field_vertical_separator"
+      },
+      {
+       "name": "MATRIX",
+       "kind": "input",
+       "check": null
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "pen",
+   "args": [
+    {
+     "name": null,
+     "kind": "image",
+     "src": "microbit-block-icon.svg"
+    },
+    {
+     "kind": "field_vertical_separator"
+    },
+    {
+     "name": "MATRIX",
+     "kind": "input",
+     "check": null
+    }
+   ]
+  },
+  "extension_music_play_note": {
+   "opcode": "extension_music_play_note",
+   "msg": null,
+   "text": "%1 %2 play note %3 for %4 beats",
+   "texts": [
+    {
+     "message": "%1 %2 play note %3 for %4 beats",
+     "args": [
+      {
+       "name": null,
+       "kind": "image",
+       "src": "music-block-icon.svg"
+      },
+      {
+       "kind": "field_vertical_separator"
+      },
+      {
+       "name": "NOTE",
+       "kind": "input",
+       "check": null
+      },
+      {
+       "name": "BEATS",
+       "kind": "input",
+       "check": null
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "pen",
+   "args": [
+    {
+     "name": null,
+     "kind": "image",
+     "src": "music-block-icon.svg"
+    },
+    {
+     "kind": "field_vertical_separator"
+    },
+    {
+     "name": "NOTE",
+     "kind": "input",
+     "check": null
+    },
+    {
+     "name": "BEATS",
+     "kind": "input",
+     "check": null
+    }
+   ]
+  },
+  "looks_sayforsecs": {
+   "opcode": "looks_sayforsecs",
+   "msg": "LOOKS_SAYFORSECS",
+   "text": "say %1 for %2 seconds",
+   "texts": [
+    {
+     "message": "say %1 for %2 seconds",
+     "args": [
+      {
+       "name": "MESSAGE",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "text",
+        "field": "TEXT",
+        "value": "Hello!"
+       }
+      },
+      {
+       "name": "SECS",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "2"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "looks",
+   "args": [
+    {
+     "name": "MESSAGE",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "text",
+      "field": "TEXT",
+      "value": "Hello!"
+     }
+    },
+    {
+     "name": "SECS",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "2"
+     }
+    }
+   ]
+  },
+  "looks_say": {
+   "opcode": "looks_say",
+   "msg": "LOOKS_SAY",
+   "text": "say %1",
+   "texts": [
+    {
+     "message": "say %1",
+     "args": [
+      {
+       "name": "MESSAGE",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "text",
+        "field": "TEXT",
+        "value": "Hello!"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "looks",
+   "args": [
+    {
+     "name": "MESSAGE",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "text",
+      "field": "TEXT",
+      "value": "Hello!"
+     }
+    }
+   ]
+  },
+  "looks_thinkforsecs": {
+   "opcode": "looks_thinkforsecs",
+   "msg": "LOOKS_THINKFORSECS",
+   "text": "think %1 for %2 seconds",
+   "texts": [
+    {
+     "message": "think %1 for %2 seconds",
+     "args": [
+      {
+       "name": "MESSAGE",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "text",
+        "field": "TEXT",
+        "value": "Hmm..."
+       }
+      },
+      {
+       "name": "SECS",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "2"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "looks",
+   "args": [
+    {
+     "name": "MESSAGE",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "text",
+      "field": "TEXT",
+      "value": "Hmm..."
+     }
+    },
+    {
+     "name": "SECS",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "2"
+     }
+    }
+   ]
+  },
+  "looks_think": {
+   "opcode": "looks_think",
+   "msg": "LOOKS_THINK",
+   "text": "think %1",
+   "texts": [
+    {
+     "message": "think %1",
+     "args": [
+      {
+       "name": "MESSAGE",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "text",
+        "field": "TEXT",
+        "value": "Hmm..."
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "looks",
+   "args": [
+    {
+     "name": "MESSAGE",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "text",
+      "field": "TEXT",
+      "value": "Hmm..."
+     }
+    }
+   ]
+  },
+  "looks_show": {
+   "opcode": "looks_show",
+   "msg": "LOOKS_SHOW",
+   "text": "show",
+   "texts": [
+    {
+     "message": "show",
+     "args": []
+    }
+   ],
+   "shape": "statement",
+   "category": "looks",
+   "args": []
+  },
+  "looks_hide": {
+   "opcode": "looks_hide",
+   "msg": "LOOKS_HIDE",
+   "text": "hide",
+   "texts": [
+    {
+     "message": "hide",
+     "args": []
+    }
+   ],
+   "shape": "statement",
+   "category": "looks",
+   "args": []
+  },
+  "looks_hideallsprites": {
+   "opcode": "looks_hideallsprites",
+   "msg": "LOOKS_HIDEALLSPRITES",
+   "text": "hide all sprites",
+   "texts": [
+    {
+     "message": "hide all sprites",
+     "args": []
+    }
+   ],
+   "shape": "statement",
+   "category": "looks",
+   "args": []
+  },
+  "looks_changeeffectby": {
+   "opcode": "looks_changeeffectby",
+   "msg": "LOOKS_CHANGEEFFECTBY",
+   "text": "change %1 effect by %2",
+   "texts": [
+    {
+     "message": "change %1 effect by %2",
+     "args": [
+      {
+       "name": "EFFECT",
+       "kind": "menu",
+       "options": [
+        [
+         "color",
+         "COLOR"
+        ],
+        [
+         "fisheye",
+         "FISHEYE"
+        ],
+        [
+         "whirl",
+         "WHIRL"
+        ],
+        [
+         "pixelate",
+         "PIXELATE"
+        ],
+        [
+         "mosaic",
+         "MOSAIC"
+        ],
+        [
+         "brightness",
+         "BRIGHTNESS"
+        ],
+        [
+         "ghost",
+         "GHOST"
+        ]
+       ]
+      },
+      {
+       "name": "CHANGE",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "25"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "looks",
+   "args": [
+    {
+     "name": "EFFECT",
+     "kind": "menu",
+     "options": [
+      [
+       "color",
+       "COLOR"
+      ],
+      [
+       "fisheye",
+       "FISHEYE"
+      ],
+      [
+       "whirl",
+       "WHIRL"
+      ],
+      [
+       "pixelate",
+       "PIXELATE"
+      ],
+      [
+       "mosaic",
+       "MOSAIC"
+      ],
+      [
+       "brightness",
+       "BRIGHTNESS"
+      ],
+      [
+       "ghost",
+       "GHOST"
+      ]
+     ]
+    },
+    {
+     "name": "CHANGE",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "25"
+     }
+    }
+   ]
+  },
+  "looks_seteffectto": {
+   "opcode": "looks_seteffectto",
+   "msg": "LOOKS_SETEFFECTTO",
+   "text": "set %1 effect to %2",
+   "texts": [
+    {
+     "message": "set %1 effect to %2",
+     "args": [
+      {
+       "name": "EFFECT",
+       "kind": "menu",
+       "options": [
+        [
+         "color",
+         "COLOR"
+        ],
+        [
+         "fisheye",
+         "FISHEYE"
+        ],
+        [
+         "whirl",
+         "WHIRL"
+        ],
+        [
+         "pixelate",
+         "PIXELATE"
+        ],
+        [
+         "mosaic",
+         "MOSAIC"
+        ],
+        [
+         "brightness",
+         "BRIGHTNESS"
+        ],
+        [
+         "ghost",
+         "GHOST"
+        ]
+       ]
+      },
+      {
+       "name": "VALUE",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "0"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "looks",
+   "args": [
+    {
+     "name": "EFFECT",
+     "kind": "menu",
+     "options": [
+      [
+       "color",
+       "COLOR"
+      ],
+      [
+       "fisheye",
+       "FISHEYE"
+      ],
+      [
+       "whirl",
+       "WHIRL"
+      ],
+      [
+       "pixelate",
+       "PIXELATE"
+      ],
+      [
+       "mosaic",
+       "MOSAIC"
+      ],
+      [
+       "brightness",
+       "BRIGHTNESS"
+      ],
+      [
+       "ghost",
+       "GHOST"
+      ]
+     ]
+    },
+    {
+     "name": "VALUE",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "0"
+     }
+    }
+   ]
+  },
+  "looks_cleargraphiceffects": {
+   "opcode": "looks_cleargraphiceffects",
+   "msg": "LOOKS_CLEARGRAPHICEFFECTS",
+   "text": "clear graphic effects",
+   "texts": [
+    {
+     "message": "clear graphic effects",
+     "args": []
+    }
+   ],
+   "shape": "statement",
+   "category": "looks",
+   "args": []
+  },
+  "looks_changesizeby": {
+   "opcode": "looks_changesizeby",
+   "msg": "LOOKS_CHANGESIZEBY",
+   "text": "change size by %1",
+   "texts": [
+    {
+     "message": "change size by %1",
+     "args": [
+      {
+       "name": "CHANGE",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "10"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "looks",
+   "args": [
+    {
+     "name": "CHANGE",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "10"
+     }
+    }
+   ]
+  },
+  "looks_setsizeto": {
+   "opcode": "looks_setsizeto",
+   "msg": "LOOKS_SETSIZETO",
+   "text": "set size to %1 %",
+   "texts": [
+    {
+     "message": "set size to %1 %",
+     "args": [
+      {
+       "name": "SIZE",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "100"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "looks",
+   "args": [
+    {
+     "name": "SIZE",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "100"
+     }
+    }
+   ]
+  },
+  "looks_size": {
+   "opcode": "looks_size",
+   "msg": "LOOKS_SIZE",
+   "text": "size",
+   "texts": [
+    {
+     "message": "size",
+     "args": []
+    }
+   ],
+   "shape": "reporter",
+   "category": "looks",
+   "args": []
+  },
+  "looks_changestretchby": {
+   "opcode": "looks_changestretchby",
+   "msg": "LOOKS_CHANGESTRETCHBY",
+   "text": "change stretch by %1",
+   "texts": [
+    {
+     "message": "change stretch by %1",
+     "args": [
+      {
+       "name": "CHANGE",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "10"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "looks",
+   "args": [
+    {
+     "name": "CHANGE",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "10"
+     }
+    }
+   ]
+  },
+  "looks_setstretchto": {
+   "opcode": "looks_setstretchto",
+   "msg": "LOOKS_SETSTRETCHTO",
+   "text": "set stretch to %1 %",
+   "texts": [
+    {
+     "message": "set stretch to %1 %",
+     "args": [
+      {
+       "name": "STRETCH",
+       "kind": "input",
+       "check": null
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "looks",
+   "args": [
+    {
+     "name": "STRETCH",
+     "kind": "input",
+     "check": null
+    }
+   ]
+  },
+  "looks_costume": {
+   "opcode": "looks_costume",
+   "msg": null,
+   "text": "%1",
+   "texts": [
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "COSTUME",
+       "kind": "menu",
+       "options": "dynamic"
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": null,
+   "args": [
+    {
+     "name": "COSTUME",
+     "kind": "menu",
+     "options": "dynamic"
+    }
+   ]
+  },
+  "looks_switchcostumeto": {
+   "opcode": "looks_switchcostumeto",
+   "msg": "LOOKS_SWITCHCOSTUMETO",
+   "text": "switch costume to %1",
+   "texts": [
+    {
+     "message": "switch costume to %1",
+     "args": [
+      {
+       "name": "COSTUME",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "looks_costume",
+        "field": "COSTUME",
+        "value": "costume1"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "looks",
+   "args": [
+    {
+     "name": "COSTUME",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "looks_costume",
+      "field": "COSTUME",
+      "value": "costume1"
+     }
+    }
+   ]
+  },
+  "looks_nextcostume": {
+   "opcode": "looks_nextcostume",
+   "msg": "LOOKS_NEXTCOSTUME",
+   "text": "next costume",
+   "texts": [
+    {
+     "message": "next costume",
+     "args": []
+    }
+   ],
+   "shape": "statement",
+   "category": "looks",
+   "args": []
+  },
+  "looks_switchbackdropto": {
+   "opcode": "looks_switchbackdropto",
+   "msg": "LOOKS_SWITCHBACKDROPTO",
+   "text": "switch backdrop to %1",
+   "texts": [
+    {
+     "message": "switch backdrop to %1",
+     "args": [
+      {
+       "name": "BACKDROP",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "looks_backdrops",
+        "field": "BACKDROP",
+        "value": "backdrop1"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "looks",
+   "args": [
+    {
+     "name": "BACKDROP",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "looks_backdrops",
+      "field": "BACKDROP",
+      "value": "backdrop1"
+     }
+    }
+   ]
+  },
+  "looks_backdrops": {
+   "opcode": "looks_backdrops",
+   "msg": null,
+   "text": "%1",
+   "texts": [
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "BACKDROP",
+       "kind": "menu",
+       "options": "dynamic"
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": null,
+   "args": [
+    {
+     "name": "BACKDROP",
+     "kind": "menu",
+     "options": "dynamic"
+    }
+   ]
+  },
+  "looks_gotofrontback": {
+   "opcode": "looks_gotofrontback",
+   "msg": "LOOKS_GOTOFRONTBACK",
+   "text": "go to %1 layer",
+   "texts": [
+    {
+     "message": "go to %1 layer",
+     "args": [
+      {
+       "name": "FRONT_BACK",
+       "kind": "menu",
+       "options": [
+        [
+         "front",
+         "front"
+        ],
+        [
+         "back",
+         "back"
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "looks",
+   "args": [
+    {
+     "name": "FRONT_BACK",
+     "kind": "menu",
+     "options": [
+      [
+       "front",
+       "front"
+      ],
+      [
+       "back",
+       "back"
+      ]
+     ]
+    }
+   ]
+  },
+  "looks_goforwardbackwardlayers": {
+   "opcode": "looks_goforwardbackwardlayers",
+   "msg": "LOOKS_GOFORWARDBACKWARDLAYERS",
+   "text": "go %1 %2 layers",
+   "texts": [
+    {
+     "message": "go %1 %2 layers",
+     "args": [
+      {
+       "name": "FORWARD_BACKWARD",
+       "kind": "menu",
+       "options": [
+        [
+         "forward",
+         "forward"
+        ],
+        [
+         "backward",
+         "backward"
+        ]
+       ]
+      },
+      {
+       "name": "NUM",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_integer",
+        "field": "NUM",
+        "value": "1"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "looks",
+   "args": [
+    {
+     "name": "FORWARD_BACKWARD",
+     "kind": "menu",
+     "options": [
+      [
+       "forward",
+       "forward"
+      ],
+      [
+       "backward",
+       "backward"
+      ]
+     ]
+    },
+    {
+     "name": "NUM",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_integer",
+      "field": "NUM",
+      "value": "1"
+     }
+    }
+   ]
+  },
+  "looks_backdropnumbername": {
+   "opcode": "looks_backdropnumbername",
+   "msg": "LOOKS_BACKDROPNUMBERNAME",
+   "text": "backdrop %1",
+   "texts": [
+    {
+     "message": "backdrop %1",
+     "args": [
+      {
+       "name": "NUMBER_NAME",
+       "kind": "menu",
+       "options": [
+        [
+         "number",
+         "number"
+        ],
+        [
+         "name",
+         "name"
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "looks",
+   "args": [
+    {
+     "name": "NUMBER_NAME",
+     "kind": "menu",
+     "options": [
+      [
+       "number",
+       "number"
+      ],
+      [
+       "name",
+       "name"
+      ]
+     ]
+    }
+   ]
+  },
+  "looks_costumenumbername": {
+   "opcode": "looks_costumenumbername",
+   "msg": "LOOKS_COSTUMENUMBERNAME",
+   "text": "costume %1",
+   "texts": [
+    {
+     "message": "costume %1",
+     "args": [
+      {
+       "name": "NUMBER_NAME",
+       "kind": "menu",
+       "options": [
+        [
+         "number",
+         "number"
+        ],
+        [
+         "name",
+         "name"
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "looks",
+   "args": [
+    {
+     "name": "NUMBER_NAME",
+     "kind": "menu",
+     "options": [
+      [
+       "number",
+       "number"
+      ],
+      [
+       "name",
+       "name"
+      ]
+     ]
+    }
+   ]
+  },
+  "looks_switchbackdroptoandwait": {
+   "opcode": "looks_switchbackdroptoandwait",
+   "msg": "LOOKS_SWITCHBACKDROPTOANDWAIT",
+   "text": "switch backdrop to %1 and wait",
+   "texts": [
+    {
+     "message": "switch backdrop to %1 and wait",
+     "args": [
+      {
+       "name": "BACKDROP",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "looks_backdrops",
+        "field": "BACKDROP",
+        "value": "backdrop1"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "looks",
+   "args": [
+    {
+     "name": "BACKDROP",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "looks_backdrops",
+      "field": "BACKDROP",
+      "value": "backdrop1"
+     }
+    }
+   ]
+  },
+  "looks_nextbackdrop": {
+   "opcode": "looks_nextbackdrop",
+   "msg": "LOOKS_NEXTBACKDROP_BLOCK",
+   "text": "next backdrop",
+   "texts": [
+    {
+     "message": "next backdrop",
+     "args": []
+    }
+   ],
+   "shape": "statement",
+   "category": "looks",
+   "args": []
+  },
+  "motion_movesteps": {
+   "opcode": "motion_movesteps",
+   "msg": "MOTION_MOVESTEPS",
+   "text": "move %1 steps",
+   "texts": [
+    {
+     "message": "move %1 steps",
+     "args": [
+      {
+       "name": "STEPS",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "10"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "motion",
+   "args": [
+    {
+     "name": "STEPS",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "10"
+     }
+    }
+   ]
+  },
+  "motion_turnright": {
+   "opcode": "motion_turnright",
+   "msg": "MOTION_TURNRIGHT",
+   "text": "turn %1 %2 degrees",
+   "texts": [
+    {
+     "message": "turn %1 %2 degrees",
+     "args": [
+      {
+       "name": null,
+       "kind": "image",
+       "src": "rotate-right.svg"
+      },
+      {
+       "name": "DEGREES",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "15"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "motion",
+   "args": [
+    {
+     "name": null,
+     "kind": "image",
+     "src": "rotate-right.svg"
+    },
+    {
+     "name": "DEGREES",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "15"
+     }
+    }
+   ]
+  },
+  "motion_turnleft": {
+   "opcode": "motion_turnleft",
+   "msg": "MOTION_TURNLEFT",
+   "text": "turn %1 %2 degrees",
+   "texts": [
+    {
+     "message": "turn %1 %2 degrees",
+     "args": [
+      {
+       "name": null,
+       "kind": "image",
+       "src": "rotate-left.svg"
+      },
+      {
+       "name": "DEGREES",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "15"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "motion",
+   "args": [
+    {
+     "name": null,
+     "kind": "image",
+     "src": "rotate-left.svg"
+    },
+    {
+     "name": "DEGREES",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "15"
+     }
+    }
+   ]
+  },
+  "motion_pointindirection": {
+   "opcode": "motion_pointindirection",
+   "msg": "MOTION_POINTINDIRECTION",
+   "text": "point in direction %1",
+   "texts": [
+    {
+     "message": "point in direction %1",
+     "args": [
+      {
+       "name": "DIRECTION",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_angle",
+        "field": "NUM",
+        "value": "90"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "motion",
+   "args": [
+    {
+     "name": "DIRECTION",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_angle",
+      "field": "NUM",
+      "value": "90"
+     }
+    }
+   ]
+  },
+  "motion_pointtowards_menu": {
+   "opcode": "motion_pointtowards_menu",
+   "msg": null,
+   "text": "%1",
+   "texts": [
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "TOWARDS",
+       "kind": "menu",
+       "options": [
+        [
+         "mouse-pointer",
+         "_mouse_"
+        ],
+        [
+         "random direction",
+         "_random_"
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": null,
+   "args": [
+    {
+     "name": "TOWARDS",
+     "kind": "menu",
+     "options": [
+      [
+       "mouse-pointer",
+       "_mouse_"
+      ],
+      [
+       "random direction",
+       "_random_"
+      ]
+     ]
+    }
+   ]
+  },
+  "motion_pointtowards": {
+   "opcode": "motion_pointtowards",
+   "msg": "MOTION_POINTTOWARDS",
+   "text": "point towards %1",
+   "texts": [
+    {
+     "message": "point towards %1",
+     "args": [
+      {
+       "name": "TOWARDS",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "motion_pointtowards_menu",
+        "field": null,
+        "value": null
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "motion",
+   "args": [
+    {
+     "name": "TOWARDS",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "motion_pointtowards_menu",
+      "field": null,
+      "value": null
+     }
+    }
+   ]
+  },
+  "motion_goto_menu": {
+   "opcode": "motion_goto_menu",
+   "msg": null,
+   "text": "%1",
+   "texts": [
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "TO",
+       "kind": "menu",
+       "options": [
+        [
+         "mouse-pointer",
+         "_mouse_"
+        ],
+        [
+         "random position",
+         "_random_"
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": null,
+   "args": [
+    {
+     "name": "TO",
+     "kind": "menu",
+     "options": [
+      [
+       "mouse-pointer",
+       "_mouse_"
+      ],
+      [
+       "random position",
+       "_random_"
+      ]
+     ]
+    }
+   ]
+  },
+  "motion_gotoxy": {
+   "opcode": "motion_gotoxy",
+   "msg": "MOTION_GOTOXY",
+   "text": "go to x: %1 y: %2",
+   "texts": [
+    {
+     "message": "go to x: %1 y: %2",
+     "args": [
+      {
+       "name": "X",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "0"
+       }
+      },
+      {
+       "name": "Y",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "0"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "motion",
+   "args": [
+    {
+     "name": "X",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "0"
+     }
+    },
+    {
+     "name": "Y",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "0"
+     }
+    }
+   ]
+  },
+  "motion_goto": {
+   "opcode": "motion_goto",
+   "msg": "MOTION_GOTO",
+   "text": "go to %1",
+   "texts": [
+    {
+     "message": "go to %1",
+     "args": [
+      {
+       "name": "TO",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "motion_goto_menu",
+        "field": null,
+        "value": null
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "motion",
+   "args": [
+    {
+     "name": "TO",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "motion_goto_menu",
+      "field": null,
+      "value": null
+     }
+    }
+   ]
+  },
+  "motion_glidesecstoxy": {
+   "opcode": "motion_glidesecstoxy",
+   "msg": "MOTION_GLIDESECSTOXY",
+   "text": "glide %1 secs to x: %2 y: %3",
+   "texts": [
+    {
+     "message": "glide %1 secs to x: %2 y: %3",
+     "args": [
+      {
+       "name": "SECS",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "1"
+       }
+      },
+      {
+       "name": "X",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "0"
+       }
+      },
+      {
+       "name": "Y",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "0"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "motion",
+   "args": [
+    {
+     "name": "SECS",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "1"
+     }
+    },
+    {
+     "name": "X",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "0"
+     }
+    },
+    {
+     "name": "Y",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "0"
+     }
+    }
+   ]
+  },
+  "motion_glideto_menu": {
+   "opcode": "motion_glideto_menu",
+   "msg": null,
+   "text": "%1",
+   "texts": [
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "TO",
+       "kind": "menu",
+       "options": [
+        [
+         "mouse-pointer",
+         "_mouse_"
+        ],
+        [
+         "random position",
+         "_random_"
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": null,
+   "args": [
+    {
+     "name": "TO",
+     "kind": "menu",
+     "options": [
+      [
+       "mouse-pointer",
+       "_mouse_"
+      ],
+      [
+       "random position",
+       "_random_"
+      ]
+     ]
+    }
+   ]
+  },
+  "motion_glideto": {
+   "opcode": "motion_glideto",
+   "msg": "MOTION_GLIDETO",
+   "text": "glide %1 secs to %2",
+   "texts": [
+    {
+     "message": "glide %1 secs to %2",
+     "args": [
+      {
+       "name": "SECS",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "1"
+       }
+      },
+      {
+       "name": "TO",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "motion_glideto_menu",
+        "field": null,
+        "value": null
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "motion",
+   "args": [
+    {
+     "name": "SECS",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "1"
+     }
+    },
+    {
+     "name": "TO",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "motion_glideto_menu",
+      "field": null,
+      "value": null
+     }
+    }
+   ]
+  },
+  "motion_changexby": {
+   "opcode": "motion_changexby",
+   "msg": "MOTION_CHANGEXBY",
+   "text": "change x by %1",
+   "texts": [
+    {
+     "message": "change x by %1",
+     "args": [
+      {
+       "name": "DX",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "10"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "motion",
+   "args": [
+    {
+     "name": "DX",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "10"
+     }
+    }
+   ]
+  },
+  "motion_setx": {
+   "opcode": "motion_setx",
+   "msg": "MOTION_SETX",
+   "text": "set x to %1",
+   "texts": [
+    {
+     "message": "set x to %1",
+     "args": [
+      {
+       "name": "X",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "0"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "motion",
+   "args": [
+    {
+     "name": "X",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "0"
+     }
+    }
+   ]
+  },
+  "motion_changeyby": {
+   "opcode": "motion_changeyby",
+   "msg": "MOTION_CHANGEYBY",
+   "text": "change y by %1",
+   "texts": [
+    {
+     "message": "change y by %1",
+     "args": [
+      {
+       "name": "DY",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "10"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "motion",
+   "args": [
+    {
+     "name": "DY",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "10"
+     }
+    }
+   ]
+  },
+  "motion_sety": {
+   "opcode": "motion_sety",
+   "msg": "MOTION_SETY",
+   "text": "set y to %1",
+   "texts": [
+    {
+     "message": "set y to %1",
+     "args": [
+      {
+       "name": "Y",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "0"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "motion",
+   "args": [
+    {
+     "name": "Y",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "0"
+     }
+    }
+   ]
+  },
+  "motion_ifonedgebounce": {
+   "opcode": "motion_ifonedgebounce",
+   "msg": "MOTION_IFONEDGEBOUNCE",
+   "text": "if on edge, bounce",
+   "texts": [
+    {
+     "message": "if on edge, bounce",
+     "args": []
+    }
+   ],
+   "shape": "statement",
+   "category": "motion",
+   "args": []
+  },
+  "motion_setrotationstyle": {
+   "opcode": "motion_setrotationstyle",
+   "msg": "MOTION_SETROTATIONSTYLE",
+   "text": "set rotation style %1",
+   "texts": [
+    {
+     "message": "set rotation style %1",
+     "args": [
+      {
+       "name": "STYLE",
+       "kind": "menu",
+       "options": [
+        [
+         "left-right",
+         "left-right"
+        ],
+        [
+         "don't rotate",
+         "don't rotate"
+        ],
+        [
+         "all around",
+         "all around"
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "motion",
+   "args": [
+    {
+     "name": "STYLE",
+     "kind": "menu",
+     "options": [
+      [
+       "left-right",
+       "left-right"
+      ],
+      [
+       "don't rotate",
+       "don't rotate"
+      ],
+      [
+       "all around",
+       "all around"
+      ]
+     ]
+    }
+   ]
+  },
+  "motion_xposition": {
+   "opcode": "motion_xposition",
+   "msg": "MOTION_XPOSITION",
+   "text": "x position",
+   "texts": [
+    {
+     "message": "x position",
+     "args": []
+    }
+   ],
+   "shape": "reporter",
+   "category": "motion",
+   "args": []
+  },
+  "motion_yposition": {
+   "opcode": "motion_yposition",
+   "msg": "MOTION_YPOSITION",
+   "text": "y position",
+   "texts": [
+    {
+     "message": "y position",
+     "args": []
+    }
+   ],
+   "shape": "reporter",
+   "category": "motion",
+   "args": []
+  },
+  "motion_direction": {
+   "opcode": "motion_direction",
+   "msg": "MOTION_DIRECTION",
+   "text": "direction",
+   "texts": [
+    {
+     "message": "direction",
+     "args": []
+    }
+   ],
+   "shape": "reporter",
+   "category": "motion",
+   "args": []
+  },
+  "motion_scroll_right": {
+   "opcode": "motion_scroll_right",
+   "msg": "MOTION_SCROLLRIGHT",
+   "text": "scroll right %1",
+   "texts": [
+    {
+     "message": "scroll right %1",
+     "args": [
+      {
+       "name": "DISTANCE",
+       "kind": "input",
+       "check": null
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "motion",
+   "args": [
+    {
+     "name": "DISTANCE",
+     "kind": "input",
+     "check": null
+    }
+   ]
+  },
+  "motion_scroll_up": {
+   "opcode": "motion_scroll_up",
+   "msg": "MOTION_SCROLLUP",
+   "text": "scroll up %1",
+   "texts": [
+    {
+     "message": "scroll up %1",
+     "args": [
+      {
+       "name": "DISTANCE",
+       "kind": "input",
+       "check": null
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "motion",
+   "args": [
+    {
+     "name": "DISTANCE",
+     "kind": "input",
+     "check": null
+    }
+   ]
+  },
+  "motion_align_scene": {
+   "opcode": "motion_align_scene",
+   "msg": "MOTION_ALIGNSCENE",
+   "text": "align scene %1",
+   "texts": [
+    {
+     "message": "align scene %1",
+     "args": [
+      {
+       "name": "ALIGNMENT",
+       "kind": "menu",
+       "options": [
+        [
+         "bottom-left",
+         "bottom-left"
+        ],
+        [
+         "bottom-right",
+         "bottom-right"
+        ],
+        [
+         "middle",
+         "middle"
+        ],
+        [
+         "top-left",
+         "top-left"
+        ],
+        [
+         "top-right",
+         "top-right"
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "motion",
+   "args": [
+    {
+     "name": "ALIGNMENT",
+     "kind": "menu",
+     "options": [
+      [
+       "bottom-left",
+       "bottom-left"
+      ],
+      [
+       "bottom-right",
+       "bottom-right"
+      ],
+      [
+       "middle",
+       "middle"
+      ],
+      [
+       "top-left",
+       "top-left"
+      ],
+      [
+       "top-right",
+       "top-right"
+      ]
+     ]
+    }
+   ]
+  },
+  "motion_xscroll": {
+   "opcode": "motion_xscroll",
+   "msg": "MOTION_XSCROLL",
+   "text": "x scroll",
+   "texts": [
+    {
+     "message": "x scroll",
+     "args": []
+    }
+   ],
+   "shape": "reporter",
+   "category": "motion",
+   "args": []
+  },
+  "motion_yscroll": {
+   "opcode": "motion_yscroll",
+   "msg": "MOTION_YSCROLL",
+   "text": "y scroll",
+   "texts": [
+    {
+     "message": "y scroll",
+     "args": []
+    }
+   ],
+   "shape": "reporter",
+   "category": "motion",
+   "args": []
+  },
+  "operator_add": {
+   "opcode": "operator_add",
+   "msg": "OPERATORS_ADD",
+   "text": "%1 + %2",
+   "texts": [
+    {
+     "message": "%1 + %2",
+     "args": [
+      {
+       "name": "NUM1",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": ""
+       }
+      },
+      {
+       "name": "NUM2",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": ""
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "operators",
+   "args": [
+    {
+     "name": "NUM1",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": ""
+     }
+    },
+    {
+     "name": "NUM2",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": ""
+     }
+    }
+   ]
+  },
+  "operator_subtract": {
+   "opcode": "operator_subtract",
+   "msg": "OPERATORS_SUBTRACT",
+   "text": "%1 - %2",
+   "texts": [
+    {
+     "message": "%1 - %2",
+     "args": [
+      {
+       "name": "NUM1",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": ""
+       }
+      },
+      {
+       "name": "NUM2",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": ""
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "operators",
+   "args": [
+    {
+     "name": "NUM1",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": ""
+     }
+    },
+    {
+     "name": "NUM2",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": ""
+     }
+    }
+   ]
+  },
+  "operator_multiply": {
+   "opcode": "operator_multiply",
+   "msg": "OPERATORS_MULTIPLY",
+   "text": "%1 * %2",
+   "texts": [
+    {
+     "message": "%1 * %2",
+     "args": [
+      {
+       "name": "NUM1",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": ""
+       }
+      },
+      {
+       "name": "NUM2",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": ""
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "operators",
+   "args": [
+    {
+     "name": "NUM1",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": ""
+     }
+    },
+    {
+     "name": "NUM2",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": ""
+     }
+    }
+   ]
+  },
+  "operator_divide": {
+   "opcode": "operator_divide",
+   "msg": "OPERATORS_DIVIDE",
+   "text": "%1 / %2",
+   "texts": [
+    {
+     "message": "%1 / %2",
+     "args": [
+      {
+       "name": "NUM1",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": ""
+       }
+      },
+      {
+       "name": "NUM2",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": ""
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "operators",
+   "args": [
+    {
+     "name": "NUM1",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": ""
+     }
+    },
+    {
+     "name": "NUM2",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": ""
+     }
+    }
+   ]
+  },
+  "operator_random": {
+   "opcode": "operator_random",
+   "msg": "OPERATORS_RANDOM",
+   "text": "pick random %1 to %2",
+   "texts": [
+    {
+     "message": "pick random %1 to %2",
+     "args": [
+      {
+       "name": "FROM",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "1"
+       }
+      },
+      {
+       "name": "TO",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "10"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "operators",
+   "args": [
+    {
+     "name": "FROM",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "1"
+     }
+    },
+    {
+     "name": "TO",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "10"
+     }
+    }
+   ]
+  },
+  "operator_lt": {
+   "opcode": "operator_lt",
+   "msg": "OPERATORS_LT",
+   "text": "%1 < %2",
+   "texts": [
+    {
+     "message": "%1 < %2",
+     "args": [
+      {
+       "name": "OPERAND1",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "text",
+        "field": "TEXT",
+        "value": ""
+       }
+      },
+      {
+       "name": "OPERAND2",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "text",
+        "field": "TEXT",
+        "value": "50"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "boolean",
+   "category": "operators",
+   "args": [
+    {
+     "name": "OPERAND1",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "text",
+      "field": "TEXT",
+      "value": ""
+     }
+    },
+    {
+     "name": "OPERAND2",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "text",
+      "field": "TEXT",
+      "value": "50"
+     }
+    }
+   ]
+  },
+  "operator_equals": {
+   "opcode": "operator_equals",
+   "msg": "OPERATORS_EQUALS",
+   "text": "%1 = %2",
+   "texts": [
+    {
+     "message": "%1 = %2",
+     "args": [
+      {
+       "name": "OPERAND1",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "text",
+        "field": "TEXT",
+        "value": ""
+       }
+      },
+      {
+       "name": "OPERAND2",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "text",
+        "field": "TEXT",
+        "value": "50"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "boolean",
+   "category": "operators",
+   "args": [
+    {
+     "name": "OPERAND1",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "text",
+      "field": "TEXT",
+      "value": ""
+     }
+    },
+    {
+     "name": "OPERAND2",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "text",
+      "field": "TEXT",
+      "value": "50"
+     }
+    }
+   ]
+  },
+  "operator_gt": {
+   "opcode": "operator_gt",
+   "msg": "OPERATORS_GT",
+   "text": "%1 > %2",
+   "texts": [
+    {
+     "message": "%1 > %2",
+     "args": [
+      {
+       "name": "OPERAND1",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "text",
+        "field": "TEXT",
+        "value": ""
+       }
+      },
+      {
+       "name": "OPERAND2",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "text",
+        "field": "TEXT",
+        "value": "50"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "boolean",
+   "category": "operators",
+   "args": [
+    {
+     "name": "OPERAND1",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "text",
+      "field": "TEXT",
+      "value": ""
+     }
+    },
+    {
+     "name": "OPERAND2",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "text",
+      "field": "TEXT",
+      "value": "50"
+     }
+    }
+   ]
+  },
+  "operator_and": {
+   "opcode": "operator_and",
+   "msg": "OPERATORS_AND",
+   "text": "%1 and %2",
+   "texts": [
+    {
+     "message": "%1 and %2",
+     "args": [
+      {
+       "name": "OPERAND1",
+       "kind": "input",
+       "check": "Boolean"
+      },
+      {
+       "name": "OPERAND2",
+       "kind": "input",
+       "check": "Boolean"
+      }
+     ]
+    }
+   ],
+   "shape": "boolean",
+   "category": "operators",
+   "args": [
+    {
+     "name": "OPERAND1",
+     "kind": "input",
+     "check": "Boolean"
+    },
+    {
+     "name": "OPERAND2",
+     "kind": "input",
+     "check": "Boolean"
+    }
+   ]
+  },
+  "operator_or": {
+   "opcode": "operator_or",
+   "msg": "OPERATORS_OR",
+   "text": "%1 or %2",
+   "texts": [
+    {
+     "message": "%1 or %2",
+     "args": [
+      {
+       "name": "OPERAND1",
+       "kind": "input",
+       "check": "Boolean"
+      },
+      {
+       "name": "OPERAND2",
+       "kind": "input",
+       "check": "Boolean"
+      }
+     ]
+    }
+   ],
+   "shape": "boolean",
+   "category": "operators",
+   "args": [
+    {
+     "name": "OPERAND1",
+     "kind": "input",
+     "check": "Boolean"
+    },
+    {
+     "name": "OPERAND2",
+     "kind": "input",
+     "check": "Boolean"
+    }
+   ]
+  },
+  "operator_not": {
+   "opcode": "operator_not",
+   "msg": "OPERATORS_NOT",
+   "text": "not %1",
+   "texts": [
+    {
+     "message": "not %1",
+     "args": [
+      {
+       "name": "OPERAND",
+       "kind": "input",
+       "check": "Boolean"
+      }
+     ]
+    }
+   ],
+   "shape": "boolean",
+   "category": "operators",
+   "args": [
+    {
+     "name": "OPERAND",
+     "kind": "input",
+     "check": "Boolean"
+    }
+   ]
+  },
+  "operator_join": {
+   "opcode": "operator_join",
+   "msg": "OPERATORS_JOIN",
+   "text": "join %1 %2",
+   "texts": [
+    {
+     "message": "join %1 %2",
+     "args": [
+      {
+       "name": "STRING1",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "text",
+        "field": "TEXT",
+        "value": "apple "
+       }
+      },
+      {
+       "name": "STRING2",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "text",
+        "field": "TEXT",
+        "value": "banana"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "operators",
+   "args": [
+    {
+     "name": "STRING1",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "text",
+      "field": "TEXT",
+      "value": "apple "
+     }
+    },
+    {
+     "name": "STRING2",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "text",
+      "field": "TEXT",
+      "value": "banana"
+     }
+    }
+   ]
+  },
+  "operator_letter_of": {
+   "opcode": "operator_letter_of",
+   "msg": "OPERATORS_LETTEROF",
+   "text": "letter %1 of %2",
+   "texts": [
+    {
+     "message": "letter %1 of %2",
+     "args": [
+      {
+       "name": "LETTER",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_whole_number",
+        "field": "NUM",
+        "value": "1"
+       }
+      },
+      {
+       "name": "STRING",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "text",
+        "field": "TEXT",
+        "value": "apple"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "operators",
+   "args": [
+    {
+     "name": "LETTER",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_whole_number",
+      "field": "NUM",
+      "value": "1"
+     }
+    },
+    {
+     "name": "STRING",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "text",
+      "field": "TEXT",
+      "value": "apple"
+     }
+    }
+   ]
+  },
+  "operator_length": {
+   "opcode": "operator_length",
+   "msg": "OPERATORS_LENGTH",
+   "text": "length of %1",
+   "texts": [
+    {
+     "message": "length of %1",
+     "args": [
+      {
+       "name": "STRING",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "text",
+        "field": "TEXT",
+        "value": "apple"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "operators",
+   "args": [
+    {
+     "name": "STRING",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "text",
+      "field": "TEXT",
+      "value": "apple"
+     }
+    }
+   ]
+  },
+  "operator_contains": {
+   "opcode": "operator_contains",
+   "msg": "OPERATORS_CONTAINS",
+   "text": "%1 contains %2?",
+   "texts": [
+    {
+     "message": "%1 contains %2?",
+     "args": [
+      {
+       "name": "STRING1",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "text",
+        "field": "TEXT",
+        "value": "apple"
+       }
+      },
+      {
+       "name": "STRING2",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "text",
+        "field": "TEXT",
+        "value": "a"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "boolean",
+   "category": "operators",
+   "args": [
+    {
+     "name": "STRING1",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "text",
+      "field": "TEXT",
+      "value": "apple"
+     }
+    },
+    {
+     "name": "STRING2",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "text",
+      "field": "TEXT",
+      "value": "a"
+     }
+    }
+   ]
+  },
+  "operator_mod": {
+   "opcode": "operator_mod",
+   "msg": "OPERATORS_MOD",
+   "text": "%1 mod %2",
+   "texts": [
+    {
+     "message": "%1 mod %2",
+     "args": [
+      {
+       "name": "NUM1",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": ""
+       }
+      },
+      {
+       "name": "NUM2",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": ""
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "operators",
+   "args": [
+    {
+     "name": "NUM1",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": ""
+     }
+    },
+    {
+     "name": "NUM2",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": ""
+     }
+    }
+   ]
+  },
+  "operator_round": {
+   "opcode": "operator_round",
+   "msg": "OPERATORS_ROUND",
+   "text": "round %1",
+   "texts": [
+    {
+     "message": "round %1",
+     "args": [
+      {
+       "name": "NUM",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": ""
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "operators",
+   "args": [
+    {
+     "name": "NUM",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": ""
+     }
+    }
+   ]
+  },
+  "operator_mathop": {
+   "opcode": "operator_mathop",
+   "msg": "OPERATORS_MATHOP",
+   "text": "%1 of %2",
+   "texts": [
+    {
+     "message": "%1 of %2",
+     "args": [
+      {
+       "name": "OPERATOR",
+       "kind": "menu",
+       "options": [
+        [
+         "abs",
+         "abs"
+        ],
+        [
+         "floor",
+         "floor"
+        ],
+        [
+         "ceiling",
+         "ceiling"
+        ],
+        [
+         "sqrt",
+         "sqrt"
+        ],
+        [
+         "sin",
+         "sin"
+        ],
+        [
+         "cos",
+         "cos"
+        ],
+        [
+         "tan",
+         "tan"
+        ],
+        [
+         "asin",
+         "asin"
+        ],
+        [
+         "acos",
+         "acos"
+        ],
+        [
+         "atan",
+         "atan"
+        ],
+        [
+         "ln",
+         "ln"
+        ],
+        [
+         "log",
+         "log"
+        ],
+        [
+         "e ^",
+         "e ^"
+        ],
+        [
+         "10 ^",
+         "10 ^"
+        ]
+       ]
+      },
+      {
+       "name": "NUM",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": ""
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "operators",
+   "args": [
+    {
+     "name": "OPERATOR",
+     "kind": "menu",
+     "options": [
+      [
+       "abs",
+       "abs"
+      ],
+      [
+       "floor",
+       "floor"
+      ],
+      [
+       "ceiling",
+       "ceiling"
+      ],
+      [
+       "sqrt",
+       "sqrt"
+      ],
+      [
+       "sin",
+       "sin"
+      ],
+      [
+       "cos",
+       "cos"
+      ],
+      [
+       "tan",
+       "tan"
+      ],
+      [
+       "asin",
+       "asin"
+      ],
+      [
+       "acos",
+       "acos"
+      ],
+      [
+       "atan",
+       "atan"
+      ],
+      [
+       "ln",
+       "ln"
+      ],
+      [
+       "log",
+       "log"
+      ],
+      [
+       "e ^",
+       "e ^"
+      ],
+      [
+       "10 ^",
+       "10 ^"
+      ]
+     ]
+    },
+    {
+     "name": "NUM",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": ""
+     }
+    }
+   ]
+  },
+  "procedures_definition": {
+   "opcode": "procedures_definition",
+   "msg": "PROCEDURES_DEFINITION",
+   "text": "define %1",
+   "texts": [
+    {
+     "message": "define %1",
+     "args": [
+      {
+       "name": "custom_block",
+       "kind": "substack"
+      }
+     ]
+    }
+   ],
+   "shape": "hat",
+   "category": null,
+   "args": [
+    {
+     "name": "custom_block",
+     "kind": "substack"
+    }
+   ]
+  },
+  "procedures_call": {
+   "opcode": "procedures_call",
+   "msg": null,
+   "text": null,
+   "texts": [],
+   "shape": "statement",
+   "category": null,
+   "args": []
+  },
+  "procedures_prototype": {
+   "opcode": "procedures_prototype",
+   "msg": null,
+   "text": null,
+   "texts": [],
+   "shape": "statement",
+   "category": null,
+   "args": []
+  },
+  "procedures_declaration": {
+   "opcode": "procedures_declaration",
+   "msg": null,
+   "text": null,
+   "texts": [],
+   "shape": "statement",
+   "category": null,
+   "args": []
+  },
+  "argument_reporter_boolean": {
+   "opcode": "argument_reporter_boolean",
+   "msg": null,
+   "text": " %1",
+   "texts": [
+    {
+     "message": " %1",
+     "args": [
+      {
+       "name": "VALUE",
+       "kind": "label"
+      }
+     ]
+    }
+   ],
+   "shape": "boolean",
+   "category": null,
+   "args": [
+    {
+     "name": "VALUE",
+     "kind": "label"
+    }
+   ]
+  },
+  "argument_reporter_string_number": {
+   "opcode": "argument_reporter_string_number",
+   "msg": null,
+   "text": " %1",
+   "texts": [
+    {
+     "message": " %1",
+     "args": [
+      {
+       "name": "VALUE",
+       "kind": "label"
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": null,
+   "args": [
+    {
+     "name": "VALUE",
+     "kind": "label"
+    }
+   ]
+  },
+  "argument_editor_boolean": {
+   "opcode": "argument_editor_boolean",
+   "msg": null,
+   "text": " %1",
+   "texts": [
+    {
+     "message": " %1",
+     "args": [
+      {
+       "name": "TEXT",
+       "kind": "field_input_removable"
+      }
+     ]
+    }
+   ],
+   "shape": "boolean",
+   "category": null,
+   "args": [
+    {
+     "name": "TEXT",
+     "kind": "field_input_removable"
+    }
+   ]
+  },
+  "argument_editor_string_number": {
+   "opcode": "argument_editor_string_number",
+   "msg": null,
+   "text": " %1",
+   "texts": [
+    {
+     "message": " %1",
+     "args": [
+      {
+       "name": "TEXT",
+       "kind": "field_input_removable"
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": null,
+   "args": [
+    {
+     "name": "TEXT",
+     "kind": "field_input_removable"
+    }
+   ]
+  },
+  "sensing_touchingobject": {
+   "opcode": "sensing_touchingobject",
+   "msg": "SENSING_TOUCHINGOBJECT",
+   "text": "touching %1?",
+   "texts": [
+    {
+     "message": "touching %1?",
+     "args": [
+      {
+       "name": "TOUCHINGOBJECTMENU",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "sensing_touchingobjectmenu",
+        "field": null,
+        "value": null
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "boolean",
+   "category": "sensing",
+   "args": [
+    {
+     "name": "TOUCHINGOBJECTMENU",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "sensing_touchingobjectmenu",
+      "field": null,
+      "value": null
+     }
+    }
+   ]
+  },
+  "sensing_touchingobjectmenu": {
+   "opcode": "sensing_touchingobjectmenu",
+   "msg": null,
+   "text": "%1",
+   "texts": [
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "TOUCHINGOBJECTMENU",
+       "kind": "menu",
+       "options": [
+        [
+         "mouse-pointer",
+         "_mouse_"
+        ],
+        [
+         "edge",
+         "_edge_"
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": null,
+   "args": [
+    {
+     "name": "TOUCHINGOBJECTMENU",
+     "kind": "menu",
+     "options": [
+      [
+       "mouse-pointer",
+       "_mouse_"
+      ],
+      [
+       "edge",
+       "_edge_"
+      ]
+     ]
+    }
+   ]
+  },
+  "sensing_touchingcolor": {
+   "opcode": "sensing_touchingcolor",
+   "msg": "SENSING_TOUCHINGCOLOR",
+   "text": "touching color %1?",
+   "texts": [
+    {
+     "message": "touching color %1?",
+     "args": [
+      {
+       "name": "COLOR",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "colour_picker",
+        "field": null,
+        "value": null
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "boolean",
+   "category": "sensing",
+   "args": [
+    {
+     "name": "COLOR",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "colour_picker",
+      "field": null,
+      "value": null
+     }
+    }
+   ]
+  },
+  "sensing_coloristouchingcolor": {
+   "opcode": "sensing_coloristouchingcolor",
+   "msg": "SENSING_COLORISTOUCHINGCOLOR",
+   "text": "color %1 is touching %2?",
+   "texts": [
+    {
+     "message": "color %1 is touching %2?",
+     "args": [
+      {
+       "name": "COLOR",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "colour_picker",
+        "field": null,
+        "value": null
+       }
+      },
+      {
+       "name": "COLOR2",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "colour_picker",
+        "field": null,
+        "value": null
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "boolean",
+   "category": "sensing",
+   "args": [
+    {
+     "name": "COLOR",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "colour_picker",
+      "field": null,
+      "value": null
+     }
+    },
+    {
+     "name": "COLOR2",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "colour_picker",
+      "field": null,
+      "value": null
+     }
+    }
+   ]
+  },
+  "sensing_distanceto": {
+   "opcode": "sensing_distanceto",
+   "msg": "SENSING_DISTANCETO",
+   "text": "distance to %1",
+   "texts": [
+    {
+     "message": "distance to %1",
+     "args": [
+      {
+       "name": "DISTANCETOMENU",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "sensing_distancetomenu",
+        "field": null,
+        "value": null
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "sensing",
+   "args": [
+    {
+     "name": "DISTANCETOMENU",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "sensing_distancetomenu",
+      "field": null,
+      "value": null
+     }
+    }
+   ]
+  },
+  "sensing_distancetomenu": {
+   "opcode": "sensing_distancetomenu",
+   "msg": null,
+   "text": "%1",
+   "texts": [
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "DISTANCETOMENU",
+       "kind": "menu",
+       "options": [
+        [
+         "mouse-pointer",
+         "_mouse_"
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": null,
+   "args": [
+    {
+     "name": "DISTANCETOMENU",
+     "kind": "menu",
+     "options": [
+      [
+       "mouse-pointer",
+       "_mouse_"
+      ]
+     ]
+    }
+   ]
+  },
+  "sensing_askandwait": {
+   "opcode": "sensing_askandwait",
+   "msg": "SENSING_ASKANDWAIT",
+   "text": "ask %1 and wait",
+   "texts": [
+    {
+     "message": "ask %1 and wait",
+     "args": [
+      {
+       "name": "QUESTION",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "text",
+        "field": "TEXT",
+        "value": "What's your name?"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "sensing",
+   "args": [
+    {
+     "name": "QUESTION",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "text",
+      "field": "TEXT",
+      "value": "What's your name?"
+     }
+    }
+   ]
+  },
+  "sensing_answer": {
+   "opcode": "sensing_answer",
+   "msg": "SENSING_ANSWER",
+   "text": "answer",
+   "texts": [
+    {
+     "message": "answer",
+     "args": []
+    }
+   ],
+   "shape": "reporter",
+   "category": "sensing",
+   "args": []
+  },
+  "sensing_keypressed": {
+   "opcode": "sensing_keypressed",
+   "msg": "SENSING_KEYPRESSED",
+   "text": "key %1 pressed?",
+   "texts": [
+    {
+     "message": "key %1 pressed?",
+     "args": [
+      {
+       "name": "KEY_OPTION",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "sensing_keyoptions",
+        "field": null,
+        "value": null
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "boolean",
+   "category": "sensing",
+   "args": [
+    {
+     "name": "KEY_OPTION",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "sensing_keyoptions",
+      "field": null,
+      "value": null
+     }
+    }
+   ]
+  },
+  "sensing_keyoptions": {
+   "opcode": "sensing_keyoptions",
+   "msg": null,
+   "text": "%1",
+   "texts": [
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "KEY_OPTION",
+       "kind": "menu",
+       "options": [
+        [
+         "space",
+         "space"
+        ],
+        [
+         "up arrow",
+         "up arrow"
+        ],
+        [
+         "down arrow",
+         "down arrow"
+        ],
+        [
+         "right arrow",
+         "right arrow"
+        ],
+        [
+         "left arrow",
+         "left arrow"
+        ],
+        [
+         "any",
+         "any"
+        ],
+        [
+         "a",
+         "a"
+        ],
+        [
+         "b",
+         "b"
+        ],
+        [
+         "c",
+         "c"
+        ],
+        [
+         "d",
+         "d"
+        ],
+        [
+         "e",
+         "e"
+        ],
+        [
+         "f",
+         "f"
+        ],
+        [
+         "g",
+         "g"
+        ],
+        [
+         "h",
+         "h"
+        ],
+        [
+         "i",
+         "i"
+        ],
+        [
+         "j",
+         "j"
+        ],
+        [
+         "k",
+         "k"
+        ],
+        [
+         "l",
+         "l"
+        ],
+        [
+         "m",
+         "m"
+        ],
+        [
+         "n",
+         "n"
+        ],
+        [
+         "o",
+         "o"
+        ],
+        [
+         "p",
+         "p"
+        ],
+        [
+         "q",
+         "q"
+        ],
+        [
+         "r",
+         "r"
+        ],
+        [
+         "s",
+         "s"
+        ],
+        [
+         "t",
+         "t"
+        ],
+        [
+         "u",
+         "u"
+        ],
+        [
+         "v",
+         "v"
+        ],
+        [
+         "w",
+         "w"
+        ],
+        [
+         "x",
+         "x"
+        ],
+        [
+         "y",
+         "y"
+        ],
+        [
+         "z",
+         "z"
+        ],
+        [
+         "0",
+         "0"
+        ],
+        [
+         "1",
+         "1"
+        ],
+        [
+         "2",
+         "2"
+        ],
+        [
+         "3",
+         "3"
+        ],
+        [
+         "4",
+         "4"
+        ],
+        [
+         "5",
+         "5"
+        ],
+        [
+         "6",
+         "6"
+        ],
+        [
+         "7",
+         "7"
+        ],
+        [
+         "8",
+         "8"
+        ],
+        [
+         "9",
+         "9"
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": null,
+   "args": [
+    {
+     "name": "KEY_OPTION",
+     "kind": "menu",
+     "options": [
+      [
+       "space",
+       "space"
+      ],
+      [
+       "up arrow",
+       "up arrow"
+      ],
+      [
+       "down arrow",
+       "down arrow"
+      ],
+      [
+       "right arrow",
+       "right arrow"
+      ],
+      [
+       "left arrow",
+       "left arrow"
+      ],
+      [
+       "any",
+       "any"
+      ],
+      [
+       "a",
+       "a"
+      ],
+      [
+       "b",
+       "b"
+      ],
+      [
+       "c",
+       "c"
+      ],
+      [
+       "d",
+       "d"
+      ],
+      [
+       "e",
+       "e"
+      ],
+      [
+       "f",
+       "f"
+      ],
+      [
+       "g",
+       "g"
+      ],
+      [
+       "h",
+       "h"
+      ],
+      [
+       "i",
+       "i"
+      ],
+      [
+       "j",
+       "j"
+      ],
+      [
+       "k",
+       "k"
+      ],
+      [
+       "l",
+       "l"
+      ],
+      [
+       "m",
+       "m"
+      ],
+      [
+       "n",
+       "n"
+      ],
+      [
+       "o",
+       "o"
+      ],
+      [
+       "p",
+       "p"
+      ],
+      [
+       "q",
+       "q"
+      ],
+      [
+       "r",
+       "r"
+      ],
+      [
+       "s",
+       "s"
+      ],
+      [
+       "t",
+       "t"
+      ],
+      [
+       "u",
+       "u"
+      ],
+      [
+       "v",
+       "v"
+      ],
+      [
+       "w",
+       "w"
+      ],
+      [
+       "x",
+       "x"
+      ],
+      [
+       "y",
+       "y"
+      ],
+      [
+       "z",
+       "z"
+      ],
+      [
+       "0",
+       "0"
+      ],
+      [
+       "1",
+       "1"
+      ],
+      [
+       "2",
+       "2"
+      ],
+      [
+       "3",
+       "3"
+      ],
+      [
+       "4",
+       "4"
+      ],
+      [
+       "5",
+       "5"
+      ],
+      [
+       "6",
+       "6"
+      ],
+      [
+       "7",
+       "7"
+      ],
+      [
+       "8",
+       "8"
+      ],
+      [
+       "9",
+       "9"
+      ]
+     ]
+    }
+   ]
+  },
+  "sensing_mousedown": {
+   "opcode": "sensing_mousedown",
+   "msg": "SENSING_MOUSEDOWN",
+   "text": "mouse down?",
+   "texts": [
+    {
+     "message": "mouse down?",
+     "args": []
+    }
+   ],
+   "shape": "boolean",
+   "category": "sensing",
+   "args": []
+  },
+  "sensing_mousex": {
+   "opcode": "sensing_mousex",
+   "msg": "SENSING_MOUSEX",
+   "text": "mouse x",
+   "texts": [
+    {
+     "message": "mouse x",
+     "args": []
+    }
+   ],
+   "shape": "reporter",
+   "category": "sensing",
+   "args": []
+  },
+  "sensing_mousey": {
+   "opcode": "sensing_mousey",
+   "msg": "SENSING_MOUSEY",
+   "text": "mouse y",
+   "texts": [
+    {
+     "message": "mouse y",
+     "args": []
+    }
+   ],
+   "shape": "reporter",
+   "category": "sensing",
+   "args": []
+  },
+  "sensing_setdragmode": {
+   "opcode": "sensing_setdragmode",
+   "msg": "SENSING_SETDRAGMODE",
+   "text": "set drag mode %1",
+   "texts": [
+    {
+     "message": "set drag mode %1",
+     "args": [
+      {
+       "name": "DRAG_MODE",
+       "kind": "menu",
+       "options": [
+        [
+         "draggable",
+         "draggable"
+        ],
+        [
+         "not draggable",
+         "not draggable"
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "sensing",
+   "args": [
+    {
+     "name": "DRAG_MODE",
+     "kind": "menu",
+     "options": [
+      [
+       "draggable",
+       "draggable"
+      ],
+      [
+       "not draggable",
+       "not draggable"
+      ]
+     ]
+    }
+   ]
+  },
+  "sensing_loudness": {
+   "opcode": "sensing_loudness",
+   "msg": "SENSING_LOUDNESS",
+   "text": "loudness",
+   "texts": [
+    {
+     "message": "loudness",
+     "args": []
+    }
+   ],
+   "shape": "reporter",
+   "category": "sensing",
+   "args": []
+  },
+  "sensing_loud": {
+   "opcode": "sensing_loud",
+   "msg": "SENSING_LOUD",
+   "text": "loud?",
+   "texts": [
+    {
+     "message": "loud?",
+     "args": []
+    }
+   ],
+   "shape": "boolean",
+   "category": "sensing",
+   "args": []
+  },
+  "sensing_timer": {
+   "opcode": "sensing_timer",
+   "msg": "SENSING_TIMER",
+   "text": "timer",
+   "texts": [
+    {
+     "message": "timer",
+     "args": []
+    }
+   ],
+   "shape": "reporter",
+   "category": "sensing",
+   "args": []
+  },
+  "sensing_resettimer": {
+   "opcode": "sensing_resettimer",
+   "msg": "SENSING_RESETTIMER",
+   "text": "reset timer",
+   "texts": [
+    {
+     "message": "reset timer",
+     "args": []
+    }
+   ],
+   "shape": "statement",
+   "category": "sensing",
+   "args": []
+  },
+  "sensing_of_object_menu": {
+   "opcode": "sensing_of_object_menu",
+   "msg": null,
+   "text": "%1",
+   "texts": [
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "OBJECT",
+       "kind": "menu",
+       "options": [
+        [
+         "Sprite1",
+         "Sprite1"
+        ],
+        [
+         "Stage",
+         "_stage_"
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "sensing",
+   "args": [
+    {
+     "name": "OBJECT",
+     "kind": "menu",
+     "options": [
+      [
+       "Sprite1",
+       "Sprite1"
+      ],
+      [
+       "Stage",
+       "_stage_"
+      ]
+     ]
+    }
+   ]
+  },
+  "sensing_of": {
+   "opcode": "sensing_of",
+   "msg": "SENSING_OF",
+   "text": "%1 of %2",
+   "texts": [
+    {
+     "message": "%1 of %2",
+     "args": [
+      {
+       "name": "PROPERTY",
+       "kind": "menu",
+       "options": [
+        [
+         "x position",
+         "x position"
+        ],
+        [
+         "y position",
+         "y position"
+        ],
+        [
+         "direction",
+         "direction"
+        ],
+        [
+         "costume #",
+         "costume #"
+        ],
+        [
+         "costume name",
+         "costume name"
+        ],
+        [
+         "size",
+         "size"
+        ],
+        [
+         "volume",
+         "volume"
+        ],
+        [
+         "backdrop #",
+         "backdrop #"
+        ],
+        [
+         "backdrop name",
+         "backdrop name"
+        ]
+       ]
+      },
+      {
+       "name": "OBJECT",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "sensing_of_object_menu",
+        "field": null,
+        "value": null
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "sensing",
+   "args": [
+    {
+     "name": "PROPERTY",
+     "kind": "menu",
+     "options": [
+      [
+       "x position",
+       "x position"
+      ],
+      [
+       "y position",
+       "y position"
+      ],
+      [
+       "direction",
+       "direction"
+      ],
+      [
+       "costume #",
+       "costume #"
+      ],
+      [
+       "costume name",
+       "costume name"
+      ],
+      [
+       "size",
+       "size"
+      ],
+      [
+       "volume",
+       "volume"
+      ],
+      [
+       "backdrop #",
+       "backdrop #"
+      ],
+      [
+       "backdrop name",
+       "backdrop name"
+      ]
+     ]
+    },
+    {
+     "name": "OBJECT",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "sensing_of_object_menu",
+      "field": null,
+      "value": null
+     }
+    }
+   ]
+  },
+  "sensing_current": {
+   "opcode": "sensing_current",
+   "msg": "SENSING_CURRENT",
+   "text": "current %1",
+   "texts": [
+    {
+     "message": "current %1",
+     "args": [
+      {
+       "name": "CURRENTMENU",
+       "kind": "menu",
+       "options": [
+        [
+         "year",
+         "YEAR"
+        ],
+        [
+         "month",
+         "MONTH"
+        ],
+        [
+         "date",
+         "DATE"
+        ],
+        [
+         "day of week",
+         "DAYOFWEEK"
+        ],
+        [
+         "hour",
+         "HOUR"
+        ],
+        [
+         "minute",
+         "MINUTE"
+        ],
+        [
+         "second",
+         "SECOND"
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": "sensing",
+   "args": [
+    {
+     "name": "CURRENTMENU",
+     "kind": "menu",
+     "options": [
+      [
+       "year",
+       "YEAR"
+      ],
+      [
+       "month",
+       "MONTH"
+      ],
+      [
+       "date",
+       "DATE"
+      ],
+      [
+       "day of week",
+       "DAYOFWEEK"
+      ],
+      [
+       "hour",
+       "HOUR"
+      ],
+      [
+       "minute",
+       "MINUTE"
+      ],
+      [
+       "second",
+       "SECOND"
+      ]
+     ]
+    }
+   ]
+  },
+  "sensing_dayssince2000": {
+   "opcode": "sensing_dayssince2000",
+   "msg": "SENSING_DAYSSINCE2000",
+   "text": "days since 2000",
+   "texts": [
+    {
+     "message": "days since 2000",
+     "args": []
+    }
+   ],
+   "shape": "reporter",
+   "category": "sensing",
+   "args": []
+  },
+  "sensing_online": {
+   "opcode": "sensing_online",
+   "msg": "SENSING_ONLINE",
+   "text": "online?",
+   "texts": [
+    {
+     "message": "online?",
+     "args": []
+    }
+   ],
+   "shape": "boolean",
+   "category": "sensing",
+   "args": []
+  },
+  "sensing_username": {
+   "opcode": "sensing_username",
+   "msg": "SENSING_USERNAME",
+   "text": "username",
+   "texts": [
+    {
+     "message": "username",
+     "args": []
+    }
+   ],
+   "shape": "reporter",
+   "category": "sensing",
+   "args": []
+  },
+  "sensing_userid": {
+   "opcode": "sensing_userid",
+   "msg": "SENSING_USERID",
+   "text": "user id",
+   "texts": [
+    {
+     "message": "user id",
+     "args": []
+    }
+   ],
+   "shape": "reporter",
+   "category": "sensing",
+   "args": []
+  },
+  "sound_sounds_menu": {
+   "opcode": "sound_sounds_menu",
+   "msg": null,
+   "text": "%1",
+   "texts": [
+    {
+     "message": "%1",
+     "args": [
+      {
+       "name": "SOUND_MENU",
+       "kind": "menu",
+       "options": "dynamic"
+      }
+     ]
+    }
+   ],
+   "shape": "reporter",
+   "category": null,
+   "args": [
+    {
+     "name": "SOUND_MENU",
+     "kind": "menu",
+     "options": "dynamic"
+    }
+   ]
+  },
+  "sound_play": {
+   "opcode": "sound_play",
+   "msg": "SOUND_PLAY",
+   "text": "start sound %1",
+   "texts": [
+    {
+     "message": "start sound %1",
+     "args": [
+      {
+       "name": "SOUND_MENU",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "sound_sounds_menu",
+        "field": "SOUND_MENU",
+        "value": "Meow"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "sound",
+   "args": [
+    {
+     "name": "SOUND_MENU",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "sound_sounds_menu",
+      "field": "SOUND_MENU",
+      "value": "Meow"
+     }
+    }
+   ]
+  },
+  "sound_playuntildone": {
+   "opcode": "sound_playuntildone",
+   "msg": "SOUND_PLAYUNTILDONE",
+   "text": "play sound %1 until done",
+   "texts": [
+    {
+     "message": "play sound %1 until done",
+     "args": [
+      {
+       "name": "SOUND_MENU",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "sound_sounds_menu",
+        "field": "SOUND_MENU",
+        "value": "Meow"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "sound",
+   "args": [
+    {
+     "name": "SOUND_MENU",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "sound_sounds_menu",
+      "field": "SOUND_MENU",
+      "value": "Meow"
+     }
+    }
+   ]
+  },
+  "sound_stopallsounds": {
+   "opcode": "sound_stopallsounds",
+   "msg": "SOUND_STOPALLSOUNDS",
+   "text": "stop all sounds",
+   "texts": [
+    {
+     "message": "stop all sounds",
+     "args": []
+    }
+   ],
+   "shape": "statement",
+   "category": "sound",
+   "args": []
+  },
+  "sound_seteffectto": {
+   "opcode": "sound_seteffectto",
+   "msg": "SOUND_SETEFFECTO",
+   "text": "set %1 effect to %2",
+   "texts": [
+    {
+     "message": "set %1 effect to %2",
+     "args": [
+      {
+       "name": "EFFECT",
+       "kind": "menu",
+       "options": [
+        [
+         "pitch",
+         "PITCH"
+        ],
+        [
+         "pan left/right",
+         "PAN"
+        ]
+       ]
+      },
+      {
+       "name": "VALUE",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "100"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "sound",
+   "args": [
+    {
+     "name": "EFFECT",
+     "kind": "menu",
+     "options": [
+      [
+       "pitch",
+       "PITCH"
+      ],
+      [
+       "pan left/right",
+       "PAN"
+      ]
+     ]
+    },
+    {
+     "name": "VALUE",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "100"
+     }
+    }
+   ]
+  },
+  "sound_changeeffectby": {
+   "opcode": "sound_changeeffectby",
+   "msg": "SOUND_CHANGEEFFECTBY",
+   "text": "change %1 effect by %2",
+   "texts": [
+    {
+     "message": "change %1 effect by %2",
+     "args": [
+      {
+       "name": "EFFECT",
+       "kind": "menu",
+       "options": [
+        [
+         "pitch",
+         "PITCH"
+        ],
+        [
+         "pan left/right",
+         "PAN"
+        ]
+       ]
+      },
+      {
+       "name": "VALUE",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "10"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "sound",
+   "args": [
+    {
+     "name": "EFFECT",
+     "kind": "menu",
+     "options": [
+      [
+       "pitch",
+       "PITCH"
+      ],
+      [
+       "pan left/right",
+       "PAN"
+      ]
+     ]
+    },
+    {
+     "name": "VALUE",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "10"
+     }
+    }
+   ]
+  },
+  "sound_cleareffects": {
+   "opcode": "sound_cleareffects",
+   "msg": "SOUND_CLEAREFFECTS",
+   "text": "clear sound effects",
+   "texts": [
+    {
+     "message": "clear sound effects",
+     "args": []
+    }
+   ],
+   "shape": "statement",
+   "category": "sound",
+   "args": []
+  },
+  "sound_changevolumeby": {
+   "opcode": "sound_changevolumeby",
+   "msg": "SOUND_CHANGEVOLUMEBY",
+   "text": "change volume by %1",
+   "texts": [
+    {
+     "message": "change volume by %1",
+     "args": [
+      {
+       "name": "VOLUME",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "-10"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "sound",
+   "args": [
+    {
+     "name": "VOLUME",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "-10"
+     }
+    }
+   ]
+  },
+  "sound_setvolumeto": {
+   "opcode": "sound_setvolumeto",
+   "msg": "SOUND_SETVOLUMETO",
+   "text": "set volume to %1%",
+   "texts": [
+    {
+     "message": "set volume to %1%",
+     "args": [
+      {
+       "name": "VOLUME",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "100"
+       }
+      }
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "sound",
+   "args": [
+    {
+     "name": "VOLUME",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "100"
+     }
+    }
+   ]
+  },
+  "sound_volume": {
+   "opcode": "sound_volume",
+   "msg": "SOUND_VOLUME",
+   "text": "volume",
+   "texts": [
+    {
+     "message": "volume",
+     "args": []
+    }
+   ],
+   "shape": "reporter",
+   "category": "sound",
+   "args": []
+  },
+  "pen_clear": {
+   "opcode": "pen_clear",
+   "msg": null,
+   "text": "erase all",
+   "texts": [
+    {
+     "message": "erase all",
+     "args": []
+    }
+   ],
+   "args": [],
+   "shape": "statement",
+   "category": "pen",
+   "extension": "pen"
+  },
+  "pen_stamp": {
+   "opcode": "pen_stamp",
+   "msg": null,
+   "text": "stamp",
+   "texts": [
+    {
+     "message": "stamp",
+     "args": []
+    }
+   ],
+   "args": [],
+   "shape": "statement",
+   "category": "pen",
+   "extension": "pen"
+  },
+  "pen_penDown": {
+   "opcode": "pen_penDown",
+   "msg": null,
+   "text": "pen down",
+   "texts": [
+    {
+     "message": "pen down",
+     "args": []
+    }
+   ],
+   "args": [],
+   "shape": "statement",
+   "category": "pen",
+   "extension": "pen"
+  },
+  "pen_penUp": {
+   "opcode": "pen_penUp",
+   "msg": null,
+   "text": "pen up",
+   "texts": [
+    {
+     "message": "pen up",
+     "args": []
+    }
+   ],
+   "args": [],
+   "shape": "statement",
+   "category": "pen",
+   "extension": "pen"
+  },
+  "pen_setPenColorToColor": {
+   "opcode": "pen_setPenColorToColor",
+   "msg": null,
+   "text": "set pen color to %1",
+   "texts": [
+    {
+     "message": "set pen color to %1",
+     "args": [
+      {
+       "name": "COLOR",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "colour_picker",
+        "field": "COLOUR",
+        "value": ""
+       }
+      }
+     ]
+    }
+   ],
+   "args": [
+    {
+     "name": "COLOR",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "colour_picker",
+      "field": "COLOUR",
+      "value": ""
+     }
+    }
+   ],
+   "shape": "statement",
+   "category": "pen",
+   "extension": "pen"
+  },
+  "pen_changePenColorParamBy": {
+   "opcode": "pen_changePenColorParamBy",
+   "msg": null,
+   "text": "change pen %1 by %2",
+   "texts": [
+    {
+     "message": "change pen %1 by %2",
+     "args": [
+      {
+       "name": "COLOR_PARAM",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "pen_menu_colorParam",
+        "field": "colorParam",
+        "value": "color"
+       },
+       "options": [
+        [
+         "color",
+         "color"
+        ],
+        [
+         "saturation",
+         "saturation"
+        ],
+        [
+         "brightness",
+         "brightness"
+        ],
+        [
+         "transparency",
+         "transparency"
+        ]
+       ]
+      },
+      {
+       "name": "VALUE",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "10"
+       }
+      }
+     ]
+    }
+   ],
+   "args": [
+    {
+     "name": "COLOR_PARAM",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "pen_menu_colorParam",
+      "field": "colorParam",
+      "value": "color"
+     },
+     "options": [
+      [
+       "color",
+       "color"
+      ],
+      [
+       "saturation",
+       "saturation"
+      ],
+      [
+       "brightness",
+       "brightness"
+      ],
+      [
+       "transparency",
+       "transparency"
+      ]
+     ]
+    },
+    {
+     "name": "VALUE",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "10"
+     }
+    }
+   ],
+   "shape": "statement",
+   "category": "pen",
+   "extension": "pen"
+  },
+  "pen_setPenColorParamTo": {
+   "opcode": "pen_setPenColorParamTo",
+   "msg": null,
+   "text": "set pen %1 to %2",
+   "texts": [
+    {
+     "message": "set pen %1 to %2",
+     "args": [
+      {
+       "name": "COLOR_PARAM",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "pen_menu_colorParam",
+        "field": "colorParam",
+        "value": "color"
+       },
+       "options": [
+        [
+         "color",
+         "color"
+        ],
+        [
+         "saturation",
+         "saturation"
+        ],
+        [
+         "brightness",
+         "brightness"
+        ],
+        [
+         "transparency",
+         "transparency"
+        ]
+       ]
+      },
+      {
+       "name": "VALUE",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "50"
+       }
+      }
+     ]
+    }
+   ],
+   "args": [
+    {
+     "name": "COLOR_PARAM",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "pen_menu_colorParam",
+      "field": "colorParam",
+      "value": "color"
+     },
+     "options": [
+      [
+       "color",
+       "color"
+      ],
+      [
+       "saturation",
+       "saturation"
+      ],
+      [
+       "brightness",
+       "brightness"
+      ],
+      [
+       "transparency",
+       "transparency"
+      ]
+     ]
+    },
+    {
+     "name": "VALUE",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "50"
+     }
+    }
+   ],
+   "shape": "statement",
+   "category": "pen",
+   "extension": "pen"
+  },
+  "pen_changePenSizeBy": {
+   "opcode": "pen_changePenSizeBy",
+   "msg": null,
+   "text": "change pen size by %1",
+   "texts": [
+    {
+     "message": "change pen size by %1",
+     "args": [
+      {
+       "name": "SIZE",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "1"
+       }
+      }
+     ]
+    }
+   ],
+   "args": [
+    {
+     "name": "SIZE",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "1"
+     }
+    }
+   ],
+   "shape": "statement",
+   "category": "pen",
+   "extension": "pen"
+  },
+  "pen_setPenSizeTo": {
+   "opcode": "pen_setPenSizeTo",
+   "msg": null,
+   "text": "set pen size to %1",
+   "texts": [
+    {
+     "message": "set pen size to %1",
+     "args": [
+      {
+       "name": "SIZE",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "1"
+       }
+      }
+     ]
+    }
+   ],
+   "args": [
+    {
+     "name": "SIZE",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "1"
+     }
+    }
+   ],
+   "shape": "statement",
+   "category": "pen",
+   "extension": "pen"
+  },
+  "music_playDrumForBeats": {
+   "opcode": "music_playDrumForBeats",
+   "msg": null,
+   "text": "play drum %1 for %2 beats",
+   "texts": [
+    {
+     "message": "play drum %1 for %2 beats",
+     "args": [
+      {
+       "name": "DRUM",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "music_menu_DRUM",
+        "field": "DRUM",
+        "value": "1"
+       },
+       "options": [
+        [
+         "(1) Snare Drum",
+         "1"
+        ],
+        [
+         "(2) Bass Drum",
+         "2"
+        ],
+        [
+         "(3) Side Stick",
+         "3"
+        ],
+        [
+         "(4) Crash Cymbal",
+         "4"
+        ],
+        [
+         "(5) Open Hi-Hat",
+         "5"
+        ],
+        [
+         "(6) Closed Hi-Hat",
+         "6"
+        ],
+        [
+         "(7) Tambourine",
+         "7"
+        ],
+        [
+         "(8) Hand Clap",
+         "8"
+        ],
+        [
+         "(9) Claves",
+         "9"
+        ],
+        [
+         "(10) Wood Block",
+         "10"
+        ],
+        [
+         "(11) Cowbell",
+         "11"
+        ],
+        [
+         "(12) Triangle",
+         "12"
+        ],
+        [
+         "(13) Bongo",
+         "13"
+        ],
+        [
+         "(14) Conga",
+         "14"
+        ],
+        [
+         "(15) Cabasa",
+         "15"
+        ],
+        [
+         "(16) Guiro",
+         "16"
+        ],
+        [
+         "(17) Vibraslap",
+         "17"
+        ],
+        [
+         "(18) Cuica",
+         "18"
+        ]
+       ]
+      },
+      {
+       "name": "BEATS",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "0.25"
+       }
+      }
+     ]
+    }
+   ],
+   "args": [
+    {
+     "name": "DRUM",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "music_menu_DRUM",
+      "field": "DRUM",
+      "value": "1"
+     },
+     "options": [
+      [
+       "(1) Snare Drum",
+       "1"
+      ],
+      [
+       "(2) Bass Drum",
+       "2"
+      ],
+      [
+       "(3) Side Stick",
+       "3"
+      ],
+      [
+       "(4) Crash Cymbal",
+       "4"
+      ],
+      [
+       "(5) Open Hi-Hat",
+       "5"
+      ],
+      [
+       "(6) Closed Hi-Hat",
+       "6"
+      ],
+      [
+       "(7) Tambourine",
+       "7"
+      ],
+      [
+       "(8) Hand Clap",
+       "8"
+      ],
+      [
+       "(9) Claves",
+       "9"
+      ],
+      [
+       "(10) Wood Block",
+       "10"
+      ],
+      [
+       "(11) Cowbell",
+       "11"
+      ],
+      [
+       "(12) Triangle",
+       "12"
+      ],
+      [
+       "(13) Bongo",
+       "13"
+      ],
+      [
+       "(14) Conga",
+       "14"
+      ],
+      [
+       "(15) Cabasa",
+       "15"
+      ],
+      [
+       "(16) Guiro",
+       "16"
+      ],
+      [
+       "(17) Vibraslap",
+       "17"
+      ],
+      [
+       "(18) Cuica",
+       "18"
+      ]
+     ]
+    },
+    {
+     "name": "BEATS",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "0.25"
+     }
+    }
+   ],
+   "shape": "statement",
+   "category": "music",
+   "extension": "music"
+  },
+  "music_restForBeats": {
+   "opcode": "music_restForBeats",
+   "msg": null,
+   "text": "rest for %1 beats",
+   "texts": [
+    {
+     "message": "rest for %1 beats",
+     "args": [
+      {
+       "name": "BEATS",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "0.25"
+       }
+      }
+     ]
+    }
+   ],
+   "args": [
+    {
+     "name": "BEATS",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "0.25"
+     }
+    }
+   ],
+   "shape": "statement",
+   "category": "music",
+   "extension": "music"
+  },
+  "music_playNoteForBeats": {
+   "opcode": "music_playNoteForBeats",
+   "msg": null,
+   "text": "play note %1 for %2 beats",
+   "texts": [
+    {
+     "message": "play note %1 for %2 beats",
+     "args": [
+      {
+       "name": "NOTE",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "note",
+        "field": "NOTE",
+        "value": "60"
+       }
+      },
+      {
+       "name": "BEATS",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "0.25"
+       }
+      }
+     ]
+    }
+   ],
+   "args": [
+    {
+     "name": "NOTE",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "note",
+      "field": "NOTE",
+      "value": "60"
+     }
+    },
+    {
+     "name": "BEATS",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "0.25"
+     }
+    }
+   ],
+   "shape": "statement",
+   "category": "music",
+   "extension": "music"
+  },
+  "music_setInstrument": {
+   "opcode": "music_setInstrument",
+   "msg": null,
+   "text": "set instrument to %1",
+   "texts": [
+    {
+     "message": "set instrument to %1",
+     "args": [
+      {
+       "name": "INSTRUMENT",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "music_menu_INSTRUMENT",
+        "field": "INSTRUMENT",
+        "value": "1"
+       },
+       "options": [
+        [
+         "(1) Piano",
+         "1"
+        ],
+        [
+         "(2) Electric Piano",
+         "2"
+        ],
+        [
+         "(3) Organ",
+         "3"
+        ],
+        [
+         "(4) Guitar",
+         "4"
+        ],
+        [
+         "(5) Electric Guitar",
+         "5"
+        ],
+        [
+         "(6) Bass",
+         "6"
+        ],
+        [
+         "(7) Pizzicato",
+         "7"
+        ],
+        [
+         "(8) Cello",
+         "8"
+        ],
+        [
+         "(9) Trombone",
+         "9"
+        ],
+        [
+         "(10) Clarinet",
+         "10"
+        ],
+        [
+         "(11) Saxophone",
+         "11"
+        ],
+        [
+         "(12) Flute",
+         "12"
+        ],
+        [
+         "(13) Wooden Flute",
+         "13"
+        ],
+        [
+         "(14) Bassoon",
+         "14"
+        ],
+        [
+         "(15) Choir",
+         "15"
+        ],
+        [
+         "(16) Vibraphone",
+         "16"
+        ],
+        [
+         "(17) Music Box",
+         "17"
+        ],
+        [
+         "(18) Steel Drum",
+         "18"
+        ],
+        [
+         "(19) Marimba",
+         "19"
+        ],
+        [
+         "(20) Synth Lead",
+         "20"
+        ],
+        [
+         "(21) Synth Pad",
+         "21"
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "args": [
+    {
+     "name": "INSTRUMENT",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "music_menu_INSTRUMENT",
+      "field": "INSTRUMENT",
+      "value": "1"
+     },
+     "options": [
+      [
+       "(1) Piano",
+       "1"
+      ],
+      [
+       "(2) Electric Piano",
+       "2"
+      ],
+      [
+       "(3) Organ",
+       "3"
+      ],
+      [
+       "(4) Guitar",
+       "4"
+      ],
+      [
+       "(5) Electric Guitar",
+       "5"
+      ],
+      [
+       "(6) Bass",
+       "6"
+      ],
+      [
+       "(7) Pizzicato",
+       "7"
+      ],
+      [
+       "(8) Cello",
+       "8"
+      ],
+      [
+       "(9) Trombone",
+       "9"
+      ],
+      [
+       "(10) Clarinet",
+       "10"
+      ],
+      [
+       "(11) Saxophone",
+       "11"
+      ],
+      [
+       "(12) Flute",
+       "12"
+      ],
+      [
+       "(13) Wooden Flute",
+       "13"
+      ],
+      [
+       "(14) Bassoon",
+       "14"
+      ],
+      [
+       "(15) Choir",
+       "15"
+      ],
+      [
+       "(16) Vibraphone",
+       "16"
+      ],
+      [
+       "(17) Music Box",
+       "17"
+      ],
+      [
+       "(18) Steel Drum",
+       "18"
+      ],
+      [
+       "(19) Marimba",
+       "19"
+      ],
+      [
+       "(20) Synth Lead",
+       "20"
+      ],
+      [
+       "(21) Synth Pad",
+       "21"
+      ]
+     ]
+    }
+   ],
+   "shape": "statement",
+   "category": "music",
+   "extension": "music"
+  },
+  "music_setTempo": {
+   "opcode": "music_setTempo",
+   "msg": null,
+   "text": "set tempo to %1",
+   "texts": [
+    {
+     "message": "set tempo to %1",
+     "args": [
+      {
+       "name": "TEMPO",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "60"
+       }
+      }
+     ]
+    }
+   ],
+   "args": [
+    {
+     "name": "TEMPO",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "60"
+     }
+    }
+   ],
+   "shape": "statement",
+   "category": "music",
+   "extension": "music"
+  },
+  "music_changeTempo": {
+   "opcode": "music_changeTempo",
+   "msg": null,
+   "text": "change tempo by %1",
+   "texts": [
+    {
+     "message": "change tempo by %1",
+     "args": [
+      {
+       "name": "TEMPO",
+       "kind": "input",
+       "check": null,
+       "shadow": {
+        "type": "math_number",
+        "field": "NUM",
+        "value": "20"
+       }
+      }
+     ]
+    }
+   ],
+   "args": [
+    {
+     "name": "TEMPO",
+     "kind": "input",
+     "check": null,
+     "shadow": {
+      "type": "math_number",
+      "field": "NUM",
+      "value": "20"
+     }
+    }
+   ],
+   "shape": "statement",
+   "category": "music",
+   "extension": "music"
+  },
+  "music_getTempo": {
+   "opcode": "music_getTempo",
+   "msg": null,
+   "text": "tempo",
+   "texts": [
+    {
+     "message": "tempo",
+     "args": []
+    }
+   ],
+   "args": [],
+   "shape": "reporter",
+   "category": "music",
+   "extension": "music"
+  }
+ },
+ "sbIds": {
+  "MOTION_MOVESTEPS": "motion_movesteps",
+  "MOTION_TURNRIGHT": "motion_turnright",
+  "MOTION_TURNLEFT": "motion_turnleft",
+  "MOTION_POINTINDIRECTION": "motion_pointindirection",
+  "MOTION_POINTTOWARDS": "motion_pointtowards",
+  "MOTION_GOTOXY": "motion_gotoxy",
+  "MOTION_GOTO": "motion_goto",
+  "MOTION_GLIDESECSTOXY": "motion_glidesecstoxy",
+  "MOTION_GLIDETO": "motion_glideto",
+  "MOTION_CHANGEXBY": "motion_changexby",
+  "MOTION_SETX": "motion_setx",
+  "MOTION_CHANGEYBY": "motion_changeyby",
+  "MOTION_SETY": "motion_sety",
+  "MOTION_SETROTATIONSTYLE": "motion_setrotationstyle",
+  "LOOKS_SAYFORSECS": "looks_sayforsecs",
+  "LOOKS_SAY": "looks_say",
+  "LOOKS_THINKFORSECS": "looks_thinkforsecs",
+  "LOOKS_THINK": "looks_think",
+  "LOOKS_SHOW": "looks_show",
+  "LOOKS_HIDE": "looks_hide",
+  "LOOKS_SWITCHCOSTUMETO": "looks_switchcostumeto",
+  "LOOKS_NEXTCOSTUME": "looks_nextcostume",
+  "LOOKS_NEXTBACKDROP_BLOCK": "looks_nextbackdrop",
+  "LOOKS_SWITCHBACKDROPTO": "looks_switchbackdropto",
+  "LOOKS_SWITCHBACKDROPTOANDWAIT": "looks_switchbackdroptoandwait",
+  "LOOKS_CHANGEEFFECTBY": "looks_changeeffectby",
+  "LOOKS_SETEFFECTTO": "looks_seteffectto",
+  "LOOKS_CLEARGRAPHICEFFECTS": "looks_cleargraphiceffects",
+  "LOOKS_CHANGESIZEBY": "looks_changesizeby",
+  "LOOKS_SETSIZETO": "looks_setsizeto",
+  "LOOKS_GOTOFRONTBACK": "looks_gotofrontback",
+  "LOOKS_GOFORWARDBACKWARDLAYERS": "looks_goforwardbackwardlayers",
+  "SOUND_PLAY": "sound_play",
+  "SOUND_CHANGEEFFECTBY": "sound_changeeffectby",
+  "SOUND_SETEFFECTO": "sound_seteffectto",
+  "SOUND_CLEAREFFECTS": "sound_cleareffects",
+  "SOUND_PLAYUNTILDONE": "sound_playuntildone",
+  "SOUND_STOPALLSOUNDS": "sound_stopallsounds",
+  "music.playDrumForBeats": "music_playDrumForBeats",
+  "music.restForBeats": "music_restForBeats",
+  "music.playNoteForBeats": "music_playNoteForBeats",
+  "music.setInstrument": "music_setInstrument",
+  "SOUND_CHANGEVOLUMEBY": "sound_changevolumeby",
+  "SOUND_SETVOLUMETO": "sound_setvolumeto",
+  "music.changeTempo": "music_changeTempo",
+  "music.setTempo": "music_setTempo",
+  "pen.clear": "pen_clear",
+  "pen.stamp": "pen_stamp",
+  "pen.penDown": "pen_penDown",
+  "pen.penUp": "pen_penUp",
+  "pen.setColor": "pen_setPenColorToColor",
+  "pen.setColorParam": "pen_setPenColorParamTo",
+  "pen.changeColorParam": "pen_changePenColorParamBy",
+  "pen.setHue": "pen_setPenColorToColor",
+  "pen.changeSize": "pen_changePenSizeBy",
+  "pen.setSize": "pen_setPenSizeTo",
+  "EVENT_WHENFLAGCLICKED": "event_whenflagclicked",
+  "EVENT_WHENKEYPRESSED": "event_whenkeypressed",
+  "EVENT_WHENTHISSPRITECLICKED": "event_whenthisspriteclicked",
+  "EVENT_WHENSTAGECLICKED": "event_whenstageclicked",
+  "EVENT_WHENBACKDROPSWITCHESTO": "event_whenbackdropswitchesto",
+  "EVENT_WHENGREATERTHAN": "event_whengreaterthan",
+  "EVENT_WHENBROADCASTRECEIVED": "event_whenbroadcastreceived",
+  "EVENT_BROADCAST": "event_broadcast",
+  "EVENT_BROADCASTANDWAIT": "event_broadcastandwait",
+  "CONTROL_WAIT": "control_wait",
+  "CONTROL_REPEAT": "control_repeat",
+  "CONTROL_FOREVER": "control_forever",
+  "CONTROL_IF": "control_if",
+  "CONTROL_WAITUNTIL": "control_wait_until",
+  "CONTROL_REPEATUNTIL": "control_repeat_until",
+  "CONTROL_STOP": "control_stop",
+  "CONTROL_STARTASCLONE": "control_start_as_clone",
+  "CONTROL_CREATECLONEOF": "control_create_clone_of",
+  "CONTROL_DELETETHISCLONE": "control_delete_this_clone",
+  "SENSING_ASKANDWAIT": "sensing_askandwait",
+  "SENSING_RESETTIMER": "sensing_resettimer",
+  "DATA_SETVARIABLETO": "data_setvariableto",
+  "DATA_CHANGEVARIABLEBY": "data_changevariableby",
+  "DATA_SHOWVARIABLE": "data_showvariable",
+  "DATA_HIDEVARIABLE": "data_hidevariable",
+  "DATA_ADDTOLIST": "data_addtolist",
+  "DATA_DELETEOFLIST": "data_deleteoflist",
+  "DATA_DELETEALLOFLIST": "data_deletealloflist",
+  "MOTION_IFONEDGEBOUNCE": "motion_ifonedgebounce",
+  "DATA_INSERTATLIST": "data_insertatlist",
+  "DATA_REPLACEITEMOFLIST": "data_replaceitemoflist",
+  "DATA_SHOWLIST": "data_showlist",
+  "DATA_HIDELIST": "data_hidelist",
+  "MOTION_XPOSITION": "motion_xposition",
+  "MOTION_YPOSITION": "motion_yposition",
+  "MOTION_DIRECTION": "motion_direction",
+  "LOOKS_COSTUMENUMBERNAME": "looks_costumenumbername",
+  "LOOKS_SIZE": "looks_size",
+  "LOOKS_BACKDROPNUMBERNAME": "looks_backdropnumbername",
+  "SOUND_VOLUME": "sound_volume",
+  "music.getTempo": "music_getTempo",
+  "SENSING_TOUCHINGOBJECT": "sensing_touchingobject",
+  "SENSING_TOUCHINGCOLOR": "sensing_touchingcolor",
+  "SENSING_COLORISTOUCHINGCOLOR": "sensing_coloristouchingcolor",
+  "SENSING_DISTANCETO": "sensing_distanceto",
+  "SENSING_ANSWER": "sensing_answer",
+  "SENSING_KEYPRESSED": "sensing_keypressed",
+  "SENSING_MOUSEDOWN": "sensing_mousedown",
+  "SENSING_MOUSEX": "sensing_mousex",
+  "SENSING_MOUSEY": "sensing_mousey",
+  "SENSING_SETDRAGMODE": "sensing_setdragmode",
+  "SENSING_LOUDNESS": "sensing_loudness",
+  "SENSING_TIMER": "sensing_timer",
+  "SENSING_OF": "sensing_of",
+  "SENSING_CURRENT": "sensing_current",
+  "SENSING_DAYSSINCE2000": "sensing_dayssince2000",
+  "SENSING_ONLINE": "sensing_online",
+  "SENSING_USERNAME": "sensing_username",
+  "OPERATORS_ADD": "operator_add",
+  "OPERATORS_SUBTRACT": "operator_subtract",
+  "OPERATORS_MULTIPLY": "operator_multiply",
+  "OPERATORS_DIVIDE": "operator_divide",
+  "OPERATORS_RANDOM": "operator_random",
+  "OPERATORS_LT": "operator_lt",
+  "OPERATORS_EQUALS": "operator_equals",
+  "OPERATORS_GT": "operator_gt",
+  "OPERATORS_AND": "operator_and",
+  "OPERATORS_OR": "operator_or",
+  "OPERATORS_NOT": "operator_not",
+  "OPERATORS_JOIN": "operator_join",
+  "OPERATORS_LETTEROF": "operator_letter_of",
+  "OPERATORS_LENGTH": "operator_length",
+  "OPERATORS_MOD": "operator_mod",
+  "OPERATORS_ROUND": "operator_round",
+  "OPERATORS_MATHOP": "operator_mathop",
+  "OPERATORS_CONTAINS": "operator_contains",
+  "DATA_ITEMOFLIST": "data_itemoflist",
+  "DATA_ITEMNUMOFLIST": "data_itemnumoflist",
+  "DATA_LENGTHOFLIST": "data_lengthoflist",
+  "DATA_LISTCONTAINSITEM": "data_listcontainsitem",
+  "SENSING_USERID": "sensing_userid",
+  "SENSING_LOUD": "sensing_loud"
+ }
+}
