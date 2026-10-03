@@ -821,11 +821,14 @@ export interface UpdateConfigRequest {
    * @maxLength 4000
    */
   tutorPrompt: string
+  model: string
 }
 
 export interface ManagementConfigView {
   enabled: boolean
   tutorPrompt: string
+  model: string
+  models: string[]
 }
 
 export interface UpdateProfileRequest {
@@ -1942,9 +1945,9 @@ export interface AccountStatusRequest {
 }
 
 export interface CsrfToken {
-  parameterName?: string
   token?: string
   headerName?: string
+  parameterName?: string
 }
 
 export interface CsrfView {

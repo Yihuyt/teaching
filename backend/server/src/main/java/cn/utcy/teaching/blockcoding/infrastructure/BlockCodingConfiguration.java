@@ -1,6 +1,5 @@
 package cn.utcy.teaching.blockcoding.infrastructure;
 
-import cn.utcy.teaching.ai.llm.ModelConfig;
 import cn.utcy.teaching.ai.llm.LlmCalls;
 import cn.utcy.teaching.blockcoding.application.agent.SkillCatalog;
 import cn.utcy.teaching.blockcoding.application.agent.ScratchAgentPrompt;
@@ -16,11 +15,6 @@ import java.util.concurrent.Executors;
 
 @Configuration
 class BlockCodingConfiguration {
-    @Bean("blockcodingLlmModel")
-    ModelConfig blockcodingLlmModel(BlockCodingProperties properties) {
-        return ModelConfig.of("blockcoding", properties);
-    }
-
     @Bean("blockcodingSkills")
     SkillCatalog blockcodingSkills() {
         return new SkillCatalog("blockcoding/skills");

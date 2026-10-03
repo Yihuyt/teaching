@@ -113,7 +113,6 @@ teaching:
     mineru:
       base-url: ${AI_MINERU_BASE_URL:https://mineru.net}
   blockcoding:
-    model: ${BLOCKCODING_LLM_MODEL:qwen-plus}
     temperature: 0.3
     top-p: 0.9
     max-output-tokens: 8192

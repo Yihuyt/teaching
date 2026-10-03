@@ -40,12 +40,13 @@ public class CourseBlockCodingConfigController {
             @PathVariable long courseId,
             @Valid @RequestBody UpdateConfigRequest request
     ) {
-        return config.update(courseId, request.enabled(), request.tutorPrompt());
+        return config.update(courseId, request.enabled(), request.tutorPrompt(), request.model());
     }
 
     public record UpdateConfigRequest(
             @NotNull Boolean enabled,
-            @NotNull @Size(max = 4000) String tutorPrompt
+            @NotNull @Size(max = 4000) String tutorPrompt,
+            @NotNull String model
     ) {
     }
 }

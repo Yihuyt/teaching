@@ -71,6 +71,7 @@ CREATE TABLE `course_blockcoding_config` (
   `course_id` bigint unsigned NOT NULL,
   `enabled` tinyint(1) NOT NULL DEFAULT '0',
   `tutor_prompt` mediumtext NOT NULL,
+  `model` varchar(100) NOT NULL DEFAULT 'qwen-plus',
   `created_at` timestamp(6) NOT NULL,
   `updated_at` timestamp(6) NOT NULL,
   PRIMARY KEY (`course_id`)

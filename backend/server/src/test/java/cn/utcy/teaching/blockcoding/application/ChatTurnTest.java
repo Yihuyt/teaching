@@ -5,7 +5,7 @@ import cn.utcy.teaching.shared.error.BadRequestException;
 import cn.utcy.teaching.shared.actor.CurrentActor;
 import cn.utcy.teaching.shared.actor.SystemRole;
 import cn.utcy.teaching.ai.llm.LlmModels;
-import cn.utcy.teaching.ai.llm.ModelConfig;
+import cn.utcy.teaching.blockcoding.infrastructure.BlockCodingProperties;
 import cn.utcy.teaching.blockcoding.application.agent.ScratchProgramAgent;
 import cn.utcy.teaching.blockcoding.domain.AssistantMode;
 import cn.utcy.teaching.blockcoding.domain.BlockCodingChatSession;
@@ -38,12 +38,13 @@ class ChatTurnTest {
     private final ScratchProgramAgent agent = mock(ScratchProgramAgent.class);
     private final CurrentActor currentActor = mock(CurrentActor.class);
     private final CourseAiKeys aiKeys = mock(CourseAiKeys.class);
+    private final CourseBlockCodingConfigService courseConfig = mock(CourseBlockCodingConfigService.class);
     /** 攒起来不跑:模拟"上一轮还在跑" */
     private final List<Runnable> queued = new ArrayList<>();
     private final TaskExecutor executor = queued::add;
     private final ChatTurn turn = new ChatTurn(chatSessions, sessions, messages, new MessageRecords(new ObjectMapper()),
-            mock(CourseBlockCodingConfigService.class), agent, mock(SbToText.class), mock(LlmModels.class),
-            new ModelConfig("blockcoding", "qwen-plus", false, 0.3, 0.9, 4096), new ObjectMapper(), executor,
+            courseConfig, agent, mock(SbToText.class), mock(LlmModels.class),
+            new BlockCodingProperties(0.3, 0.9, 4096, 120000), new ObjectMapper(), executor,
             currentActor, aiKeys, new BrowserToolCalls());
 
     @Test
@@ -56,6 +57,7 @@ class ChatTurnTest {
         when(chatSessions.allowedModes(session, actor)).thenReturn(AssistantMode.allowedFor(false));
         when(chatSessions.courseOf(session)).thenReturn(6L);
         when(aiKeys.llmKeyForCourse(6L)).thenReturn("key");
+        when(courseConfig.modelForCourse(6L)).thenReturn("qwen-plus");
         when(messages.selectBySession(3L)).thenReturn(List.of());
         when(agent.generate(any(), any(), any(), anyList(), anyString(), any(), anyList(), any(), any()))
                 .thenThrow(new IllegalStateException("模型挂了"));

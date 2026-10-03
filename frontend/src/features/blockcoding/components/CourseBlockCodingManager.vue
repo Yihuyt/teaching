@@ -15,7 +15,9 @@ const saving = ref(false)
 const form = reactive({
   enabled: false,
   tutorPrompt: '',
+  model: '',
 })
+const models = ref<string[]>([])
 
 const loadRequests = createLatestRequestGuard(() => props.courseId)
 
@@ -28,6 +30,8 @@ async function load(): Promise<void> {
     if (!loadRequests.isCurrent(request)) return
     form.enabled = response.data.enabled
     form.tutorPrompt = response.data.tutorPrompt
+    form.model = response.data.model
+    models.value = response.data.models
   } catch (error: unknown) {
     if (!loadRequests.isCurrent(request)) return
     loadError.value = errorMessage(error)
@@ -44,9 +48,11 @@ async function save(): Promise<void> {
     const response = await api.courseBlockCodingConfigUpdate(props.courseId, {
       enabled: form.enabled,
       tutorPrompt: form.tutorPrompt,
+      model: form.model,
     })
     form.enabled = response.data.enabled
     form.tutorPrompt = response.data.tutorPrompt
+    form.model = response.data.model
     ElMessage.success('积木编程辅导配置已保存')
   } catch (error: unknown) {
     ElMessage.error(errorMessage(error))
@@ -68,6 +74,11 @@ watch(
       <el-form label-width="96px" @submit.prevent>
         <el-form-item label="向学生开放">
           <el-switch v-model="form.enabled" />
+        </el-form-item>
+        <el-form-item label="模型">
+          <el-select v-model="form.model" class="model-select">
+            <el-option v-for="m in models" :key="m" :label="m" :value="m" />
+          </el-select>
         </el-form-item>
         <el-form-item label="辅导提示词">
           <el-input
@@ -96,6 +107,10 @@ watch(
 .section-title {
   margin: 28px 0 12px;
   font-size: 15px;
+}
+
+.model-select {
+  width: 240px;
 }
 
 </style>

@@ -9,6 +9,7 @@ import cn.utcy.teaching.shared.util.Text;
 import cn.utcy.teaching.ai.agent.ChatAgentLoop.ToolResult;
 import cn.utcy.teaching.ai.llm.LlmModels;
 import cn.utcy.teaching.ai.llm.ModelConfig;
+import cn.utcy.teaching.blockcoding.infrastructure.BlockCodingProperties;
 import cn.utcy.teaching.shared.sse.SseSupport;
 import cn.utcy.teaching.blockcoding.application.ChatViews.MessageChanges;
 import cn.utcy.teaching.blockcoding.application.ChatViews.QuestionView;
@@ -62,7 +63,7 @@ public class ChatTurn {
     private final ScratchProgramAgent agent;
     private final ProjectStacks projectStacks;
     private final LlmModels llmModels;
-    private final ModelConfig llmModel;
+    private final BlockCodingProperties properties;
     private final ObjectMapper objectMapper;
     private final TaskExecutor sseExecutor;
     private final CurrentActor currentActor;
@@ -73,7 +74,7 @@ public class ChatTurn {
 
     public ChatTurn(ChatSessions chatSessions, BlockCodingChatSessionMapper sessions, BlockCodingChatMessageMapper messages,
                     MessageRecords records, CourseBlockCodingConfigService courseConfig, ScratchProgramAgent agent,
-                    SbToText sbToText, LlmModels llmModels, @Qualifier("blockcodingLlmModel") ModelConfig llmModel,
+                    SbToText sbToText, LlmModels llmModels, BlockCodingProperties properties,
                     ObjectMapper objectMapper, @Qualifier("sseTaskExecutor") TaskExecutor sseExecutor,
                     CurrentActor currentActor, CourseAiKeys aiKeys, BrowserToolCalls browserCalls) {
         this.chatSessions = chatSessions;
@@ -84,7 +85,7 @@ public class ChatTurn {
         this.agent = agent;
         this.projectStacks = new ProjectStacks(sbToText);
         this.llmModels = llmModels;
-        this.llmModel = llmModel;
+        this.properties = properties;
         this.objectMapper = objectMapper;
         this.sseExecutor = sseExecutor;
         this.currentActor = currentActor;
@@ -134,6 +135,9 @@ public class ChatTurn {
                 records.write(new MessageChanges(quoted.stream().map(ScriptView::quoted).toList(), List.of(), List.of(), null, false))));
 
         String guidance = courseConfig.activeTutorGuidance(courseId);
+        // 不开思考:助手靠 tool_choice 强制模型收尾,百炼的思考模式不支持强制工具
+        ModelConfig llmModel = new ModelConfig("blockcoding", courseConfig.modelForCourse(courseId), false,
+                properties.temperature(), properties.topP(), properties.maxOutputTokens());
         List<ChatMessage> history = ChatHistory.of(records, prior);
         // 修改模式以作品快照为底;讲解模式没有作品(上一轮画的积木在历史里),只把之前回复里定义过的自定义积木带上
         Workspace workspace = project == null ? Workspace.CHAT : Workspace.PROJECT;
@@ -144,7 +148,7 @@ public class ChatTurn {
 
         return SseSupport.run(sseExecutor, objectMapper, sink -> {
             try {
-                turn(sink, session, mode, workspace, workbench, quoted, content, apiKey, guidance, history, userSeq);
+                turn(sink, session, mode, workspace, workbench, quoted, content, apiKey, llmModel, guidance, history, userSeq);
             } finally {
                 running.remove(sessionId);
             }
@@ -153,7 +157,7 @@ public class ChatTurn {
 
     private void turn(SseSupport.EventSink sink, BlockCodingChatSession session, AssistantMode mode, Workspace workspace,
                       Project workbench, List<ScratchAgentPrompt.Quoted> quoted, String content, String apiKey,
-                      String guidance, List<ChatMessage> history, int userSeq) {
+                      ModelConfig llmModel, String guidance, List<ChatMessage> history, int userSeq) {
         long sessionId = session.getId();
         ScratchProgramAgent.Generation generation = agent.generate(llmModels.chatModel(apiKey, llmModel), workspace, workbench,
                 quoted, content, guidance, history, new SseListener(sessionId, sink), sink::cancelled);
