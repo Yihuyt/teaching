@@ -8,7 +8,8 @@ import java.util.List;
 public final class BlockCodingModels {
 
     public static final String DEFAULT = "qwen-plus";
-    public static final List<String> ALL = List.of("qwen-plus", "qwen-max", "qwen3-max", "qwen-turbo", "deepseek-v3");
+    public static final List<String> ALL = List.of(
+            "qwen-plus", "qwen-max", "qwen3-max", "qwen-turbo", "deepseek-v3", "kimi-k2.6", "kimi-k2.5");
 
     private BlockCodingModels() {
     }
